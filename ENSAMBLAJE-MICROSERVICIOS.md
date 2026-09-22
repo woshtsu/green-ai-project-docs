@@ -111,6 +111,29 @@ Consume exclusivamente rutas públicas del Gateway. Debe mostrar:
 
 Reglas de presentación: ratios como porcentaje; bytes y bytes/s en una escala legible sin perder la unidad original; `null` como “sin dato”, nunca como cero; interfaces y filesystems separados salvo que Data Processing entregue una agregación explícita. El Frontend traduce etiquetas y mensajes para humanos, pero no recalcula métricas.
 
+#### Alineación del prototipo `GreenAi_TPI`
+
+Se revisó el [prototipo experimental del Frontend](https://github.com/LeonidKisley/GreenAi_TPI) en el commit `c673bac` (2026-09-22). Su navegación, tema claro/oscuro, estructura del dashboard, vista de red y gráficos sirven como base visual. Los valores y flujos actuales son demostrativos y no constituyen contratos del sistema.
+
+Para integrarlo al MVP:
+
+1. Centralizar las llamadas en un adaptador HTTP del Frontend cuya única base URL sea el Gateway. Sustituir el consumo actual de `/api/kpis`, `/api/logs`, `/api/hardware` y `/api/usuarios` por las rutas públicas confirmadas o por futuros OpenAPI aprobados. `localhost` solo puede existir como configuración de desarrollo.
+2. Construir el selector de métricas desde `GET /api/monitoring/v1/metrics/catalog` y obtener valores e históricos desde `current` y `history`. La interfaz no debe consultar Supabase, Prometheus, Monitoring, Simulator ni Prediction directamente.
+3. Mostrar junto a cada resultado el recurso, periodo, unidad, `origin`, `quality`, `dataStatus` y advertencias. Debe haber estados distintos para carga, respuesta vacía, datos parciales y error; los errores `application/problem+json` deben conservar su `X-Request-Id` para soporte.
+4. Convertir unidades solo para presentación: ratios de CPU a porcentaje; bytes a MiB/GiB; bytes/s a KiB/s o MiB/s. Mantener disponible el valor y unidad originales. Watts representan potencia instantánea, no energía: el gráfico mensual en kWh y afirmaciones de energía “real”, ahorro o CO₂ deben ocultarse o marcarse explícitamente como demo hasta que exista una fuente y contrato validados.
+5. Tratar `null` como “Sin dato” y `no_data` como estado vacío; nunca reemplazarlos por cero. Distinguir visualmente `observed`, `simulated` y `estimated`, y no presentar una predicción como medición.
+6. Mantener las credenciales fuera del navegador y configurar el origen permitido mediante CORS en Gateway. La identidad guardada en `localStorage` no es autenticación. Login, registro y roles deben quedar deshabilitados o identificados como demo hasta acordar JWT, emisor, audiencia y autorización.
+
+Antes de reutilizar el repositorio se requiere saneamiento:
+
+- revocar y rotar inmediatamente las credenciales de base de datos que fueron versionadas; eliminar también `.env` y esos secretos del historial Git;
+- retirar `node_modules`, binarios como `kubectl.exe` y artefactos generados; conservar un lockfile y añadir reglas `.gitignore`;
+- separar o archivar el Backend Express, el exporter y los manifiestos Kubernetes experimentales para que no se desplieguen junto a los servicios oficiales;
+- eliminar el manejo de contraseñas en texto plano y el hash simulado. La API actual de usuarios tampoco debe devolver filas completas;
+- fijar versiones de imágenes de contenedor en vez de usar `latest`.
+
+El equipo del Frontend puede decidir framework y estructura interna. Para el ensamblaje solo son obligatorios el acceso exclusivo por Gateway, los contratos publicados y la semántica de datos definida aquí.
+
 ### API Gateway
 
 Recibe solicitudes del Frontend y entrega la respuesta del servicio propietario. Añade o propaga `X-Request-Id`, aplica rutas permitidas, CORS, autenticación futura, límites y timeouts. No transforma métricas ni fusiona respuestas.
