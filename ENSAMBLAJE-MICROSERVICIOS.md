@@ -93,6 +93,131 @@ El Gateway conserva parámetros y respuestas y reescribe el prefijo. Otras rutas
 
 Ningún equipo debe completar estos vacíos con rutas, tablas o unidades inventadas. Debe proponer el contrato, revisarlo con sus consumidores y versionarlo en el repositorio propietario.
 
+## Contrato de comunicación por componente
+
+Esta sección define la información intercambiada y su significado. Cada equipo conserva libertad sobre su arquitectura interna, bibliotecas y algoritmos.
+
+### Frontend
+
+Consume exclusivamente rutas públicas del Gateway. Debe mostrar:
+
+- recurso: clúster, tipo y nodo;
+- periodo consultado y zona horaria visible;
+- valor y unidad;
+- procedencia: observado, simulado, estimado o desconocido;
+- calidad: completo, parcial o sin datos;
+- advertencias y estado de operaciones largas;
+- predicciones diferenciadas visualmente de mediciones históricas.
+
+Reglas de presentación: ratios como porcentaje; bytes y bytes/s en una escala legible sin perder la unidad original; `null` como “sin dato”, nunca como cero; interfaces y filesystems separados salvo que Data Processing entregue una agregación explícita. El Frontend traduce etiquetas y mensajes para humanos, pero no recalcula métricas.
+
+### API Gateway
+
+Recibe solicitudes del Frontend y entrega la respuesta del servicio propietario. Añade o propaga `X-Request-Id`, aplica rutas permitidas, CORS, autenticación futura, límites y timeouts. No transforma métricas ni fusiona respuestas.
+
+Rutas confirmadas:
+
+```text
+/api/monitoring/v1/metrics/* → Monitoring /api/v1/metrics/*
+```
+
+Las rutas de Data Processing, Prediction y Simulator se agregan solo después de que esos equipos publiquen su OpenAPI. Cada ruta externa conservará un prefijo que identifique al propietario: `/api/processing/v1`, `/api/prediction/v1` o `/api/simulator/v1`.
+
+### Simulator
+
+Produce estado sintético por nodo y lo expone a Prometheus en `/metrics`. Cada serie incluye identidad estable de nodo, clúster único del run y `origin=simulated`. Publica CPU, memoria, red y filesystem con tipos/unidades compatibles con el contrato acordado.
+
+No entrega JSON analítico al Frontend ni escribe sus resultados en los logs reales de Supabase. Un futuro control de runs deberá declarar como mínimo escenario, seed, duración, estado y run ID en un OpenAPI propio antes de conectarse al Gateway.
+
+### Prometheus
+
+Recolecta series del Simulator y de exporters/workloads. Conserva el historial temporal y responde PromQL únicamente a Monitoring. No es una API pública y ningún equipo debe construir URLs PromQL desde datos enviados por el usuario.
+
+### Monitoring
+
+Entrega JSON técnico normalizado mediante catálogo, consulta actual e historial. Cada respuesta contiene:
+
+- identificador de métrica y unidad;
+- agregación y ventana;
+- periodo y resolución;
+- recurso y labels de la serie;
+- `source` y `origin`;
+- muestras `{timestamp, value, quality}`;
+- `dataStatus` y advertencias.
+
+Monitoring no devuelve DataFrames, conclusiones, tendencias o textos para usuarios. Gateway conserva esta respuesta para el Frontend y Data Processing la consulta directamente para análisis.
+
+### Data Processing
+
+Recibe dos clases de entrada:
+
+1. series normalizadas de Monitoring, incluidas las simuladas almacenadas en Prometheus;
+2. históricos reales autorizados de Supabase.
+
+Debe conservar identidad, unidad, periodo, resolución, procedencia y calidad. Define y documenta sus propias reglas de limpieza, alineación, imputación y agregación. Su salida hacia otros servicios será JSON y debe declarar al menos:
+
+```json
+{
+  "schemaVersion": "1.0",
+  "datasetId": "identificador-trazable",
+  "period": {"start": "RFC3339", "end": "RFC3339"},
+  "resource": {"type": "node", "cluster": "...", "id": "..."},
+  "features": [{"name": "...", "value": 0.0, "unit": "..."}],
+  "origins": ["observed"],
+  "dataStatus": "complete|partial|no_data",
+  "warnings": []
+}
+```
+
+Los nombres de features, ventanas y reglas estadísticas pertenecen a Data Processing y deben acordarse con Prediction. Un DataFrame puede utilizarse internamente, pero no es el formato de comunicación entre servicios.
+
+### Prediction
+
+Recibe datasets/features versionados de Data Processing. No consulta Prometheus ni Supabase directamente y no recibe series sin preparar desde el Frontend. Su respuesta debe permitir interpretar y auditar la predicción:
+
+```json
+{
+  "predictionId": "...",
+  "resource": {"type": "node", "cluster": "...", "id": "..."},
+  "target": "nombre-de-variable",
+  "predictedFor": "RFC3339",
+  "value": 0.0,
+  "unit": "...",
+  "modelVersion": "...",
+  "inputDatasetId": "...",
+  "origin": "estimated",
+  "generatedAt": "RFC3339"
+}
+```
+
+Intervalos de confianza, horizonte y métricas del modelo se añaden cuando el equipo defina su semántica. Una predicción siempre es `estimated`; nunca se presenta como medición observada.
+
+### Supabase
+
+Mantiene datos reales bajo propiedad explícita:
+
+- Simulator podrá leer inventario `hardware` con permisos mínimos cuando se confirme el DDL;
+- Data Processing podrá leer históricos `logs`;
+- Gateway, Monitoring, Prometheus y Frontend no poseen credenciales de Supabase;
+- ningún servicio accede a `usuario` como efecto secundario de compartir la instancia.
+
+Los servicios intercambian identificadores, no credenciales ni filas completas innecesarias. Los resultados simulados no se insertan en la tabla de logs reales.
+
+### Workloads Kubernetes
+
+Exponen métricas técnicas mediante exporters/instrumentación para que Prometheus las recolecte. No llaman a Monitoring. Estado de pods/réplicas y métricas HTTP de aplicación pertenecen al Grupo B y requieren catálogo, etiquetas y unidades acordados antes de mostrarse en Frontend.
+
+## Reglas comunes para todos los contratos
+
+- JSON para APIs REST; Prometheus exposition format únicamente entre exporters y Prometheus.
+- RFC 3339 con zona para timestamps; UTC en contratos internos.
+- Unidades explícitas y estables. No inferir energía desde CPU ni confundir watts con kWh.
+- `observed`, `simulated`, `estimated` y `unknown` conservan significados distintos.
+- Ausencia, cero y error son estados diferentes.
+- Cada servicio versiona su OpenAPI y es propietario de sus rutas internas.
+- Los errores deben tener código, estado, detalle seguro y request ID, sin SQL, PromQL, trazas, DNS internos o secretos.
+- Los cambios incompatibles crean una nueva versión del contrato; no se corrigen alterando silenciosamente otro servicio.
+
 ## Regla de publicación
 
 Cada microservicio vive en un repositorio Git independiente. Su README explica ejecución y consumo; su OpenAPI es la fuente de verdad del contrato; sus variables de entorno no contienen credenciales reales. Los documentos generales explican relaciones, pero no reemplazan los contratos versionados de cada servicio.
