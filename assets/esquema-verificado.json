@@ -1,0 +1,544 @@
+{
+  "rls": [
+    {
+      "tabla": "hardware",
+      "forzada": false,
+      "habilitada": true
+    },
+    {
+      "tabla": "logs",
+      "forzada": false,
+      "habilitada": true
+    },
+    {
+      "tabla": "usuario",
+      "forzada": false,
+      "habilitada": true
+    }
+  ],
+  "indices": [
+    {
+      "indexdef": "CREATE UNIQUE INDEX hardware_pkey ON public.hardware USING btree (hardware_id)",
+      "indexname": "hardware_pkey",
+      "tablename": "hardware"
+    },
+    {
+      "indexdef": "CREATE INDEX idx_logs_hardware_timestamp ON public.logs USING btree (hardware_id, \"timestamp\" DESC)",
+      "indexname": "idx_logs_hardware_timestamp",
+      "tablename": "logs"
+    },
+    {
+      "indexdef": "CREATE INDEX idx_logs_timestamp ON public.logs USING btree (\"timestamp\" DESC)",
+      "indexname": "idx_logs_timestamp",
+      "tablename": "logs"
+    },
+    {
+      "indexdef": "CREATE UNIQUE INDEX logs_pkey ON public.logs USING btree (log_id)",
+      "indexname": "logs_pkey",
+      "tablename": "logs"
+    },
+    {
+      "indexdef": "CREATE UNIQUE INDEX usuario_email_key ON public.usuario USING btree (email)",
+      "indexname": "usuario_email_key",
+      "tablename": "usuario"
+    },
+    {
+      "indexdef": "CREATE UNIQUE INDEX usuario_pkey ON public.usuario USING btree (usuario_id)",
+      "indexname": "usuario_pkey",
+      "tablename": "usuario"
+    }
+  ],
+  "columnas": [
+    {
+      "data_type": "character varying",
+      "table_name": "hardware",
+      "column_name": "hardware_id",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": null,
+      "ordinal_position": 1,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 20
+    },
+    {
+      "data_type": "character varying",
+      "table_name": "hardware",
+      "column_name": "usuario_id",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": null,
+      "ordinal_position": 2,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 20
+    },
+    {
+      "data_type": "character varying",
+      "table_name": "hardware",
+      "column_name": "hostname",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": null,
+      "ordinal_position": 3,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 100
+    },
+    {
+      "data_type": "character varying",
+      "table_name": "hardware",
+      "column_name": "ip_address",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": null,
+      "ordinal_position": 4,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 45
+    },
+    {
+      "data_type": "integer",
+      "table_name": "hardware",
+      "column_name": "cpu_cores",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": 0,
+      "column_default": null,
+      "ordinal_position": 5,
+      "numeric_precision": 32,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": null
+    },
+    {
+      "data_type": "numeric",
+      "table_name": "hardware",
+      "column_name": "ram_gb",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": 2,
+      "column_default": null,
+      "ordinal_position": 6,
+      "numeric_precision": 6,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": null
+    },
+    {
+      "data_type": "numeric",
+      "table_name": "hardware",
+      "column_name": "max_watts",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": 2,
+      "column_default": null,
+      "ordinal_position": 7,
+      "numeric_precision": 6,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": null
+    },
+    {
+      "data_type": "character varying",
+      "table_name": "hardware",
+      "column_name": "ubicacion_rack",
+      "is_identity": "NO",
+      "is_nullable": "YES",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": null,
+      "ordinal_position": 8,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 50
+    },
+    {
+      "data_type": "character varying",
+      "table_name": "hardware",
+      "column_name": "estado",
+      "is_identity": "NO",
+      "is_nullable": "YES",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": "'activo'::character varying",
+      "ordinal_position": 9,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 20
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "table_name": "hardware",
+      "column_name": "fecha_registro",
+      "is_identity": "NO",
+      "is_nullable": "YES",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": "now()",
+      "ordinal_position": 10,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": null
+    },
+    {
+      "data_type": "character varying",
+      "table_name": "logs",
+      "column_name": "log_id",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": null,
+      "ordinal_position": 1,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 20
+    },
+    {
+      "data_type": "character varying",
+      "table_name": "logs",
+      "column_name": "hardware_id",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": null,
+      "ordinal_position": 2,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 20
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "table_name": "logs",
+      "column_name": "timestamp",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": null,
+      "ordinal_position": 3,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": null
+    },
+    {
+      "data_type": "numeric",
+      "table_name": "logs",
+      "column_name": "cpu_utilization_pct",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": 2,
+      "column_default": null,
+      "ordinal_position": 4,
+      "numeric_precision": 5,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": null
+    },
+    {
+      "data_type": "numeric",
+      "table_name": "logs",
+      "column_name": "ram_utilization_pct",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": 2,
+      "column_default": null,
+      "ordinal_position": 5,
+      "numeric_precision": 5,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": null
+    },
+    {
+      "data_type": "numeric",
+      "table_name": "logs",
+      "column_name": "temperatura_celsius",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": 2,
+      "column_default": null,
+      "ordinal_position": 6,
+      "numeric_precision": 5,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": null
+    },
+    {
+      "data_type": "numeric",
+      "table_name": "logs",
+      "column_name": "energia_watts",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": 2,
+      "column_default": null,
+      "ordinal_position": 7,
+      "numeric_precision": 6,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": null
+    },
+    {
+      "data_type": "numeric",
+      "table_name": "logs",
+      "column_name": "prediccion_watts",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": 2,
+      "column_default": null,
+      "ordinal_position": 8,
+      "numeric_precision": 6,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": null
+    },
+    {
+      "data_type": "character varying",
+      "table_name": "logs",
+      "column_name": "accion_recomendada",
+      "is_identity": "NO",
+      "is_nullable": "YES",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": null,
+      "ordinal_position": 9,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 100
+    },
+    {
+      "data_type": "boolean",
+      "table_name": "logs",
+      "column_name": "cumple_sla",
+      "is_identity": "NO",
+      "is_nullable": "YES",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": "true",
+      "ordinal_position": 10,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": null
+    },
+    {
+      "data_type": "character varying",
+      "table_name": "usuario",
+      "column_name": "usuario_id",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": null,
+      "ordinal_position": 1,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 20
+    },
+    {
+      "data_type": "character varying",
+      "table_name": "usuario",
+      "column_name": "nombre_completo",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": null,
+      "ordinal_position": 2,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 100
+    },
+    {
+      "data_type": "character varying",
+      "table_name": "usuario",
+      "column_name": "email",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": null,
+      "ordinal_position": 4,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 150
+    },
+    {
+      "data_type": "character varying",
+      "table_name": "usuario",
+      "column_name": "password",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": null,
+      "ordinal_position": 5,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 255
+    },
+    {
+      "data_type": "character varying",
+      "table_name": "usuario",
+      "column_name": "password_hash",
+      "is_identity": "NO",
+      "is_nullable": "NO",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": null,
+      "ordinal_position": 6,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 255
+    },
+    {
+      "data_type": "character varying",
+      "table_name": "usuario",
+      "column_name": "rol",
+      "is_identity": "NO",
+      "is_nullable": "YES",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": "'OPERADOR'::character varying",
+      "ordinal_position": 7,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": 30
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "table_name": "usuario",
+      "column_name": "fecha_creacion",
+      "is_identity": "NO",
+      "is_nullable": "YES",
+      "is_generated": "NEVER",
+      "numeric_scale": null,
+      "column_default": "now()",
+      "ordinal_position": 8,
+      "numeric_precision": null,
+      "identity_generation": null,
+      "generation_expression": null,
+      "character_maximum_length": null
+    }
+  ],
+  "politicas": [
+    {
+      "cmd": "ALL",
+      "qual": "true",
+      "roles": [
+        "public"
+      ],
+      "tablename": "hardware",
+      "permissive": "PERMISSIVE",
+      "policyname": "Permitir todo en hardware",
+      "with_check": null
+    },
+    {
+      "cmd": "ALL",
+      "qual": "true",
+      "roles": [
+        "public"
+      ],
+      "tablename": "logs",
+      "permissive": "PERMISSIVE",
+      "policyname": "Permitir todo en logs",
+      "with_check": null
+    },
+    {
+      "cmd": "ALL",
+      "qual": "true",
+      "roles": [
+        "public"
+      ],
+      "tablename": "usuario",
+      "permissive": "PERMISSIVE",
+      "policyname": "Permitir todo en usuario",
+      "with_check": null
+    }
+  ],
+  "restricciones": [
+    {
+      "tipo": "p",
+      "tabla": "hardware",
+      "nombre": "hardware_pkey",
+      "validada": true,
+      "definicion": "PRIMARY KEY (hardware_id)"
+    },
+    {
+      "tipo": "f",
+      "tabla": "hardware",
+      "nombre": "hardware_usuario_id_fkey",
+      "validada": true,
+      "definicion": "FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id) ON DELETE CASCADE"
+    },
+    {
+      "tipo": "f",
+      "tabla": "logs",
+      "nombre": "logs_hardware_id_fkey",
+      "validada": true,
+      "definicion": "FOREIGN KEY (hardware_id) REFERENCES hardware(hardware_id) ON DELETE CASCADE"
+    },
+    {
+      "tipo": "p",
+      "tabla": "logs",
+      "nombre": "logs_pkey",
+      "validada": true,
+      "definicion": "PRIMARY KEY (log_id)"
+    },
+    {
+      "tipo": "u",
+      "tabla": "usuario",
+      "nombre": "usuario_email_key",
+      "validada": true,
+      "definicion": "UNIQUE (email)"
+    },
+    {
+      "tipo": "p",
+      "tabla": "usuario",
+      "nombre": "usuario_pkey",
+      "validada": true,
+      "definicion": "PRIMARY KEY (usuario_id)"
+    },
+    {
+      "tipo": "c",
+      "tabla": "usuario",
+      "nombre": "usuario_rol_check",
+      "validada": true,
+      "definicion": "CHECK (upper(rol::text) = ANY (ARRAY['ADMINISTRADOR'::text, 'OPERADOR'::text, 'ADMIN'::text, 'OPERATOR'::text]))"
+    }
+  ]
+}

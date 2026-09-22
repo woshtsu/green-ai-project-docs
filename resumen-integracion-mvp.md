@@ -62,3 +62,7 @@ La integración demostró que un servicio externo no necesita saber hablar PromQ
 - Frontend convierte los valores en gráficas, porcentajes, unidades legibles y explicaciones. No consulta microservicios ni Supabase directamente.
 
 El Gateway no consulta Prometheus o Supabase y Data Processing no utiliza Gateway para sus pipelines internos.
+
+## Referencia de BD actualizada — 2026-09-22
+
+Consultar el [modelo de BD](modelo-bd.md): diagrama y campos completos de `usuario`, `hardware` y `logs`, con mapeos y limitaciones de integración. El diagrama aporta tipos y relaciones; la extracción SQL del usuario confirma tipos y nulabilidad. La extracción completa confirma defaults, longitudes/precisión, restricciones, índices y RLS; verificación documental del esquema cerrada. Monitoring conserva Prometheus como fuente y Simulator conserva JSON/JSONL como persistencia; el acceso a inventario SQL es futuro. Esta referencia actualiza las suposiciones del esquema, sin ampliar el catálogo de métricas ni implementar acceso a BD.

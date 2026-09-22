@@ -86,7 +86,7 @@ El Gateway conserva parámetros y respuestas y reescribe el prefijo. Otras rutas
 - API de Data Processing: resúmenes, historias procesadas, jobs, errores y límites.
 - API de Prediction y formato de features.
 - Operaciones externas del Simulator, si realmente son necesarias.
-- DDL y permisos mínimos de Supabase por servicio.
+- Esquema verificado en modelo-bd.md; pendiente configurar permisos mínimos de Supabase por servicio.
 - JWT, emisor, audiencia y roles del Gateway.
 - Métricas de workloads Grupo B y fuentes definitivas.
 - Despliegue y nombres DNS de Kubernetes.
@@ -219,7 +219,7 @@ Intervalos de confianza, horizonte y métricas del modelo se añaden cuando el e
 
 Mantiene datos reales bajo propiedad explícita:
 
-- Simulator podrá leer inventario `hardware` con permisos mínimos cuando se confirme el DDL;
+- Simulator podrá leer inventario `hardware` con permisos mínimos cuando se implemente el adaptador y se configuren sus permisos;
 - Data Processing podrá leer históricos `logs`;
 - Gateway, Monitoring, Prometheus y Frontend no poseen credenciales de Supabase;
 - ningún servicio accede a `usuario` como efecto secundario de compartir la instancia.
@@ -244,3 +244,7 @@ Exponen métricas técnicas mediante exporters/instrumentación para que Prometh
 ## Regla de publicación
 
 Cada microservicio vive en un repositorio Git independiente. Su README explica ejecución y consumo; su OpenAPI es la fuente de verdad del contrato; sus variables de entorno no contienen credenciales reales. Los documentos generales explican relaciones, pero no reemplazan los contratos versionados de cada servicio.
+
+## Referencia de BD actualizada — 2026-09-22
+
+Consultar el [modelo de BD](modelo-bd.md): diagrama y campos completos de `usuario`, `hardware` y `logs`, con mapeos y limitaciones de integración. El diagrama aporta tipos y relaciones; la extracción SQL del usuario confirma tipos y nulabilidad. La extracción completa confirma defaults, longitudes/precisión, restricciones, índices y RLS; verificación documental del esquema cerrada. Monitoring conserva Prometheus como fuente y Simulator conserva JSON/JSONL como persistencia; el acceso a inventario SQL es futuro. Esta referencia actualiza las suposiciones del esquema, sin ampliar el catálogo de métricas ni implementar acceso a BD.
