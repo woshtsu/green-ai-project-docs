@@ -63,6 +63,10 @@ La integración demostró que un servicio externo no necesita saber hablar PromQ
 
 El Gateway no consulta Prometheus o Supabase y Data Processing no utiliza Gateway para sus pipelines internos.
 
+## 6. Avance de Prediction revisado
+
+La rama [`Criss`](https://github.com/woshtsu/green-ai-project-docs/tree/Criss) aporta un núcleo ML experimental para pronóstico de CPU con baselines, Random Forest y XGBoost. Se mantiene fuera del flujo desplegado y sus cifras corresponden a datos simulados. Antes de conectarlo deben corregirse la selección del modelo sobre TEST, las fronteras temporales y las pruebas anti-leakage; además, Data Processing y Prediction deben acordar un único contrato versionado y el equipo debe implementar la API del Prediction Service. Ver [revisión detallada](revision-prediction-criss.md).
+
 ## Referencia de BD actualizada — 2026-09-22
 
 Consultar el [modelo de BD](modelo-bd.md): diagrama y campos completos de `usuario`, `hardware` y `logs`, con mapeos y limitaciones de integración. El diagrama aporta tipos y relaciones; la extracción SQL del usuario confirma tipos y nulabilidad. La extracción completa confirma defaults, longitudes/precisión, restricciones, índices y RLS; verificación documental del esquema cerrada. Monitoring conserva Prometheus como fuente y Simulator conserva JSON/JSONL como persistencia; el acceso a inventario SQL es futuro. Esta referencia actualiza las suposiciones del esquema, sin ampliar el catálogo de métricas ni implementar acceso a BD.

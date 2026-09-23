@@ -215,6 +215,14 @@ Recibe datasets/features versionados de Data Processing. No consulta Prometheus 
 
 Intervalos de confianza, horizonte y métricas del modelo se añaden cuando el equipo defina su semántica. Una predicción siempre es `estimated`; nunca se presenta como medición observada.
 
+#### Estado del avance ML revisado — 2026-09-23
+
+La rama [`Criss`](https://github.com/woshtsu/green-ai-project-docs/tree/Criss), revisada en el commit `75f0b8602c0ea326c282cf2d1cf06c7955898cbf`, implementa un núcleo ML experimental: validación y limpieza, features temporales, horizontes 5/15/30 minutos, baselines, Random Forest, XGBoost, evaluación, serialización, MLflow local, inferencia fuera de línea y pruebas. Sus resultados publicados provienen de un fixture simulado y no acreditan precisión con datos reales ni ahorro energético.
+
+Antes de considerar validado el modelo deben corregirse tres bloqueos: separar selección y prueba final (el pipeline actual selecciona con TEST), purgar las fronteras temporales según el horizonte y sustituir dos aserciones anti-leakage terminadas en `or True` por verificaciones temporales que puedan fallar. También debe unificarse el contrato de entrada: el código espera registros temporales, mientras el ejemplo de Data Processing de este documento usa objetos `name/value/unit`.
+
+El avance todavía no es el Prediction Service. Faltan la API/OpenAPI, el contrato completo de respuesta, el preprocesamiento compartido entre entrenamiento e inferencia, salud, contenedor, límites operativos y prueba Data Processing → Prediction. La revisión, evidencia y criterios de cierre están en [Revisión del avance de Prediction — rama Criss](revision-prediction-criss.md).
+
 ### Supabase
 
 Mantiene datos reales bajo propiedad explícita:
