@@ -1,0 +1,16 @@
+# Pinned direct dependencies for Python 3.11.9
+# Regenerated from a local install. Transitive packages are resolved by pip.
+pandas==2.3.3
+numpy==2.4.6
+scikit-learn==1.9.1
+xgboost==2.1.4
+matplotlib==3.11.2
+seaborn==0.13.2
+pyyaml==6.0.3
+joblib==1.6.0
+mlflow==2.22.5
+fastapi==0.141.1
+uvicorn==0.53.0
+pytest==8.4.2
+pytest-cov==5.0.0
+statsmodels==0.15.0

@@ -95,3 +95,17 @@ dataset:
   frequency_minutes: 5
   days: 3
   seed: 42
+
+data:
+  allow_mixed_origins: false
+  schema_version: "1.0"
+
+drift:
+  psi_alert_threshold: 0.2
+  error_relative_threshold: 1.25
+  persist_alerts: true
+  retraining: false
+
+service:
+  max_records: 5000
+  timeout_seconds: 10

@@ -25,7 +25,8 @@ from src.models.random_forest import RandomForestDemandModel
 from src.models.xgboost_model import XGBoostDemandModel
 from src.preprocessing.cleaning import clean_dataset
 from src.preprocessing.features import build_supervised_frame
-from src.preprocessing.temporal import temporal_split
+from src.preprocessing.temporal import assert_purged_boundaries, temporal_split
+from src.reproducibility import sha256_file, sha256_json, write_manifest
 
 LOGGER = logging.getLogger(__name__)
 
@@ -38,7 +39,11 @@ def run_pipeline(
     """Execute load → validate → features → models → selection → artifacts."""
     config = load_config(config_path)
     bundle = _load(config, dataset_path)
-    report = validate_dataset(bundle.frame, bundle.metadata)
+    report = validate_dataset(
+        bundle.frame,
+        bundle.metadata,
+        allow_mixed_origins=bool(config.get("data", {}).get("allow_mixed_origins", False)),
+    )
     cleaned = clean_dataset(bundle.frame)
 
     processed_dir = resolve_path(config["paths"]["processed_dir"])
@@ -62,57 +67,65 @@ def run_pipeline(
             train_ratio=float(config["split"]["train_ratio"]),
             validation_ratio=float(config["split"]["validation_ratio"]),
             test_ratio=float(config["split"]["test_ratio"]),
+            horizon=horizon,
         )
+        assert_purged_boundaries(train, validation, test, horizon)
         if len(train) < int(config.get("min_train_samples", 20)):
             raise InsufficientDataError(
                 "INSUFFICIENT_DATA: training partition is too small",
                 details=_insufficient_details(supervised, bundle, frequency, horizon, "training partition too small"),
             )
-        if len(test) < int(config.get("min_eval_samples", 5)):
+        if len(validation) < int(config.get("min_eval_samples", 5)) or len(test) < int(config.get("min_eval_samples", 5)):
             raise InsufficientDataError(
-                "INSUFFICIENT_DATA: test partition is too small",
-                details=_insufficient_details(supervised, bundle, frequency, horizon, "test partition too small"),
+                "INSUFFICIENT_DATA: validation or test partition is too small",
+                details=_insufficient_details(supervised, bundle, frequency, horizon, "eval partition too small"),
             )
 
         x_train, y_train = _xy(train, feature_names)
         x_valid, y_valid = _xy(validation, feature_names)
         x_test, y_test = _xy(test, feature_names)
-        x_fit = pd.concat([x_train, x_valid], axis=0)
-        y_fit = pd.concat([y_train, y_valid], axis=0)
 
         models = _build_models(config)
         for model in models:
-            LOGGER.info("Training %s horizon=%s", model.name, horizon)
-            model.fit(x_fit, y_fit)
-            predictions = model.predict(x_test)
-            metrics = evaluate_predictions(
-                y_test,
-                predictions,
+            LOGGER.info("Fitting %s on TRAIN for horizon=%s", model.name, horizon)
+            model.fit(x_train, y_train)
+            validation_pred = model.predict(x_valid)
+            val_metrics = evaluate_predictions(
+                y_valid,
+                validation_pred,
                 config=config,
-                predict_fn=lambda current=model, data=x_test: current.predict(data),
+                predict_fn=lambda current=model, data=x_valid: current.predict(data),
                 repeats=int(config.get("latency_repeats", 5)),
             )
             row = {
                 "model": model.name,
                 "horizon": horizon,
+                "split": "validation",
                 "features": feature_names,
                 "frequency": str(frequency),
                 "horizon_steps": steps,
-                **metrics,
+                **val_metrics,
             }
             rows.append(row)
             artifacts_by_key[f"{model.name}:{horizon}"] = {
-                "model": model,
+                "candidate": model,
                 "feature_names": feature_names,
+                "x_train": x_train,
+                "y_train": y_train,
+                "x_valid": x_valid,
+                "y_valid": y_valid,
                 "x_test": x_test,
                 "y_test": y_test,
-                "predictions": predictions,
+                "validation_predictions": validation_pred,
                 "timestamps": test[TIMESTAMP_COLUMN],
-                "metrics": metrics,
+                "validation_metrics": val_metrics,
                 "frequency": frequency,
                 "steps": steps,
+                "train_frame": train,
+                "validation_frame": validation,
+                "test_frame": test,
             }
-            _write_candidate(config, model, horizon, feature_names, bundle, metrics)
+            _write_candidate(config, model, horizon, feature_names, bundle, val_metrics)
 
     if not rows:
         raise ValidationError("No models were evaluated")
@@ -126,6 +139,29 @@ def run_pipeline(
     )
     selected_key = f"{selected['model']}:{selected['horizon']}"
     selected_artifacts = artifacts_by_key[selected_key]
+    final_model = _retrain_selected(config, selected["model"], selected_artifacts)
+    test_predictions = final_model.predict(selected_artifacts["x_test"])
+    test_metrics = evaluate_predictions(
+        selected_artifacts["y_test"],
+        test_predictions,
+        config=config,
+        predict_fn=lambda current=final_model, data=selected_artifacts["x_test"]: current.predict(data),
+        repeats=int(config.get("latency_repeats", 5)),
+    )
+    selected_artifacts["model"] = final_model
+    selected_artifacts["predictions"] = test_predictions
+    selected_artifacts["test_metrics"] = test_metrics
+    selected["validation_metrics"] = selected_artifacts["validation_metrics"]
+    selected["test_metrics"] = test_metrics
+    selected["mae"] = test_metrics["mae"]
+    selected["rmse"] = test_metrics["rmse"]
+    selected["smape"] = test_metrics["smape"]
+    selected["latency_mean_ms"] = test_metrics.get("latency_mean_ms")
+    selected["latency_p95_ms"] = test_metrics.get("latency_p95_ms")
+    selected["high_demand_mae"] = test_metrics.get("high_demand_mae")
+    selected["high_demand_rmse"] = test_metrics.get("high_demand_rmse")
+    selected["split_used_for_selection"] = "validation"
+    selected["split_used_for_reported_metrics"] = "test"
 
     result_paths = _write_outputs(
         config=config,
@@ -157,6 +193,16 @@ def run_pipeline(
 def _load(config: dict[str, Any], dataset_path: str | Path | None) -> DatasetBundle:
     path = Path(dataset_path) if dataset_path else resolve_path(config["paths"]["raw_data"])
     return load_dataset(path)
+
+
+def _retrain_selected(config: dict[str, Any], model_name: str, artifacts: dict[str, Any]) -> Any:
+    """Retrain the selected model on TRAIN+VALIDATION after selection, never on TEST."""
+    x_fit = pd.concat([artifacts["x_train"], artifacts["x_valid"]], axis=0)
+    y_fit = pd.concat([artifacts["y_train"], artifacts["y_valid"]], axis=0)
+    final = next(model for model in _build_models(config) if model.name == model_name)
+    LOGGER.info("Retraining selected %s on TRAIN+VALIDATION", model_name)
+    final.fit(x_fit, y_fit)
+    return final
 
 
 def _build_models(config: dict[str, Any]) -> list[Any]:
@@ -252,9 +298,21 @@ def _write_outputs(
 
     comparison_path = metrics_dir / "model_comparison.csv"
     comparison.to_csv(comparison_path, index=False)
+    validation_comparison_path = metrics_dir / "validation_comparison.csv"
+    comparison.to_csv(validation_comparison_path, index=False)
 
     selected_metrics_path = metrics_dir / "selected_model_metrics.json"
     selected_metrics_path.write_text(json.dumps(_jsonable(selected), indent=2), encoding="utf-8")
+    validation_metrics_path = metrics_dir / "selected_validation_metrics.json"
+    validation_metrics_path.write_text(
+        json.dumps(_jsonable(selected_artifacts.get("validation_metrics") or {}), indent=2),
+        encoding="utf-8",
+    )
+    test_metrics_path = metrics_dir / "selected_test_metrics.json"
+    test_metrics_path.write_text(
+        json.dumps(_jsonable(selected_artifacts.get("test_metrics") or selected), indent=2),
+        encoding="utf-8",
+    )
 
     predictions = pd.DataFrame(
         {
@@ -300,20 +358,28 @@ def _write_outputs(
         "resource": bundle.metadata.get("resource"),
         "origins": bundle.metadata.get("origins"),
         "metrics": {
-            "mae": selected.get("mae"),
-            "rmse": selected.get("rmse"),
-            "smape": selected.get("smape"),
-            "latency_mean_ms": selected.get("latency_mean_ms"),
-            "latency_p95_ms": selected.get("latency_p95_ms"),
-            "high_demand_mae": selected.get("high_demand_mae"),
-            "high_demand_rmse": selected.get("high_demand_rmse"),
+            "validation": selected_artifacts.get("validation_metrics"),
+            "test": {
+                "mae": selected.get("mae"),
+                "rmse": selected.get("rmse"),
+                "smape": selected.get("smape"),
+                "latency_mean_ms": selected.get("latency_mean_ms"),
+                "latency_p95_ms": selected.get("latency_p95_ms"),
+                "high_demand_mae": selected.get("high_demand_mae"),
+                "high_demand_rmse": selected.get("high_demand_rmse"),
+            },
+        },
+        "selectionProtocol": {
+            "fit": "train",
+            "select": "validation",
+            "retrain": "train+validation",
+            "report": "test",
         },
         "dataKind": "simulated" if "simulated" in (bundle.metadata.get("origins") or []) else "provided",
         "validation": validation_report,
+        "horizonSteps": selected_artifacts.get("steps"),
+        "frequency": str(selected_artifacts.get("frequency")),
     }
-    metadata_path = selected_dir / "metadata.json"
-    metadata_path.write_text(json.dumps(_jsonable(metadata), indent=2), encoding="utf-8")
-
     bundle_path = selected_dir / "model.joblib"
     joblib.dump(
         {
@@ -323,19 +389,47 @@ def _write_outputs(
         },
         bundle_path,
     )
+    metadata["modelSha256"] = sha256_file(bundle_path)
+    metadata_path = selected_dir / "metadata.json"
+    metadata_path.write_text(json.dumps(_jsonable(metadata), indent=2), encoding="utf-8")
 
     report_path = reports_dir / "model_report.md"
     write_model_report(report_path, bundle.metadata, comparison, selected, notes)
+
+    manifest_path = results_dir / "manifest.json"
+    write_manifest(
+        manifest_path,
+        {
+            "datasetId": bundle.dataset_id,
+            "datasetSha256": sha256_file(bundle.path),
+            "configSha256": sha256_json(config),
+            "seed": config.get("random_state"),
+            "selected": {
+                "model": selected.get("model"),
+                "horizon": selected.get("horizon"),
+            },
+            "validation_metrics": selected_artifacts.get("validation_metrics"),
+            "test_metrics": selected_artifacts.get("test_metrics"),
+            "modelSha256": metadata["modelSha256"],
+            "metadataSha256": sha256_file(metadata_path),
+            "dataKind": metadata["dataKind"],
+            "note": "Technical run. Not project experimental evidence unless dataKind=observed.",
+        },
+    )
 
     return {
         "model": str(bundle_path),
         "metadata": str(metadata_path),
         "comparison": str(comparison_path),
+        "validation_comparison": str(validation_comparison_path),
         "selected_metrics": str(selected_metrics_path),
+        "validation_metrics": str(validation_metrics_path),
+        "test_metrics": str(test_metrics_path),
         "predictions": str(selected_pred_path),
         "test_predictions": str(test_pred_path),
         "feature_importance": str(importance_csv),
         "report": str(report_path),
+        "manifest": str(manifest_path),
         **plot_paths,
     }
 

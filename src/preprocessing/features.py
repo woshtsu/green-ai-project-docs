@@ -16,7 +16,7 @@ from src.data.schema import (
     TIMESTAMP_COLUMN,
 )
 from src.exceptions import InsufficientDataError, LeakageError, ValidationError
-from src.preprocessing.temporal import assign_segments, horizon_steps, infer_frequency
+from src.preprocessing.temporal import assign_segments, horizon_steps, infer_frequency, parse_horizon
 
 LOGGER = logging.getLogger(__name__)
 
@@ -156,13 +156,18 @@ def build_supervised_frame(
         prefix="cpu",
     )
     working = add_target(working, horizon=horizon, frequency=frequency)
+    working["prediction_time"] = pd.to_datetime(working[TIMESTAMP_COLUMN], utc=True)
+    working["target_timestamp"] = working["prediction_time"] + parse_horizon(horizon)
 
     feature_names = select_feature_columns(working, config)
     assert_no_future_features(feature_names)
     if "target" in feature_names:
         raise LeakageError("Target column leaked into features")
+    offsets = feature_time_offsets(feature_names, frequency, config)
+    assert_no_positive_offsets(offsets)
+    assert_features_not_copied_from_future(working, feature_names, steps)
 
-    required = feature_names + ["target", TIMESTAMP_COLUMN]
+    required = feature_names + ["target", TIMESTAMP_COLUMN, "prediction_time", "target_timestamp"]
     supervised = working.dropna(subset=required).reset_index(drop=True)
     if supervised.empty:
         raise InsufficientDataError(
@@ -180,6 +185,7 @@ def build_supervised_frame(
             },
         )
 
+    assert_temporal_provenance(supervised, feature_names, offsets, horizon)
     LOGGER.info(
         "Supervised frame horizon=%s freq=%s steps=%s rows=%s features=%s",
         horizon,
@@ -189,6 +195,98 @@ def build_supervised_frame(
         len(feature_names),
     )
     return supervised, feature_names, frequency, steps
+
+
+def feature_time_offsets(
+    feature_names: Iterable[str],
+    frequency: pd.Timedelta,
+    config: dict[str, Any] | None = None,
+) -> dict[str, pd.Timedelta]:
+    """Newest information used by each feature, relative to prediction_time."""
+    _ = config
+    offsets: dict[str, pd.Timedelta] = {}
+    for name in feature_names:
+        if name.startswith("cpu_lag_"):
+            lag = int(str(name).rsplit("_", maxsplit=1)[-1])
+            offsets[name] = -lag * frequency
+        else:
+            offsets[name] = pd.Timedelta(0)
+    return offsets
+
+
+def assert_no_positive_offsets(offsets: dict[str, pd.Timedelta]) -> None:
+    leaked = {name: str(delta) for name, delta in offsets.items() if delta > pd.Timedelta(0)}
+    if leaked:
+        raise LeakageError(
+            "Features use information after prediction_time",
+            details={"features": leaked},
+        )
+
+
+def assert_temporal_provenance(
+    frame: pd.DataFrame,
+    feature_names: Iterable[str],
+    offsets: dict[str, pd.Timedelta],
+    horizon: str,
+) -> None:
+    """For every row: feature_time <= prediction_time and target_time = prediction_time + horizon."""
+    if frame.empty:
+        raise LeakageError("Cannot verify provenance on an empty frame")
+    prediction_time = pd.to_datetime(frame["prediction_time"], utc=True)
+    expected_target = prediction_time + parse_horizon(horizon)
+    actual_target = pd.to_datetime(frame["target_timestamp"], utc=True)
+    if not actual_target.equals(expected_target):
+        raise LeakageError("target_timestamp is not prediction_time + horizon")
+
+    for name in feature_names:
+        feature_time = prediction_time + offsets[name]
+        if (feature_time > prediction_time).any():
+            raise LeakageError(
+                f"Feature {name} timestamp is after prediction_time",
+                details={"feature": name},
+            )
+
+    cpu_by_time = frame.set_index(TIMESTAMP_COLUMN)[TARGET_COLUMN]
+    for idx, row in frame.iterrows():
+        target_time = row["target_timestamp"]
+        if target_time in cpu_by_time.index:
+            observed = float(cpu_by_time.loc[target_time] if not isinstance(cpu_by_time.loc[target_time], pd.Series) else cpu_by_time.loc[target_time].iloc[0])
+            if not math_isclose(float(row["target"]), observed):
+                raise LeakageError(
+                    "Target value does not match CPU at prediction_time + horizon",
+                    details={"row": int(idx) if isinstance(idx, (int, float)) else str(idx)},
+                )
+
+
+def assert_features_not_copied_from_future(
+    frame: pd.DataFrame,
+    feature_names: Iterable[str],
+    max_lead_steps: int,
+) -> None:
+    """Reject features that exactly copy CPU(t+k), even with an innocent name."""
+    if TARGET_COLUMN not in frame.columns:
+        return
+    cpu = pd.to_numeric(frame[TARGET_COLUMN], errors="coerce")
+    for name in feature_names:
+        if name == TARGET_COLUMN:
+            continue
+        series = pd.to_numeric(frame[name], errors="coerce")
+        if series.nunique(dropna=True) < 3:
+            continue
+        for lead in range(1, max(max_lead_steps, 1) + 1):
+            future = cpu.shift(-lead)
+            mask = series.notna() & future.notna()
+            if int(mask.sum()) < 8:
+                continue
+            if (series[mask].to_numpy() == future[mask].to_numpy()).all():
+                raise LeakageError(
+                    f"Feature '{name}' copies CPU(t+{lead}) despite its name",
+                    details={"feature": name, "lead_steps": lead},
+                )
+
+
+def math_isclose(left: float, right: float, tolerance: float = 1e-9) -> bool:
+    return abs(left - right) <= tolerance
 
 
 def select_feature_columns(frame: pd.DataFrame, config: dict[str, Any]) -> list[str]:

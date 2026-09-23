@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ai.local/contracts/dataset-v1.schema.json",
+  "title": "Data Processing dataset v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "datasetId",
+    "period",
+    "resource",
+    "features",
+    "origins",
+    "dataStatus"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "datasetId": { "type": "string", "minLength": 1 },
+    "period": {
+      "type": "object",
+      "required": ["start", "end"],
+      "properties": {
+        "start": { "type": "string", "format": "date-time" },
+        "end": { "type": "string", "format": "date-time" }
+      }
+    },
+    "resource": {
+      "type": "object",
+      "required": ["type", "cluster", "id"],
+      "properties": {
+        "type": { "type": "string" },
+        "cluster": { "type": "string" },
+        "id": { "type": "string" }
+      }
+    },
+    "granularity": { "const": "one_resource_per_dataset" },
+    "units": { "type": "object" },
+    "features": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/record" }
+    },
+    "origins": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "enum": ["observed", "simulated", "estimated", "unknown"] }
+    },
+    "dataStatus": { "enum": ["complete", "partial", "incomplete"] },
+    "warnings": { "type": "array", "items": { "type": "string" } }
+  },
+  "$defs": {
+    "record": {
+      "type": "object",
+      "required": ["timestamp", "cpu_utilization", "origin", "quality"],
+      "properties": {
+        "timestamp": { "type": "string", "format": "date-time" },
+        "cpu_utilization": { "type": "number", "description": "Percent 0-100. Convert Monitoring ratio * 100." },
+        "memory_utilization": { "type": "number", "description": "Percent 0-100. Convert from bytes / allocatable." },
+        "network_in": { "type": "number", "description": "bytes/s" },
+        "network_out": { "type": "number", "description": "bytes/s" },
+        "workload_count": { "type": "integer" },
+        "pod_count": { "type": "integer" },
+        "cpu_requests": { "type": "number", "description": "cores" },
+        "memory_requests": { "type": "number", "description": "MiB" },
+        "origin": { "enum": ["observed", "simulated", "estimated", "unknown"] },
+        "quality": { "enum": ["ok", "complete", "degraded", "warning"] }
+      }
+    }
+  }
+}

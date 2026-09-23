@@ -9,7 +9,7 @@ import pytest
 import yaml
 
 from src.data.generate import write_simulated_dataset
-from src.inference.predict import load_selected_model, predict
+from src.inference.predict import load_selected_model, predict, predict_from_window
 from src.training.train import run_pipeline
 
 
@@ -63,8 +63,19 @@ def test_selected_artifact_can_be_reloaded_and_used(tmp_path, config):
     assert result["origin"] == "estimated"
     assert result["unit"] == "%"
     assert result["target"] == "cpu_utilization"
-    assert result["modelVersion"] == summary["selected"].get("model") or result["modelVersion"] == loaded["metadata"]["modelVersion"]
+    assert result["predictionId"]
+    assert result["generatedAt"]
+    assert result["modelVersion"] == loaded["metadata"]["modelVersion"]
     assert isinstance(result["value"], float)
     assert result["latency_ms"] >= 0
+
+    raw = json.loads(dataset_path.read_text(encoding="utf-8"))
+    window = predict_from_window(raw["features"], model_dir=selected_dir, config=cfg)
+    assert window["origin"] == "estimated"
+    assert window["predictedFor"]
+    assert window["generatedAt"]
+    assert window["predictionId"]
+    assert window["resource"]["id"] == "node-01"
     _ = model
     _ = sample
+    _ = summary

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
 from typing import Any
 
 import numpy as np
@@ -35,6 +37,9 @@ def compare_distributions(
         "psi": psi,
         "alert": bool(psi >= 0.2),
         "retraining": False,
+        "threshold": 0.2,
+        "reference": "training_distribution",
+        "compared": "recent_distribution",
     }
 
 
@@ -54,7 +59,15 @@ def compare_errors(
         "mae_delta": recent_mae - hist_mae,
         "alert": bool(recent_mae > hist_mae * 1.25 and recent_mae - hist_mae > 1.0),
         "retraining": False,
+        "threshold": 1.25,
+        "reference": "historical_error",
+        "compared": "recent_error",
     }
+
+
+def persist_alert(path: Path, report: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(report, indent=2, default=str), encoding="utf-8")
 
 
 def population_stability_index(expected_counts: np.ndarray, actual_counts: np.ndarray) -> float:

@@ -122,6 +122,32 @@ def test_timestamp_without_timezone_is_rejected():
         validate_dataset(frame, _meta())
 
 
+def test_unknown_schema_version_is_rejected():
+    frame = _frame(
+        [
+            {"timestamp": "2026-09-01T00:00:00Z", "cpu_utilization": 10, "origin": "simulated", "quality": "ok"},
+        ]
+    )
+    meta = _meta()
+    meta["schemaVersion"] = "2.0"
+    with pytest.raises(ValidationError, match="Unsupported schemaVersion"):
+        validate_dataset(frame, meta)
+
+
+def test_mixed_origins_require_explicit_operation():
+    frame = _frame(
+        [
+            {"timestamp": "2026-09-01T00:00:00Z", "cpu_utilization": 10, "origin": "simulated", "quality": "ok"},
+            {"timestamp": "2026-09-01T00:05:00Z", "cpu_utilization": 11, "origin": "observed", "quality": "ok"},
+        ]
+    )
+    meta = _meta(origins=["simulated", "observed"])
+    with pytest.raises(ValidationError, match="Mixed origins"):
+        validate_dataset(frame, meta, allow_mixed_origins=False)
+    report = validate_dataset(frame, meta, allow_mixed_origins=True)
+    assert report["valid"] is True
+
+
 def test_invalid_data_status_is_rejected():
     frame = _frame(
         [

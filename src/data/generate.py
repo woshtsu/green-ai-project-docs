@@ -13,7 +13,7 @@ from typing import Any
 
 import numpy as np
 
-from src.data.schema import SCHEMA_VERSION
+from src.data.schema import COLUMN_SPEC, GRANULARITY, SCHEMA_VERSION
 
 
 def generate_simulated_dataset(
@@ -84,6 +84,8 @@ def generate_simulated_dataset(
         "features": records,
         "origins": ["simulated"],
         "dataStatus": "complete",
+        "granularity": GRANULARITY,
+        "units": {name: spec["unit"] for name, spec in COLUMN_SPEC.items()},
         "warnings": [
             "Dataset generated for technical validation. origin=simulated. Not real observations."
         ],

@@ -43,7 +43,11 @@ def select_model(
     Priority: MAE, RMSE, sMAPE, high-demand MAE, latency, complexity.
     If MAE values are equivalent, prefer the simpler model.
     """
-    candidates = [row for row in rows if row.get("horizon") == horizon]
+    candidates = [
+        row
+        for row in rows
+        if row.get("horizon") == horizon and row.get("split", "validation") == "validation"
+    ]
     if not candidates:
         raise ValueError(f"No evaluation rows for horizon {horizon}")
 

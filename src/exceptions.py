@@ -45,3 +45,9 @@ class ModelNotFoundError(MLError):
     """Raised when a serialized model artifact is missing."""
 
     code = "MODEL_NOT_FOUND"
+
+
+class ArtifactIntegrityError(MLError):
+    """Raised when a model artifact hash or metadata does not match."""
+
+    code = "ARTIFACT_INTEGRITY"

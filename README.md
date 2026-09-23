@@ -12,7 +12,9 @@ Predict CPU demand at configurable horizons:
 - 15 minutes
 - 30 minutes
 
-The serialized model corresponds to the configured default horizon (`15m`) and the model with the best experimental metrics for that horizon.
+Status of this increment: **experimental ML core on a simulated fixture**. It is not a validated operational model and not an integrated Prediction Service in the platform flow.
+
+Candidates are fit on TRAIN, selected on VALIDATION, retrained on TRAIN+VALIDATION, and reported once on TEST. Partition boundaries are purged by at least one forecast horizon.
 
 ## Architecture
 
@@ -33,13 +35,15 @@ dataset → validate → clean → features → temporal split
 
 ## Installation
 
-Python 3.10+ is required.
+Python **3.11.9** (see `.python-version`).
 
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
-pip install -r requirements.txt
+pip install -r requirements.lock.txt
 ```
+
+`requirements.txt` keeps compatible ranges. `requirements.lock.txt` pins the versions used for this increment.
 
 ## Dependencies
 
@@ -62,11 +66,16 @@ statsmodels==0.15.0
 
 ## Dataset
 
-Expected contract (Data Processing):
+Published contract (v1): `contracts/dataset-v1.schema.json`.
 
-- `schemaVersion`, `datasetId`, `period`, `resource`
-- `features` (time-series records)
-- `origins`, `dataStatus`, `warnings`
+- One resource per dataset
+- `features` is a list of temporal records (`timestamp`, `cpu_utilization`, `origin`, `quality`), not Monitoring `name/value/unit` objects
+- Units: CPU and memory utilization in **percent**; `network_*` in bytes/s; `cpu_requests` in cores; `memory_requests` in MiB
+- Monitoring ratio/bytes must be converted **before** this contract
+- Unknown `schemaVersion` is rejected
+- Mixed origins are rejected unless `data.allow_mixed_origins` is set as an explicit mix operation
+
+This fixture does **not** demonstrate Data Processing integration until both sides emit the same schema.
 
 If no official Data Processing dataset is present, the pipeline generates a **simulated** fixture:
 
@@ -115,7 +124,7 @@ python scripts/evaluate_models.py
 
 Mandatory metrics: MAE, RMSE, sMAPE, plus latency and high-demand slices when the test split allows it.
 
-Selection priority: MAE → RMSE → sMAPE → high-demand error → latency → complexity. If MAE values are equivalent, the simpler model wins.
+Selection uses **VALIDATION** metrics only (MAE → RMSE → sMAPE → high-demand → latency → complexity). TEST is evaluated once after retraining and is not used to change the model. Validation and test metrics are stored separately.
 
 ## Tests
 
@@ -128,77 +137,58 @@ Coverage target: >= 80%.
 
 ## Selected model
 
-Values below come from `python scripts/run_pipeline.py` on the simulated fixture `dataset-sim-001` (`origin=simulated`). They are **technical test results**, not experimental project results and not energy-savings claims.
+Do not treat README numbers as evidence. Generated binaries (`model.joblib`, plots, `mlruns`) are gitignored. After a local or CI run, consult:
 
-| Field | Value |
-| --- | --- |
-| modelType | random_forest |
-| horizon | 15m |
-| target | cpu_utilization (%) |
-| features | 23 (current CPU, temporal, lags 1-3, rolling 3/6, complementary current-time variables) |
-| MAE | 3.987754 |
-| RMSE | 5.530001 |
-| sMAPE | 7.915891 |
-| high-demand MAE | 4.711119 |
-| mean latency | 17.23 ms |
-| p95 latency | 20.74 ms |
+- `results/manifest.json` (commit, dataset hash, config hash, seed, validation/test metrics, artifact hashes)
+- `results/metrics/selected_validation_metrics.json`
+- `results/metrics/selected_test_metrics.json`
 
-Random Forest was selected for the configured default horizon (15m) because it had the lowest MAE among the 15m candidates. XGBoost was not chosen a priori.
-
-```text
-DECISIÓN TÉCNICA
-Motivo: un horizonte más corto produce MAE menor de forma estructural.
-Alternativas consideradas: menor MAE global; score normalizado por horizonte; mejor modelo del horizonte operativo.
-Decisión: evaluar 5m/15m/30m; serializar el mejor modelo del horizonte configurado (15m); conservar la comparación completa.
-Impacto: el artefacto selected es usable por Prediction Service a 15m sin ocultar los demás horizontes.
-```
+Those files are produced by `python scripts/run_pipeline.py` and are **technical results on `origin=simulated` data**.
 
 ## MLflow
 
-Local tracking directory: `./mlruns`.
-
-| Field | Value |
-| --- | --- |
-| experiment | computational-demand-prediction |
-| run_id | 956b313c15f74240b5a687da27c79c15 |
-| registered model | computational-demand-model |
-| model version | 1 |
+Local tracking directory: `./mlruns` (gitignored). A run ID printed on a developer machine is not evidence in the branch. Use `results/manifest.json` plus CI artifacts.
 
 ## Inference
 
-```python
-from src.inference.predict import predict
+Preferred path: send a raw temporal window. The service applies the same preprocessing as training.
 
-result = predict({"cpu_utilization": 41.2, ...})
-# result["origin"] == "estimated"
+```python
+from src.inference.predict import predict_from_window
+
+result = predict_from_window(records)
+# predictionId, predictedFor, generatedAt, origin=estimated
 ```
 
-`predict()` does not call infrastructure. It only loads `models/selected/model.joblib`.
+Internal API:
+
+```bash
+uvicorn src.service.app:app --port 8000
+# GET  /health/live
+# GET  /health/ready   (artifact + hash only; does not claim accuracy)
+# POST /v1/predictions
+```
+
+`predict()` still accepts engineered features for tests. Production callers should use the window API to avoid training-serving skew.
 
 ## Artifacts
 
-After a successful pipeline run:
+After a successful pipeline run (local/CI, not committed):
 
-- `models/selected/model.joblib`
-- `models/selected/metadata.json`
-- `results/metrics/model_comparison.csv`
-- `results/metrics/selected_model_metrics.json`
+- `models/selected/model.joblib` + `metadata.json` (`modelSha256`)
+- `results/manifest.json`
+- `results/metrics/validation_comparison.csv`
+- `results/metrics/selected_validation_metrics.json`
+- `results/metrics/selected_test_metrics.json`
 - `results/predictions/`
 - `results/plots/`
 - `results/reports/model_report.md`
 
 ## Limitations
 
-- The bundled fixture is simulated. Metrics from it are **technical test results**, not project experimental results.
+- The bundled fixture is simulated. It checks execution, not generalization to observed data.
 - The model predicts computational demand, not energy savings.
 - Deep Learning is out of scope for this version.
 - Feature importance is not causal.
-- No automatic retraining. Drift comparison lives in `src/drift/monitor.py`.
-
-## Future integration
-
-Prediction Service should wrap `predict()` and emit:
-
-`predictionId`, resource, target, `predictedFor`, value, unit, `modelVersion`, `inputDatasetId`, `origin=estimated`, `generatedAt`.
-
-The FastAPI surface is intentionally not implemented here.
+- Drift compare/persist exists; no automatic retraining.
+- Gateway/Decision routing and observed-data backtesting are still pending.

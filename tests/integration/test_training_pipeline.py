@@ -58,6 +58,15 @@ def test_full_training_pipeline(tmp_path, config):
     assert metadata["unit"] == "%"
     assert metadata["dataKind"] == "simulated"
     assert metadata["origins"] == ["simulated"]
+    assert metadata["selectionProtocol"]["select"] == "validation"
+    assert metadata["selectionProtocol"]["report"] == "test"
+    assert (tmp_path / "results" / "metrics" / "selected_validation_metrics.json").exists()
+    assert (tmp_path / "results" / "metrics" / "selected_test_metrics.json").exists()
+    assert (tmp_path / "results" / "manifest.json").exists()
+    assert summary["selected"]["split_used_for_selection"] == "validation"
+    val_metrics = json.loads((tmp_path / "results" / "metrics" / "selected_validation_metrics.json").read_text(encoding="utf-8"))
+    test_metrics = json.loads((tmp_path / "results" / "metrics" / "selected_test_metrics.json").read_text(encoding="utf-8"))
+    assert "mae" in val_metrics and "mae" in test_metrics
 
 
 def test_insufficient_data_is_explicit(tmp_path, config):

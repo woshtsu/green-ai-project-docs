@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ai.local/contracts/prediction-v1.schema.json",
+  "title": "Prediction response v1",
+  "type": "object",
+  "required": [
+    "predictionId",
+    "resource",
+    "target",
+    "predictedFor",
+    "generatedAt",
+    "value",
+    "unit",
+    "horizon",
+    "modelVersion",
+    "inputDatasetId",
+    "origin"
+  ],
+  "properties": {
+    "predictionId": { "type": "string" },
+    "resource": {
+      "type": "object",
+      "required": ["type", "cluster", "id"]
+    },
+    "target": { "const": "cpu_utilization" },
+    "predictedFor": { "type": "string", "format": "date-time" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "value": { "type": "number" },
+    "unit": { "const": "%" },
+    "horizon": { "enum": ["5m", "15m", "30m"] },
+    "modelVersion": { "type": "string" },
+    "inputDatasetId": { "type": "string" },
+    "origin": { "const": "estimated" }
+  }
+}

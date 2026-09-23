@@ -17,6 +17,7 @@ from src.data.schema import (
     QUALITY_COLUMN,
     REQUIRED_DATASET_FIELDS,
     REQUIRED_METADATA_FIELDS,
+    SUPPORTED_SCHEMA_VERSIONS,
     REQUIRED_PERIOD_FIELDS,
     REQUIRED_RECORD_FIELDS,
     REQUIRED_RESOURCE_FIELDS,
@@ -39,7 +40,11 @@ NUMERIC_COLUMNS = (
 )
 
 
-def validate_dataset(frame: pd.DataFrame, metadata: dict[str, Any]) -> dict[str, Any]:
+def validate_dataset(
+    frame: pd.DataFrame,
+    metadata: dict[str, Any],
+    allow_mixed_origins: bool = False,
+) -> dict[str, Any]:
     """Validate contract, timestamps, quality and temporal continuity.
 
     Returns a report. Raises ValidationError or InsufficientDataError on blockers.
@@ -70,7 +75,7 @@ def validate_dataset(frame: pd.DataFrame, metadata: dict[str, Any]) -> dict[str,
     _validate_timestamps(frame)
     _validate_duplicates(frame)
     _validate_numeric_quality(frame)
-    _validate_origin_and_quality(frame, metadata)
+    _validate_origin_and_quality(frame, metadata, allow_mixed_origins=allow_mixed_origins)
 
     frequency = _infer_frequency(frame[TIMESTAMP_COLUMN])
     gaps = _detect_gaps(frame[TIMESTAMP_COLUMN], frequency)
@@ -105,6 +110,12 @@ def validate_payload(payload: dict[str, Any]) -> None:
         )
     if not isinstance(payload.get("features"), list):
         raise ValidationError("Dataset field 'features' must be a list")
+    version = payload.get("schemaVersion")
+    if version not in SUPPORTED_SCHEMA_VERSIONS:
+        raise ValidationError(
+            f"Unsupported schemaVersion '{version}'",
+            details={"supported": sorted(SUPPORTED_SCHEMA_VERSIONS)},
+        )
 
 
 def _validate_metadata(metadata: dict[str, Any]) -> None:
@@ -128,6 +139,13 @@ def _validate_metadata(metadata: dict[str, Any]) -> None:
     missing_resource = [field for field in REQUIRED_RESOURCE_FIELDS if field not in resource]
     if missing_resource:
         raise ValidationError(f"resource missing fields: {missing_resource}")
+
+    version = metadata.get("schemaVersion")
+    if version not in SUPPORTED_SCHEMA_VERSIONS:
+        raise ValidationError(
+            f"Unsupported schemaVersion '{version}'",
+            details={"supported": sorted(SUPPORTED_SCHEMA_VERSIONS)},
+        )
 
     data_status = metadata.get("dataStatus")
     if data_status not in ALLOWED_DATA_STATUS:
@@ -195,7 +213,11 @@ def _validate_numeric_quality(frame: pd.DataFrame) -> None:
             )
 
 
-def _validate_origin_and_quality(frame: pd.DataFrame, metadata: dict[str, Any]) -> None:
+def _validate_origin_and_quality(
+    frame: pd.DataFrame,
+    metadata: dict[str, Any],
+    allow_mixed_origins: bool = False,
+) -> None:
     invalid_origin = sorted(
         {str(item) for item in frame[ORIGIN_COLUMN].dropna().unique() if item not in ALLOWED_ORIGINS}
     )
@@ -220,6 +242,11 @@ def _validate_origin_and_quality(frame: pd.DataFrame, metadata: dict[str, Any]) 
         raise ValidationError(
             "Record origins are not declared in dataset metadata",
             details={"declared": sorted(declared), "observed": sorted(observed)},
+        )
+    if len(observed) > 1 and not allow_mixed_origins:
+        raise ValidationError(
+            "Mixed origins require an explicit mix operation",
+            details={"observed": sorted(observed), "allow_mixed_origins": False},
         )
 
 
