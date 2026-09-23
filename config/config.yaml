@@ -1,0 +1,97 @@
+model_version: "1.0.0"
+environment: experimental
+random_state: 42
+
+target: cpu_utilization
+unit: "%"
+default_horizon: "15m"
+horizons:
+  - "5m"
+  - "15m"
+  - "30m"
+
+split:
+  train_ratio: 0.70
+  validation_ratio: 0.15
+  test_ratio: 0.15
+
+min_train_samples: 20
+min_eval_samples: 5
+
+features:
+  include_current_target: true
+  temporal:
+    - hour
+    - minute
+    - day_of_week
+    - day_of_month
+  lags: [1, 2, 3]
+  rolling:
+    windows: [3, 6]
+    primary_window: 6
+    stats:
+      - mean
+      - std
+      - min
+      - max
+  additional:
+    - memory_utilization
+    - network_in
+    - network_out
+    - workload_count
+    - pod_count
+    - cpu_requests
+    - memory_requests
+
+random_forest:
+  n_estimators: 80
+  max_depth: 8
+  min_samples_split: 4
+  min_samples_leaf: 2
+  max_features: sqrt
+  random_state: 42
+  n_jobs: 1
+
+xgboost:
+  n_estimators: 80
+  max_depth: 4
+  learning_rate: 0.1
+  subsample: 0.8
+  colsample_bytree: 0.8
+  objective: reg:squarederror
+  random_state: 42
+  n_jobs: 1
+  verbosity: 0
+
+baseline:
+  moving_average_window: 3
+
+high_demand:
+  percentile: 75
+  peak_percentile: 90
+
+load_bands:
+  low_percentile: 33
+  high_percentile: 66
+
+equivalence_mae_relative: 0.02
+latency_repeats: 20
+
+mlflow:
+  tracking_uri: ./mlruns
+  experiment_name: computational-demand-prediction
+  registered_model_name: computational-demand-model
+
+paths:
+  raw_data: data/raw/sample_dataset.json
+  interim_dir: data/interim
+  processed_dir: data/processed
+  models_candidate: models/candidate
+  models_selected: models/selected
+  results_dir: results
+
+dataset:
+  fixture_id: dataset-sim-001
+  frequency_minutes: 5
+  days: 3
+  seed: 42

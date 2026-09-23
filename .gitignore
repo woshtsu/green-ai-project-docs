@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.pem
+credentials.json
+secrets.json
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Generated artifacts (keep directory structure via .gitkeep)
+data/interim/*
+!data/interim/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+models/candidate/*
+!models/candidate/.gitkeep
+models/selected/*
+!models/selected/.gitkeep
+results/metrics/*
+!results/metrics/.gitkeep
+results/predictions/*
+!results/predictions/.gitkeep
+results/plots/*
+!results/plots/.gitkeep
+results/reports/*
+!results/reports/.gitkeep
+
+# Keep simulated raw fixture if present
+# data/raw is versioned when it is the official simulated fixture
