@@ -175,6 +175,8 @@ Monitoring no devuelve DataFrames, conclusiones, tendencias o textos para usuari
 
 ### Data Processing
 
+Guía paso a paso para completar la rama `feature/data-processing-integration` sin depender del avance de Prediction: [integración de Data Processing](GUIA-INTEGRACION-DATA-PROCESSING.md). Distingue el código revisado de los endpoints propuestos y detalla Monitoring, Supabase, errores, pruebas y entrega al Gateway.
+
 Recibe dos clases de entrada:
 
 1. series normalizadas de Monitoring, incluidas las simuladas almacenadas en Prometheus;
