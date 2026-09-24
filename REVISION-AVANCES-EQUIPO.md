@@ -11,7 +11,6 @@ Fecha: 2026-09-23. Alcance revisado: copias locales de `green-ai-data-processing
 | Prediction | Núcleo ML e inferencia fuera de línea sobre fixture | Corregir validación experimental, acordar entrada con Data Processing y exponer un servicio reproducible |
 
 ## Falencias prioritarias
-
 ### P0 — Bloquean el ensamblaje
 
 1. **Data Processing y Prediction no comparten el mismo contrato.** Data Processing genera un CSV tabular de 14 columnas; Prediction espera un JSON versionado con metadatos y registros temporales. Deben acordar un JSON Schema/OpenAPI único, unidades, frecuencia, horizontes, procedencia, calidad y comportamiento ante huecos.

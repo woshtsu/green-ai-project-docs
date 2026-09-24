@@ -1,0 +1,70 @@
+{
+  "metric": "node.network.transmit",
+  "unit": "bytes/s",
+  "aggregation": "rate",
+  "windowSeconds": 60,
+  "start": "2026-09-24T04:59:00Z",
+  "end": "2026-09-24T04:59:00Z",
+  "stepSeconds": null,
+  "dataStatus": "complete",
+  "series": [
+    {
+      "resource": {
+        "type": "node",
+        "cluster": "sim-run-4f430ede-409e-4097-8e72-f94fafaf8724",
+        "id": "node-01"
+      },
+      "labels": {
+        "device": "eth0"
+      },
+      "source": "prometheus",
+      "origin": "simulated",
+      "samples": [
+        {
+          "timestamp": "2026-09-24T04:59:00Z",
+          "value": 50840010.76441924,
+          "quality": "valid"
+        }
+      ]
+    },
+    {
+      "resource": {
+        "type": "node",
+        "cluster": "sim-run-4f430ede-409e-4097-8e72-f94fafaf8724",
+        "id": "node-02"
+      },
+      "labels": {
+        "device": "eth0"
+      },
+      "source": "prometheus",
+      "origin": "simulated",
+      "samples": [
+        {
+          "timestamp": "2026-09-24T04:59:00Z",
+          "value": 49591527.07469635,
+          "quality": "valid"
+        }
+      ]
+    },
+    {
+      "resource": {
+        "type": "node",
+        "cluster": "sim-run-4f430ede-409e-4097-8e72-f94fafaf8724",
+        "id": "node-02"
+      },
+      "labels": {
+        "device": "eth1"
+      },
+      "source": "prometheus",
+      "origin": "simulated",
+      "samples": [
+        {
+          "timestamp": "2026-09-24T04:59:00Z",
+          "value": 50813828.9693796,
+          "quality": "valid"
+        }
+      ]
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,47 @@
+{
+  "metric": "node.cpu.utilization",
+  "unit": "ratio",
+  "aggregation": "mean_non_idle",
+  "windowSeconds": 60,
+  "start": "2026-09-24T04:58:59Z",
+  "end": "2026-09-24T04:58:59Z",
+  "stepSeconds": null,
+  "dataStatus": "complete",
+  "series": [
+    {
+      "resource": {
+        "type": "node",
+        "cluster": "sim-run-4f430ede-409e-4097-8e72-f94fafaf8724",
+        "id": "node-01"
+      },
+      "labels": {},
+      "source": "prometheus",
+      "origin": "simulated",
+      "samples": [
+        {
+          "timestamp": "2026-09-24T04:58:59Z",
+          "value": 0.8453075206444158,
+          "quality": "valid"
+        }
+      ]
+    },
+    {
+      "resource": {
+        "type": "node",
+        "cluster": "sim-run-4f430ede-409e-4097-8e72-f94fafaf8724",
+        "id": "node-02"
+      },
+      "labels": {},
+      "source": "prometheus",
+      "origin": "simulated",
+      "samples": [
+        {
+          "timestamp": "2026-09-24T04:58:59Z",
+          "value": 0.8611418964640132,
+          "quality": "valid"
+        }
+      ]
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,330 @@
+{
+  "metric": "node.cpu.utilization",
+  "unit": "ratio",
+  "aggregation": "mean_non_idle",
+  "windowSeconds": 60,
+  "start": "2026-09-24T04:43:59Z",
+  "end": "2026-09-24T04:58:59Z",
+  "stepSeconds": 15,
+  "dataStatus": "complete",
+  "series": [
+    {
+      "resource": {
+        "type": "node",
+        "cluster": "sim-run-4f430ede-409e-4097-8e72-f94fafaf8724",
+        "id": "node-01"
+      },
+      "labels": {},
+      "source": "prometheus",
+      "origin": "simulated",
+      "samples": [
+        {
+          "timestamp": "2026-09-24T04:43:59Z",
+          "value": 0.8516091765513631,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:44:14Z",
+          "value": 0.8783061755358185,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:44:29Z",
+          "value": 0.887801917952262,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:44:44Z",
+          "value": 0.8897116222281581,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:44:59Z",
+          "value": 0.8824691948795403,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:45:14Z",
+          "value": 0.8768411743522009,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:45:29Z",
+          "value": 0.8407442123053093,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:45:44Z",
+          "value": 0.8342479299138947,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:45:59Z",
+          "value": 0.8230521349665543,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:46:14Z",
+          "value": 0.8188478492797195,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:46:29Z",
+          "value": 0.8349845347865443,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:46:44Z",
+          "value": 0.8219473372292576,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:46:59Z",
+          "value": 0.8390594062189578,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:47:14Z",
+          "value": 0.8523720830188077,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:47:29Z",
+          "value": 0.8662009715061828,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:47:44Z",
+          "value": 0.8846088389426419,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:47:59Z",
+          "value": 0.8651122003648911,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:48:14Z",
+          "value": 0.8499939671187512,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:48:29Z",
+          "value": 0.8342809722717636,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:48:44Z",
+          "value": 0.8026156700477374,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:48:59Z",
+          "value": 0.8136785709541545,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:49:14Z",
+          "value": 0.8109725738415292,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:49:29Z",
+          "value": 0.8205500725918046,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:49:44Z",
+          "value": 0.8409648612812348,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:49:59Z",
+          "value": 0.8384345610234807,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:50:14Z",
+          "value": 0.8333910138684936,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:50:29Z",
+          "value": 0.8275585442994302,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:50:44Z",
+          "value": 0.8008493768836862,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:50:59Z",
+          "value": 0.823134200429663,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:51:14Z",
+          "value": 0.8481963766510515,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:51:29Z",
+          "value": 0.8700618466203432,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:51:44Z",
+          "value": 0.8824686465642981,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:51:59Z",
+          "value": 0.8758429441090643,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:52:14Z",
+          "value": 0.8708772772114781,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:52:29Z",
+          "value": 0.8564951257933987,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:52:44Z",
+          "value": 0.8379957603591531,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:52:59Z",
+          "value": 0.8215707489092092,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:53:14Z",
+          "value": 0.8060063422752775,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:53:29Z",
+          "value": 0.8202719632992759,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:53:44Z",
+          "value": 0.8251429091490181,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:53:59Z",
+          "value": 0.8236352797776648,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:54:14Z",
+          "value": 0.8247573014171626,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:54:29Z",
+          "value": 0.8146615504878871,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:54:44Z",
+          "value": 0.8184172957773023,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:54:59Z",
+          "value": 0.8322647719160061,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:55:14Z",
+          "value": 0.8506758503186551,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:55:29Z",
+          "value": 0.8484938325583962,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:55:44Z",
+          "value": 0.8405766462217596,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:55:59Z",
+          "value": 0.843334937227597,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:56:14Z",
+          "value": 0.8376414636700726,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:56:29Z",
+          "value": 0.8420547697789142,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:56:44Z",
+          "value": 0.8654090656448656,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:56:59Z",
+          "value": 0.8735125380558413,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:57:14Z",
+          "value": 0.8682078835639592,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:57:29Z",
+          "value": 0.8698514051723418,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:57:44Z",
+          "value": 0.8600603533165189,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:57:59Z",
+          "value": 0.8537397271548846,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:58:14Z",
+          "value": 0.839803935847813,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:58:29Z",
+          "value": 0.8216987547587128,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:58:44Z",
+          "value": 0.8300390597476994,
+          "quality": "valid"
+        },
+        {
+          "timestamp": "2026-09-24T04:58:59Z",
+          "value": 0.8453075206444158,
+          "quality": "valid"
+        }
+      ]
+    }
+  ],
+  "warnings": []
+}

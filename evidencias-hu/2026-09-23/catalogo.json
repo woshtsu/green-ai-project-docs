@@ -1,0 +1,65 @@
+[
+  {
+    "id": "node.cpu.utilization",
+    "group": "A",
+    "resourceType": "node",
+    "unit": "ratio",
+    "aggregation": "mean_non_idle",
+    "windowSeconds": 60,
+    "description": "1 - media de la tasa idle por CPU lógica en 60 s. Iowait cuenta como no-idle.",
+    "denominator": "Capacidad de todas las CPU lógicas del nodo; no requests/limits de pods.",
+    "seriesLabels": []
+  },
+  {
+    "id": "node.memory.used",
+    "group": "A",
+    "resourceType": "node",
+    "unit": "bytes",
+    "aggregation": "instant",
+    "windowSeconds": null,
+    "description": "MemTotal - MemAvailable; no equivale a MemTotal - MemFree.",
+    "denominator": "No aplica: magnitud absoluta.",
+    "seriesLabels": []
+  },
+  {
+    "id": "node.network.receive",
+    "group": "A",
+    "resourceType": "node",
+    "unit": "bytes/s",
+    "aggregation": "rate",
+    "windowSeconds": 60,
+    "description": "Tasa de bytes recibidos en 60 s por interfaz, sin sumar interfaces.",
+    "denominator": "Segundos transcurridos en la ventana de 60 s.",
+    "seriesLabels": [
+      "device"
+    ]
+  },
+  {
+    "id": "node.network.transmit",
+    "group": "A",
+    "resourceType": "node",
+    "unit": "bytes/s",
+    "aggregation": "rate",
+    "windowSeconds": 60,
+    "description": "Tasa de bytes transmitidos en 60 s por interfaz, sin sumar interfaces.",
+    "denominator": "Segundos transcurridos en la ventana de 60 s.",
+    "seriesLabels": [
+      "device"
+    ]
+  },
+  {
+    "id": "node.filesystem.used",
+    "group": "A",
+    "resourceType": "node",
+    "unit": "bytes",
+    "aggregation": "instant",
+    "windowSeconds": null,
+    "description": "size - free por filesystem (incluye bloques reservados en free); no size - avail. Solo ext2/ext3/ext4/xfs/btrfs/zfs; excluir /proc,/sys,/dev,/run y descendientes.",
+    "denominator": "No aplica: bytes absolutos; capacidad de referencia size del mismo filesystem.",
+    "seriesLabels": [
+      "device",
+      "mountpoint",
+      "fstype"
+    ]
+  }
+]

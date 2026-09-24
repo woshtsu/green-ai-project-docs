@@ -1,0 +1,55 @@
+{
+  "metric": "node.filesystem.used",
+  "unit": "bytes",
+  "aggregation": "instant",
+  "windowSeconds": null,
+  "start": "2026-09-24T04:59:00Z",
+  "end": "2026-09-24T04:59:00Z",
+  "stepSeconds": null,
+  "dataStatus": "complete",
+  "series": [
+    {
+      "resource": {
+        "type": "node",
+        "cluster": "sim-run-4f430ede-409e-4097-8e72-f94fafaf8724",
+        "id": "node-01"
+      },
+      "labels": {
+        "device": "/dev/sda1",
+        "mountpoint": "/",
+        "fstype": "ext4"
+      },
+      "source": "prometheus",
+      "origin": "simulated",
+      "samples": [
+        {
+          "timestamp": "2026-09-24T04:59:00Z",
+          "value": 1529965840.0,
+          "quality": "valid"
+        }
+      ]
+    },
+    {
+      "resource": {
+        "type": "node",
+        "cluster": "sim-run-4f430ede-409e-4097-8e72-f94fafaf8724",
+        "id": "node-02"
+      },
+      "labels": {
+        "device": "/dev/nvme0n1",
+        "mountpoint": "/",
+        "fstype": "xfs"
+      },
+      "source": "prometheus",
+      "origin": "simulated",
+      "samples": [
+        {
+          "timestamp": "2026-09-24T04:59:00Z",
+          "value": 1531814426.0,
+          "quality": "valid"
+        }
+      ]
+    }
+  ],
+  "warnings": []
+}
