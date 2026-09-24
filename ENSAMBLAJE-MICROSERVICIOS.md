@@ -6,7 +6,8 @@ Fecha: 2026-09-21. Este documento fija los límites de integración del MVP para
 
 ```mermaid
 flowchart TD
-    FE[Frontend] --> GW[API Gateway]
+    FE[Frontend] --> AUTH[Supabase Auth]
+    FE --> GW[API Gateway]
     GW --> MON[Monitoring]
     GW -. contrato futuro .-> DP[Data Processing]
     GW -. contrato futuro .-> SIM[Simulator]
@@ -87,7 +88,7 @@ El Gateway conserva parámetros y respuestas y reescribe el prefijo. Otras rutas
 - API de Prediction y formato de features.
 - Operaciones externas del Simulator, si realmente son necesarias.
 - Esquema verificado en modelo-bd.md; pendiente configurar permisos mínimos de Supabase por servicio.
-- JWT, emisor, audiencia y roles del Gateway.
+- Implementación de la decisión JWT/Supabase Auth y migración segura de usuarios descrita en `AUTENTICACION-JWT.md`.
 - Métricas de workloads Grupo B y fuentes definitivas.
 - Despliegue y nombres DNS de Kubernetes.
 
@@ -122,7 +123,7 @@ Para integrarlo al MVP:
 3. Mostrar junto a cada resultado el recurso, periodo, unidad, `origin`, `quality`, `dataStatus` y advertencias. Debe haber estados distintos para carga, respuesta vacía, datos parciales y error; los errores `application/problem+json` deben conservar su `X-Request-Id` para soporte.
 4. Convertir unidades solo para presentación: ratios de CPU a porcentaje; bytes a MiB/GiB; bytes/s a KiB/s o MiB/s. Mantener disponible el valor y unidad originales. Watts representan potencia instantánea, no energía: el gráfico mensual en kWh y afirmaciones de energía “real”, ahorro o CO₂ deben ocultarse o marcarse explícitamente como demo hasta que exista una fuente y contrato validados.
 5. Tratar `null` como “Sin dato” y `no_data` como estado vacío; nunca reemplazarlos por cero. Distinguir visualmente `observed`, `simulated` y `estimated`, y no presentar una predicción como medición.
-6. Mantener las credenciales fuera del navegador y configurar el origen permitido mediante CORS en Gateway. La identidad guardada en `localStorage` no es autenticación. Login, registro y roles deben quedar deshabilitados o identificados como demo hasta acordar JWT, emisor, audiencia y autorización.
+6. Usar Supabase Auth y JWT según `AUTENTICACION-JWT.md`. La identidad guardada en `localStorage` no es autenticación y el rol nunca se acepta desde el formulario. Gateway valida el token y aplica permisos; el Frontend solo usa el rol para presentación.
 
 Antes de reutilizar el repositorio se requiere saneamiento:
 
@@ -136,7 +137,9 @@ El equipo del Frontend puede decidir framework y estructura interna. Para el ens
 
 ### API Gateway
 
-Recibe solicitudes del Frontend y entrega la respuesta del servicio propietario. Añade o propaga `X-Request-Id`, aplica rutas permitidas, CORS, autenticación futura, límites y timeouts. No transforma métricas ni fusiona respuestas.
+Recibe solicitudes del Frontend y entrega la respuesta del servicio propietario. Añade o propaga `X-Request-Id`, aplica rutas permitidas, CORS, autenticación, límites y timeouts. No transforma métricas ni fusiona respuestas.
+
+Para solicitudes de usuario, Gateway será OAuth2 Resource Server: verificará los JWT emitidos por Supabase Auth mediante JWKS, issuer, audience y expiración, y aplicará los roles `OPERATOR` y `ADMIN`. Gateway no emite tokens ni procesa contraseñas.
 
 Rutas confirmadas:
 
