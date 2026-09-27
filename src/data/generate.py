@@ -92,10 +92,155 @@ def generate_simulated_dataset(
     }
 
 
-def write_simulated_dataset(path: str | Path, **kwargs: Any) -> dict[str, Any]:
-    payload = generate_simulated_dataset(**kwargs)
+def generate_dataprocessing_dataset(
+    start: datetime | None = None,
+    hours: int = 4,
+    step_seconds: int = 15,
+    seed: int = 42,
+    dataset_id: str = "dataset-dp-fixture-001",
+    cluster: str = "fixture-lab",
+    node_id: str = "fixture-node-01",
+) -> dict[str, Any]:
+    """Build a fixture that mirrors the real Data Processing prediction dataset."""
+    if start is None:
+        start = datetime(2026, 9, 21, 12, 0, tzinfo=timezone.utc)
+    rng = np.random.default_rng(seed)
+    steps = int((hours * 3600) / step_seconds)
+    records: list[dict[str, Any]] = []
+    for index in range(steps):
+        timestamp = start + timedelta(seconds=step_seconds * index)
+        hour = timestamp.hour + timestamp.minute / 60.0
+        daily = 28.0 + 32.0 * (0.5 + 0.5 * np.sin((hour - 8.5) / 24.0 * 2.0 * np.pi))
+        noise = float(rng.normal(0.0, 2.5))
+        cpu = float(np.clip(daily + noise, 4.0, 98.0))
+        records.append(
+            {
+                "timestamp": timestamp.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "cpu_utilization": round(cpu, 4),
+                "origin": "simulated",
+                "quality": "ok",
+            }
+        )
+    end = start + timedelta(seconds=step_seconds * (steps - 1))
+    return {
+        "schemaVersion": SCHEMA_VERSION,
+        "contractStatus": "provisional",
+        "datasetId": dataset_id,
+        "requestedPeriod": {
+            "start": start.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "end": end.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        },
+        "period": {
+            "start": start.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "end": end.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        },
+        "resource": {"type": "node", "cluster": cluster, "id": node_id},
+        "features": records,
+        "units": {"cpu_utilization": "%"},
+        "origins": ["simulated"],
+        "dataStatus": "partial",
+        "excludedSampleCount": 0,
+        "warnings": [
+            "Fixture that mirrors Data Processing GET /api/v1/prediction/dataset.",
+            "origin=simulated. Not real observations. Cadence is 15s like Monitoring.",
+        ],
+    }
+
+
+def generate_name_value_unit_dataset(
+    start: datetime | None = None,
+    hours: int = 4,
+    frequency_minutes: int = 5,
+    seed: int = 42,
+    dataset_id: str = "dataset-ml-spec-001",
+) -> dict[str, Any]:
+    """Build the name/value/unit contract described in ml.md."""
+    if start is None:
+        start = datetime(2026, 9, 1, tzinfo=timezone.utc)
+    rng = np.random.default_rng(seed)
+    steps = int((hours * 60) / frequency_minutes)
+    features: list[dict[str, Any]] = []
+    for index in range(steps):
+        timestamp = start + timedelta(minutes=frequency_minutes * index)
+        hour = timestamp.hour + timestamp.minute / 60.0
+        daily = 28.0 + 32.0 * (0.5 + 0.5 * np.sin((hour - 8.5) / 24.0 * 2.0 * np.pi))
+        cpu = float(np.clip(daily + float(rng.normal(0.0, 2.5)), 4.0, 98.0))
+        stamp = timestamp.strftime("%Y-%m-%dT%H:%M:%SZ")
+        features.append(
+            {
+                "name": "cpu_utilization",
+                "value": round(cpu, 4),
+                "unit": "%",
+                "timestamp": stamp,
+                "origin": "simulated",
+                "quality": "ok",
+            }
+        )
+    end = start + timedelta(minutes=frequency_minutes * (steps - 1))
+    return {
+        "schemaVersion": SCHEMA_VERSION,
+        "datasetId": dataset_id,
+        "period": {
+            "start": start.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "end": end.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        },
+        "resource": {"type": "node", "cluster": "cluster-01", "id": "node-01"},
+        "features": features,
+        "origins": ["simulated"],
+        "dataStatus": "complete",
+        "warnings": [
+            "Fixture for the name/value/unit contract in ml.md. origin=simulated."
+        ],
+    }
+
+
+def generate_no_data_dataset(dataset_id: str = "dataset-no-data-001") -> dict[str, Any]:
+    return {
+        "schemaVersion": SCHEMA_VERSION,
+        "contractStatus": "provisional",
+        "datasetId": dataset_id,
+        "requestedPeriod": {
+            "start": "2026-09-21T12:00:00Z",
+            "end": "2026-09-21T16:00:00Z",
+        },
+        "period": {
+            "start": "2026-09-21T12:00:00Z",
+            "end": "2026-09-21T16:00:00Z",
+        },
+        "resource": {"type": "node", "cluster": "fixture-lab", "id": "fixture-node-01"},
+        "features": [],
+        "units": {"cpu_utilization": "%"},
+        "origins": ["simulated"],
+        "dataStatus": "no_data",
+        "excludedSampleCount": 0,
+        "warnings": ["Data Processing reported no_data. ML must not convert this to zero."],
+    }
+
+
+def write_json_dataset(path: str | Path, payload: dict[str, Any]) -> dict[str, Any]:
     output = Path(path)
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open("w", encoding="utf-8") as handle:
         json.dump(payload, handle, indent=2)
     return payload
+
+
+def write_simulated_dataset(path: str | Path, **kwargs: Any) -> dict[str, Any]:
+    payload = generate_simulated_dataset(**kwargs)
+    return write_json_dataset(path, payload)
+
+
+def write_standard_fixtures(fixtures_dir: str | Path) -> dict[str, Path]:
+    directory = Path(fixtures_dir)
+    directory.mkdir(parents=True, exist_ok=True)
+    written = {
+        "dataprocessing": directory / "dataprocessing_prediction_dataset.json",
+        "name_value_unit": directory / "ml_name_value_unit.json",
+        "no_data": directory / "no_data.json",
+        "sample_window": directory / "sample_window.json",
+    }
+    write_json_dataset(written["dataprocessing"], generate_dataprocessing_dataset())
+    write_json_dataset(written["name_value_unit"], generate_name_value_unit_dataset())
+    write_json_dataset(written["no_data"], generate_no_data_dataset())
+    write_json_dataset(written["sample_window"], generate_simulated_dataset(days=1, seed=7, dataset_id="dataset-window-001"))
+    return written

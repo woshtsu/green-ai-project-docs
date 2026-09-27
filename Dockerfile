@@ -2,7 +2,9 @@ FROM python:3.11.9-slim-bookworm
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1
+    PIP_NO_CACHE_DIR=1 \
+    MPLBACKEND=Agg \
+    ML_ENV=experimental
 
 WORKDIR /app
 
@@ -15,6 +17,11 @@ COPY src ./src
 COPY config ./config
 COPY contracts ./contracts
 COPY scripts ./scripts
+COPY data/raw ./data/raw
+COPY data/fixtures ./data/fixtures
+
+RUN python scripts/run_pipeline.py --skip-mlflow \
+    && chown -R appuser:appuser /app
 
 USER 10001:10001
 

@@ -13,6 +13,7 @@ from src.data.schema import (
     ALLOWED_DATA_STATUS,
     ALLOWED_ORIGINS,
     ALLOWED_QUALITY,
+    BLOCKING_DATA_STATUS,
     ORIGIN_COLUMN,
     QUALITY_COLUMN,
     REQUIRED_DATASET_FIELDS,
@@ -24,7 +25,7 @@ from src.data.schema import (
     TARGET_COLUMN,
     TIMESTAMP_COLUMN,
 )
-from src.exceptions import InsufficientDataError, ValidationError
+from src.exceptions import DatasetError, InsufficientDataError, ValidationError
 
 LOGGER = logging.getLogger(__name__)
 
@@ -50,6 +51,7 @@ def validate_dataset(
     Returns a report. Raises ValidationError or InsufficientDataError on blockers.
     """
     _validate_metadata(metadata)
+    _reject_blocking_status(metadata)
 
     if frame is None or frame.empty:
         period = metadata.get("period") or {}
@@ -115,6 +117,19 @@ def validate_payload(payload: dict[str, Any]) -> None:
         raise ValidationError(
             f"Unsupported schemaVersion '{version}'",
             details={"supported": sorted(SUPPORTED_SCHEMA_VERSIONS)},
+        )
+
+
+def _reject_blocking_status(metadata: dict[str, Any]) -> None:
+    data_status = metadata.get("dataStatus")
+    if data_status in BLOCKING_DATA_STATUS:
+        raise DatasetError(
+            "Dataset has no usable observations",
+            details={
+                "code": "INVALID_DATASET",
+                "dataStatus": data_status,
+                "reason": "no_data is not converted to zero and cannot be used for prediction",
+            },
         )
 
 

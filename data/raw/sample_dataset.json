@@ -11248,6 +11248,20 @@
     "simulated"
   ],
   "dataStatus": "complete",
+  "granularity": "one_resource_per_dataset",
+  "units": {
+    "timestamp": "RFC3339",
+    "cpu_utilization": "%",
+    "memory_utilization": "%",
+    "network_in": "bytes/s",
+    "network_out": "bytes/s",
+    "workload_count": "count",
+    "pod_count": "count",
+    "cpu_requests": "cores",
+    "memory_requests": "MiB",
+    "origin": "enum",
+    "quality": "enum"
+  },
   "warnings": [
     "Dataset generated for technical validation. origin=simulated. Not real observations."
   ]

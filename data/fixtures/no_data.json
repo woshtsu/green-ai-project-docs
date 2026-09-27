@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "contractStatus": "provisional",
+  "datasetId": "dataset-no-data-001",
+  "requestedPeriod": {
+    "start": "2026-09-21T12:00:00Z",
+    "end": "2026-09-21T16:00:00Z"
+  },
+  "period": {
+    "start": "2026-09-21T12:00:00Z",
+    "end": "2026-09-21T16:00:00Z"
+  },
+  "resource": {
+    "type": "node",
+    "cluster": "fixture-lab",
+    "id": "fixture-node-01"
+  },
+  "features": [],
+  "units": {
+    "cpu_utilization": "%"
+  },
+  "origins": [
+    "simulated"
+  ],
+  "dataStatus": "no_data",
+  "excludedSampleCount": 0,
+  "warnings": [
+    "Data Processing reported no_data. ML must not convert this to zero."
+  ]
+}

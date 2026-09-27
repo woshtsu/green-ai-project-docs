@@ -5,6 +5,7 @@ from __future__ import annotations
 import logging
 from typing import Any, Iterable
 
+import numpy as np
 import pandas as pd
 
 from src.data.schema import (
@@ -52,6 +53,10 @@ def add_temporal_features(frame: pd.DataFrame) -> pd.DataFrame:
     result["minute"] = stamps.dt.minute
     result["day_of_week"] = stamps.dt.dayofweek
     result["day_of_month"] = stamps.dt.day
+    result["hour_sin"] = np.sin(2.0 * np.pi * result["hour"] / 24.0)
+    result["hour_cos"] = np.cos(2.0 * np.pi * result["hour"] / 24.0)
+    result["dow_sin"] = np.sin(2.0 * np.pi * result["day_of_week"] / 7.0)
+    result["dow_cos"] = np.cos(2.0 * np.pi * result["day_of_week"] / 7.0)
     return result
 
 
@@ -119,8 +124,14 @@ def build_supervised_frame(
     frame: pd.DataFrame,
     config: dict[str, Any],
     horizon: str,
+    require_target: bool = True,
 ) -> tuple[pd.DataFrame, list[str], pd.Timedelta, int]:
-    """Create a leakage-safe supervised table for one horizon."""
+    """Create a leakage-safe supervised table for one horizon.
+
+    Training uses require_target=True so incomplete future rows are dropped.
+    Inference uses require_target=False so the latest complete feature row
+    can forecast prediction_time + horizon.
+    """
     if frame.empty:
         raise InsufficientDataError(
             "INSUFFICIENT_DATA: no rows for feature engineering",
@@ -167,7 +178,9 @@ def build_supervised_frame(
     assert_no_positive_offsets(offsets)
     assert_features_not_copied_from_future(working, feature_names, steps)
 
-    required = feature_names + ["target", TIMESTAMP_COLUMN, "prediction_time", "target_timestamp"]
+    required = feature_names + [TIMESTAMP_COLUMN, "prediction_time", "target_timestamp"]
+    if require_target:
+        required = required + ["target"]
     supervised = working.dropna(subset=required).reset_index(drop=True)
     if supervised.empty:
         raise InsufficientDataError(
@@ -185,7 +198,8 @@ def build_supervised_frame(
             },
         )
 
-    assert_temporal_provenance(supervised, feature_names, offsets, horizon)
+    if require_target:
+        assert_temporal_provenance(supervised, feature_names, offsets, horizon)
     LOGGER.info(
         "Supervised frame horizon=%s freq=%s steps=%s rows=%s features=%s",
         horizon,
@@ -314,9 +328,10 @@ def select_feature_columns(frame: pd.DataFrame, config: dict[str, Any]) -> list[
             if name in frame.columns:
                 names.append(name)
 
-    for column in feature_cfg.get("additional", []):
-        if column in frame.columns:
-            names.append(column)
+    if feature_cfg.get("use_additional", False):
+        for column in feature_cfg.get("additional", []):
+            if column in frame.columns:
+                names.append(column)
 
     unique: list[str] = []
     for name in names:

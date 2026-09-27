@@ -7,7 +7,13 @@ import pandas as pd
 import pytest
 
 from src.config.settings import PROJECT_ROOT, load_config
-from src.data.generate import generate_simulated_dataset, write_simulated_dataset
+from src.data.generate import (
+    generate_dataprocessing_dataset,
+    generate_name_value_unit_dataset,
+    generate_no_data_dataset,
+    generate_simulated_dataset,
+    write_simulated_dataset,
+)
 
 FIXTURE_PATH = PROJECT_ROOT / "tests" / "fixtures" / "sample_dataset.json"
 
@@ -50,3 +56,18 @@ def compact_payload() -> dict:
         seed=7,
         dataset_id="dataset-compact-001",
     )
+
+
+@pytest.fixture
+def dataprocessing_payload() -> dict:
+    return generate_dataprocessing_dataset()
+
+
+@pytest.fixture
+def name_value_unit_payload() -> dict:
+    return generate_name_value_unit_dataset()
+
+
+@pytest.fixture
+def no_data_payload() -> dict:
+    return generate_no_data_dataset()

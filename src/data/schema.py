@@ -65,8 +65,37 @@ OPTIONAL_RECORD_FIELDS = (
 )
 
 ALLOWED_ORIGINS = frozenset({"observed", "simulated", "estimated", "unknown"})
-ALLOWED_QUALITY = frozenset({"ok", "complete", "degraded", "warning"})
-ALLOWED_DATA_STATUS = frozenset({"complete", "partial", "incomplete"})
+ALLOWED_QUALITY = frozenset({"ok", "complete", "degraded", "warning", "valid"})
+ALLOWED_DATA_STATUS = frozenset({"complete", "partial", "incomplete", "no_data"})
+BLOCKING_DATA_STATUS = frozenset({"no_data"})
+
+QUALITY_ALIASES = {
+    "valid": "ok",
+    "complete": "ok",
+}
+
+FEATURE_NAME_ALIASES = {
+    "cpu_utilization": "cpu_utilization",
+    "cpu": "cpu_utilization",
+    "cpu_usage": "cpu_utilization",
+    "cpu_utilization_pct": "cpu_utilization",
+    "node.cpu.utilization": "cpu_utilization",
+    "memory_utilization": "memory_utilization",
+    "memory": "memory_utilization",
+    "ram_utilization_pct": "memory_utilization",
+    "node.memory.used": "memory_utilization",
+    "network_in": "network_in",
+    "node.network.receive": "network_in",
+    "network_out": "network_out",
+    "node.network.transmit": "network_out",
+    "workload_count": "workload_count",
+    "pod_count": "pod_count",
+    "cpu_requests": "cpu_requests",
+    "memory_requests": "memory_requests",
+}
+
+RATIO_UNITS = frozenset({"ratio", "1", "fraction"})
+PERCENT_COLUMNS = frozenset({"cpu_utilization", "memory_utilization"})
 
 TARGET_COLUMN = "cpu_utilization"
 TARGET_UNIT = "%"

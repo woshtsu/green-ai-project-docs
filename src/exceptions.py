@@ -29,6 +29,12 @@ class ValidationError(MLError):
     code = "VALIDATION_ERROR"
 
 
+class DatasetError(MLError):
+    """Raised when a dataset contract is structurally present but unusable."""
+
+    code = "INVALID_DATASET"
+
+
 class LeakageError(MLError):
     """Raised when a future-looking feature is detected."""
 
@@ -36,7 +42,7 @@ class LeakageError(MLError):
 
 
 class InsufficientDataError(MLError):
-    """Raised when there is not enough data to train or evaluate."""
+    """Raised when there is not enough data to train, evaluate or infer."""
 
     code = "INSUFFICIENT_DATA"
 

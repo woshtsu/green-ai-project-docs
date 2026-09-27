@@ -38,6 +38,7 @@ def test_innocent_named_future_column_is_rejected(config):
     frame = _cpu_frame()
     frame["cpu_followup"] = frame["cpu_utilization"].shift(-1)
     leaked_config = json.loads(json.dumps(config))
+    leaked_config["features"]["use_additional"] = True
     leaked_config["features"]["additional"] = ["memory_utilization", "cpu_followup"]
     with pytest.raises(LeakageError, match="cpu_followup"):
         build_supervised_frame(frame, leaked_config, "15m")

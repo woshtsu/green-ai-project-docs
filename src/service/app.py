@@ -1,6 +1,6 @@
-"""Versioned internal Prediction API.
+"""Internal Prediction API.
 
-Does not query Prometheus, Supabase or Kubernetes. Callers are Gateway/Decision.
+Does not query Prometheus, Supabase or Kubernetes.
 """
 
 from __future__ import annotations
@@ -9,35 +9,27 @@ import logging
 import uuid
 from typing import Any
 
-from fastapi import FastAPI, Header, HTTPException, Request
+from fastapi import FastAPI, Header, Request
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel, Field
 
-from src.config.settings import load_config
-from src.exceptions import ArtifactIntegrityError, InsufficientDataError, MLError, ModelNotFoundError
-from src.inference.predict import load_selected_model, predict_from_window
+from src.exceptions import (
+    ArtifactIntegrityError,
+    DatasetError,
+    InsufficientDataError,
+    LeakageError,
+    MLError,
+    ModelNotFoundError,
+    ValidationError,
+)
+from src.inference.predict import load_selected_model, predict_from_payload
 
 LOGGER = logging.getLogger(__name__)
-MAX_RECORDS = 5000
 
 app = FastAPI(
     title="Prediction Service",
     version="1.0.0",
-    description="Internal API for short-term CPU demand estimates.",
+    description="Internal API for short-term computational demand estimates.",
 )
-
-
-class Resource(BaseModel):
-    type: str
-    cluster: str
-    id: str
-
-
-class DatasetWindow(BaseModel):
-    schemaVersion: str = "1.0"
-    datasetId: str | None = None
-    resource: Resource | None = None
-    features: list[dict[str, Any]] = Field(..., min_length=2, max_length=MAX_RECORDS)
 
 
 @app.middleware("http")
@@ -49,18 +41,58 @@ async def add_request_id(request: Request, call_next):
     return response
 
 
+def _error_payload(code: str, message: str, details: dict[str, Any] | None = None) -> dict[str, Any]:
+    return {"code": code, "message": message, "details": details or {}}
+
+
+def _map_error(exc: Exception) -> tuple[int, str, str, dict[str, Any]]:
+    if isinstance(exc, (ModelNotFoundError, ArtifactIntegrityError)):
+        return 503, "MODEL_UNAVAILABLE", exc.message, getattr(exc, "details", {}) or {}
+    if isinstance(exc, (DatasetError, InsufficientDataError)):
+        return 422, "INVALID_DATASET", exc.message, getattr(exc, "details", {}) or {}
+    if isinstance(exc, (ValidationError, LeakageError)):
+        return 400, "INVALID_INPUT", exc.message, getattr(exc, "details", {}) or {}
+    if isinstance(exc, MLError):
+        return 400, exc.code, exc.message, exc.details
+    return 500, "INFERENCE_ERROR", "Inference failed", {}
+
+
 @app.exception_handler(MLError)
 async def ml_error_handler(request: Request, exc: MLError) -> JSONResponse:
-    status = 404 if isinstance(exc, ModelNotFoundError) else 400
-    if isinstance(exc, ArtifactIntegrityError):
-        status = 409
-    if isinstance(exc, InsufficientDataError):
-        status = 422
+    status, code, message, details = _map_error(exc)
     return JSONResponse(
         status_code=status,
-        content={"code": exc.code, "message": exc.message, "details": exc.details},
+        content=_error_payload(code, message, details),
         headers={"X-Request-Id": getattr(request.state, "request_id", "")},
     )
+
+
+@app.exception_handler(Exception)
+async def unhandled_error_handler(request: Request, exc: Exception) -> JSONResponse:
+    LOGGER.exception("Unhandled inference error")
+    return JSONResponse(
+        status_code=500,
+        content=_error_payload("INFERENCE_ERROR", "Inference failed"),
+        headers={"X-Request-Id": getattr(request.state, "request_id", "")},
+    )
+
+
+@app.get("/health")
+def health() -> dict[str, Any]:
+    try:
+        loaded = load_selected_model()
+        metadata = loaded["metadata"]
+        return {
+            "status": "ok",
+            "modelLoaded": True,
+            "modelVersion": metadata.get("modelVersion"),
+        }
+    except MLError:
+        return {
+            "status": "degraded",
+            "modelLoaded": False,
+            "modelVersion": None,
+        }
 
 
 @app.get("/health/live")
@@ -74,6 +106,7 @@ def readiness() -> dict[str, Any]:
     metadata = loaded["metadata"]
     return {
         "status": "ready",
+        "modelLoaded": True,
         "modelVersion": metadata.get("modelVersion"),
         "horizon": metadata.get("horizon"),
         "artifactCompatible": True,
@@ -82,34 +115,16 @@ def readiness() -> dict[str, Any]:
     }
 
 
+@app.post("/predict")
 @app.post("/v1/predictions")
 def create_prediction(
-    payload: DatasetWindow,
+    payload: dict[str, Any],
     request: Request,
     x_request_id: str | None = Header(default=None, alias="X-Request-Id"),
 ) -> dict[str, Any]:
-    if payload.schemaVersion != "1.0":
-        raise HTTPException(status_code=400, detail="Unsupported schemaVersion")
-    config = load_config()
-    result = predict_from_window(
-        payload.features,
-        config=config,
+    if not isinstance(payload, dict):
+        raise ValidationError("Input payload must be a JSON object")
+    return predict_from_payload(
+        payload,
         request_id=x_request_id or getattr(request.state, "request_id", None),
     )
-    if payload.resource:
-        result["resource"] = payload.resource.model_dump()
-    if payload.datasetId:
-        result["inputDatasetId"] = payload.datasetId
-    return {
-        "predictionId": result["predictionId"],
-        "resource": result.get("resource"),
-        "target": result["target"],
-        "predictedFor": result.get("predictedFor"),
-        "generatedAt": result.get("generatedAt"),
-        "value": result["value"],
-        "unit": result["unit"],
-        "horizon": result["horizon"],
-        "modelVersion": result.get("modelVersion"),
-        "inputDatasetId": result.get("inputDatasetId"),
-        "origin": "estimated",
-    }

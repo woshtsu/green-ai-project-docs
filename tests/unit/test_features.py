@@ -34,6 +34,8 @@ def test_temporal_features_are_derived_from_timestamp():
     assert list(frame["minute"]) == [0, 5, 10]
     assert list(frame["day_of_week"]) == [1, 1, 1]
     assert list(frame["day_of_month"]) == [1, 1, 1]
+    assert frame["hour_sin"].between(-1, 1).all()
+    assert frame["hour_cos"].between(-1, 1).all()
 
 
 def test_lags_use_only_past_values():

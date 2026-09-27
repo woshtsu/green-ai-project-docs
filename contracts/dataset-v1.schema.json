@@ -3,7 +3,7 @@
   "$id": "https://green-ai.local/contracts/dataset-v1.schema.json",
   "title": "Data Processing dataset v1",
   "type": "object",
-  "additionalProperties": false,
+  "additionalProperties": true,
   "required": [
     "schemaVersion",
     "datasetId",
@@ -44,8 +44,11 @@
       "minItems": 1,
       "items": { "enum": ["observed", "simulated", "estimated", "unknown"] }
     },
-    "dataStatus": { "enum": ["complete", "partial", "incomplete"] },
-    "warnings": { "type": "array", "items": { "type": "string" } }
+    "dataStatus": { "enum": ["complete", "partial", "incomplete", "no_data"] },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "contractStatus": { "type": "string" },
+    "requestedPeriod": { "type": "object" },
+    "excludedSampleCount": { "type": "integer" }
   },
   "$defs": {
     "record": {
@@ -62,7 +65,7 @@
         "cpu_requests": { "type": "number", "description": "cores" },
         "memory_requests": { "type": "number", "description": "MiB" },
         "origin": { "enum": ["observed", "simulated", "estimated", "unknown"] },
-        "quality": { "enum": ["ok", "complete", "degraded", "warning"] }
+        "quality": { "enum": ["ok", "complete", "degraded", "warning", "valid"] }
       }
     }
   }

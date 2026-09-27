@@ -4,7 +4,7 @@ import pandas as pd
 import pytest
 
 from src.data.validation import validate_dataset
-from src.exceptions import InsufficientDataError, ValidationError
+from src.exceptions import DatasetError, InsufficientDataError, ValidationError
 
 
 def _meta(origins=None, status="complete") -> dict:
@@ -146,6 +146,16 @@ def test_mixed_origins_require_explicit_operation():
         validate_dataset(frame, meta, allow_mixed_origins=False)
     report = validate_dataset(frame, meta, allow_mixed_origins=True)
     assert report["valid"] is True
+
+
+def test_no_data_status_is_rejected_without_imputation():
+    frame = _frame(
+        [
+            {"timestamp": "2026-09-01T00:00:00Z", "cpu_utilization": 10, "origin": "simulated", "quality": "ok"},
+        ]
+    )
+    with pytest.raises(DatasetError, match="no usable observations"):
+        validate_dataset(frame, _meta(status="no_data"))
 
 
 def test_invalid_data_status_is_rejected():

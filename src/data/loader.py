@@ -45,29 +45,44 @@ def load_dataset(path: str | Path) -> DatasetBundle:
 
     if not isinstance(payload, dict):
         raise ValidationError("Dataset root must be a JSON object")
-    validate_payload(payload)
 
-    records = payload.get("features", [])
-    if records is None:
-        records = []
-    if not isinstance(records, list):
-        raise ValidationError("Dataset field 'features' must be a list")
+    if _looks_internal(payload):
+        validate_payload(payload)
+        records = payload.get("features") or []
+        if not isinstance(records, list):
+            raise ValidationError("Dataset field 'features' must be a list")
+        frame = pd.DataFrame(records)
+        if TIMESTAMP_COLUMN in frame.columns:
+            frame[TIMESTAMP_COLUMN] = pd.to_datetime(frame[TIMESTAMP_COLUMN], errors="coerce")
+        metadata = {
+            "schemaVersion": payload.get("schemaVersion"),
+            "datasetId": payload.get("datasetId"),
+            "period": payload.get("period"),
+            "resource": payload.get("resource"),
+            "origins": payload.get("origins"),
+            "dataStatus": payload.get("dataStatus"),
+            "warnings": payload.get("warnings") or [],
+            "sourcePath": str(dataset_path),
+            "feature_count": len(records),
+        }
+    else:
+        from src.adapters.input_adapter import adapt_input
 
-    frame = pd.DataFrame(records)
-    if TIMESTAMP_COLUMN in frame.columns:
-        # Do not force UTC here: naive timestamps must fail validation.
-        frame[TIMESTAMP_COLUMN] = pd.to_datetime(frame[TIMESTAMP_COLUMN], errors="coerce")
+        adapted = adapt_input(payload, strict=True, expected_frequency=None)
+        validate_payload(adapted.payload)
+        frame = adapted.frame
+        metadata = dict(adapted.metadata)
+        metadata["sourcePath"] = str(dataset_path)
+        metadata["feature_count"] = int(len(frame))
+        metadata["sourceFormat"] = adapted.source_format
 
-    metadata = {
-        "schemaVersion": payload.get("schemaVersion"),
-        "datasetId": payload.get("datasetId"),
-        "period": payload.get("period"),
-        "resource": payload.get("resource"),
-        "origins": payload.get("origins"),
-        "dataStatus": payload.get("dataStatus"),
-        "warnings": payload.get("warnings") or [],
-        "sourcePath": str(dataset_path),
-        "feature_count": len(records),
-    }
     LOGGER.info("Loaded dataset %s with %s records", metadata.get("datasetId"), len(frame))
     return DatasetBundle(frame=frame, metadata=metadata, path=dataset_path)
+
+
+def _looks_internal(payload: dict[str, Any]) -> bool:
+    features = payload.get("features")
+    if not isinstance(features, list) or not features:
+        return False
+    first = features[0]
+    return isinstance(first, dict) and TIMESTAMP_COLUMN in first and "cpu_utilization" in first

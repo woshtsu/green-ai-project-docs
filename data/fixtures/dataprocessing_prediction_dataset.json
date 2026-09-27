@@ -1,0 +1,5792 @@
+{
+  "schemaVersion": "1.0",
+  "contractStatus": "provisional",
+  "datasetId": "dataset-dp-fixture-001",
+  "requestedPeriod": {
+    "start": "2026-09-21T12:00:00Z",
+    "end": "2026-09-21T15:59:45Z"
+  },
+  "period": {
+    "start": "2026-09-21T12:00:00Z",
+    "end": "2026-09-21T15:59:45Z"
+  },
+  "resource": {
+    "type": "node",
+    "cluster": "fixture-lab",
+    "id": "fixture-node-01"
+  },
+  "features": [
+    {
+      "timestamp": "2026-09-21T12:00:00Z",
+      "cpu_utilization": 57.4554,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:00:15Z",
+      "cpu_utilization": 54.0937,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:00:30Z",
+      "cpu_utilization": 58.5698,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:00:45Z",
+      "cpu_utilization": 59.0451,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:01:00Z",
+      "cpu_utilization": 51.8584,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:01:15Z",
+      "cpu_utilization": 53.4806,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:01:30Z",
+      "cpu_utilization": 57.0556,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:01:45Z",
+      "cpu_utilization": 55.9454,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:02:00Z",
+      "cpu_utilization": 56.7362,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:02:15Z",
+      "cpu_utilization": 54.6456,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:02:30Z",
+      "cpu_utilization": 58.9767,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:02:45Z",
+      "cpu_utilization": 58.7226,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:03:00Z",
+      "cpu_utilization": 56.9851,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:03:15Z",
+      "cpu_utilization": 59.6382,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:03:30Z",
+      "cpu_utilization": 57.9888,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:03:45Z",
+      "cpu_utilization": 54.6718,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:04:00Z",
+      "cpu_utilization": 57.7836,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:04:15Z",
+      "cpu_utilization": 54.4645,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:04:30Z",
+      "cpu_utilization": 59.0578,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:04:45Z",
+      "cpu_utilization": 56.7369,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:05:00Z",
+      "cpu_utilization": 56.441,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:05:15Z",
+      "cpu_utilization": 55.2008,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:05:30Z",
+      "cpu_utilization": 59.9595,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:05:45Z",
+      "cpu_utilization": 56.5168,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:06:00Z",
+      "cpu_utilization": 55.8735,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:06:15Z",
+      "cpu_utilization": 56.0639,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:06:30Z",
+      "cpu_utilization": 58.275,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:06:45Z",
+      "cpu_utilization": 57.8579,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:07:00Z",
+      "cpu_utilization": 58.017,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:07:15Z",
+      "cpu_utilization": 58.0622,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:07:30Z",
+      "cpu_utilization": 62.3393,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:07:45Z",
+      "cpu_utilization": 55.9691,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:08:00Z",
+      "cpu_utilization": 55.7452,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:08:15Z",
+      "cpu_utilization": 54.9914,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:08:30Z",
+      "cpu_utilization": 58.5658,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:08:45Z",
+      "cpu_utilization": 59.8483,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:09:00Z",
+      "cpu_utilization": 56.7814,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:09:15Z",
+      "cpu_utilization": 54.9659,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:09:30Z",
+      "cpu_utilization": 55.0051,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:09:45Z",
+      "cpu_utilization": 58.6927,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:10:00Z",
+      "cpu_utilization": 58.9646,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:10:15Z",
+      "cpu_utilization": 58.4643,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:10:30Z",
+      "cpu_utilization": 55.4427,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:10:45Z",
+      "cpu_utilization": 57.6868,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:11:00Z",
+      "cpu_utilization": 57.4381,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:11:15Z",
+      "cpu_utilization": 57.6931,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:11:30Z",
+      "cpu_utilization": 59.3249,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:11:45Z",
+      "cpu_utilization": 57.7053,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:12:00Z",
+      "cpu_utilization": 58.8833,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:12:15Z",
+      "cpu_utilization": 57.355,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:12:30Z",
+      "cpu_utilization": 57.9088,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:12:45Z",
+      "cpu_utilization": 58.7642,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:13:00Z",
+      "cpu_utilization": 53.5825,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:13:15Z",
+      "cpu_utilization": 56.4263,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:13:30Z",
+      "cpu_utilization": 56.0495,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:13:45Z",
+      "cpu_utilization": 55.6282,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:14:00Z",
+      "cpu_utilization": 56.5767,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:14:15Z",
+      "cpu_utilization": 61.002,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:14:30Z",
+      "cpu_utilization": 55.1,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:14:45Z",
+      "cpu_utilization": 59.6853,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:15:00Z",
+      "cpu_utilization": 53.0963,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:15:15Z",
+      "cpu_utilization": 56.4663,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:15:30Z",
+      "cpu_utilization": 57.7104,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:15:45Z",
+      "cpu_utilization": 58.7691,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:16:00Z",
+      "cpu_utilization": 59.1202,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:16:15Z",
+      "cpu_utilization": 59.3255,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:16:30Z",
+      "cpu_utilization": 56.4704,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:16:45Z",
+      "cpu_utilization": 56.1863,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:17:00Z",
+      "cpu_utilization": 59.5255,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:17:15Z",
+      "cpu_utilization": 56.9023,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:17:30Z",
+      "cpu_utilization": 54.1914,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:17:45Z",
+      "cpu_utilization": 54.5474,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:18:00Z",
+      "cpu_utilization": 55.1201,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:18:15Z",
+      "cpu_utilization": 58.6616,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:18:30Z",
+      "cpu_utilization": 57.7748,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:18:45Z",
+      "cpu_utilization": 59.1449,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:19:00Z",
+      "cpu_utilization": 56.3885,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:19:15Z",
+      "cpu_utilization": 57.853,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:19:30Z",
+      "cpu_utilization": 59.0206,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:19:45Z",
+      "cpu_utilization": 56.6833,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:20:00Z",
+      "cpu_utilization": 58.6362,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:20:15Z",
+      "cpu_utilization": 55.8394,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:20:30Z",
+      "cpu_utilization": 56.5866,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:20:45Z",
+      "cpu_utilization": 56.5399,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:21:00Z",
+      "cpu_utilization": 54.542,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:21:15Z",
+      "cpu_utilization": 58.7491,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:21:30Z",
+      "cpu_utilization": 56.3581,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:21:45Z",
+      "cpu_utilization": 57.5629,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:22:00Z",
+      "cpu_utilization": 58.7706,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:22:15Z",
+      "cpu_utilization": 58.6851,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:22:30Z",
+      "cpu_utilization": 59.2322,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:22:45Z",
+      "cpu_utilization": 57.3226,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:23:00Z",
+      "cpu_utilization": 56.5474,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:23:15Z",
+      "cpu_utilization": 57.4063,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:23:30Z",
+      "cpu_utilization": 53.3873,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:23:45Z",
+      "cpu_utilization": 53.9879,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:24:00Z",
+      "cpu_utilization": 54.3355,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:24:15Z",
+      "cpu_utilization": 55.1491,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:24:30Z",
+      "cpu_utilization": 58.6417,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:24:45Z",
+      "cpu_utilization": 55.3785,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:25:00Z",
+      "cpu_utilization": 56.7332,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:25:15Z",
+      "cpu_utilization": 60.9267,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:25:30Z",
+      "cpu_utilization": 56.7879,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:25:45Z",
+      "cpu_utilization": 59.5224,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:26:00Z",
+      "cpu_utilization": 55.3806,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:26:15Z",
+      "cpu_utilization": 57.2011,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:26:30Z",
+      "cpu_utilization": 55.3396,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:26:45Z",
+      "cpu_utilization": 56.8671,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:27:00Z",
+      "cpu_utilization": 59.8513,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:27:15Z",
+      "cpu_utilization": 53.4322,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:27:30Z",
+      "cpu_utilization": 58.8366,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:27:45Z",
+      "cpu_utilization": 58.3448,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:28:00Z",
+      "cpu_utilization": 56.3007,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:28:15Z",
+      "cpu_utilization": 54.1709,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:28:30Z",
+      "cpu_utilization": 57.9664,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:28:45Z",
+      "cpu_utilization": 56.4623,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:29:00Z",
+      "cpu_utilization": 58.4031,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:29:15Z",
+      "cpu_utilization": 57.876,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:29:30Z",
+      "cpu_utilization": 61.8258,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:29:45Z",
+      "cpu_utilization": 57.223,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:30:00Z",
+      "cpu_utilization": 55.2977,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:30:15Z",
+      "cpu_utilization": 58.3046,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:30:30Z",
+      "cpu_utilization": 58.4064,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:30:45Z",
+      "cpu_utilization": 61.2544,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:31:00Z",
+      "cpu_utilization": 59.979,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:31:15Z",
+      "cpu_utilization": 58.7834,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:31:30Z",
+      "cpu_utilization": 61.5494,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:31:45Z",
+      "cpu_utilization": 54.9193,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:32:00Z",
+      "cpu_utilization": 56.3263,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:32:15Z",
+      "cpu_utilization": 55.6093,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:32:30Z",
+      "cpu_utilization": 56.9512,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:32:45Z",
+      "cpu_utilization": 54.484,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:33:00Z",
+      "cpu_utilization": 59.5478,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:33:15Z",
+      "cpu_utilization": 57.4044,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:33:30Z",
+      "cpu_utilization": 54.2829,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:33:45Z",
+      "cpu_utilization": 55.421,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:34:00Z",
+      "cpu_utilization": 58.7777,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:34:15Z",
+      "cpu_utilization": 60.0892,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:34:30Z",
+      "cpu_utilization": 62.9857,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:34:45Z",
+      "cpu_utilization": 65.2786,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:35:00Z",
+      "cpu_utilization": 59.0637,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:35:15Z",
+      "cpu_utilization": 55.5538,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:35:30Z",
+      "cpu_utilization": 52.6975,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:35:45Z",
+      "cpu_utilization": 58.6969,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:36:00Z",
+      "cpu_utilization": 56.0287,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:36:15Z",
+      "cpu_utilization": 57.0227,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:36:30Z",
+      "cpu_utilization": 56.5308,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:36:45Z",
+      "cpu_utilization": 57.7091,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:37:00Z",
+      "cpu_utilization": 60.7592,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:37:15Z",
+      "cpu_utilization": 58.4869,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:37:30Z",
+      "cpu_utilization": 57.6977,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:37:45Z",
+      "cpu_utilization": 55.5051,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:38:00Z",
+      "cpu_utilization": 53.9405,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:38:15Z",
+      "cpu_utilization": 56.9114,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:38:30Z",
+      "cpu_utilization": 57.9927,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:38:45Z",
+      "cpu_utilization": 62.547,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:39:00Z",
+      "cpu_utilization": 58.4855,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:39:15Z",
+      "cpu_utilization": 60.6167,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:39:30Z",
+      "cpu_utilization": 56.9116,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:39:45Z",
+      "cpu_utilization": 55.1974,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:40:00Z",
+      "cpu_utilization": 55.7794,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:40:15Z",
+      "cpu_utilization": 56.3791,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:40:30Z",
+      "cpu_utilization": 63.5133,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:40:45Z",
+      "cpu_utilization": 56.1387,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:41:00Z",
+      "cpu_utilization": 60.3205,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:41:15Z",
+      "cpu_utilization": 55.967,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:41:30Z",
+      "cpu_utilization": 60.5532,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:41:45Z",
+      "cpu_utilization": 59.1867,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:42:00Z",
+      "cpu_utilization": 57.8645,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:42:15Z",
+      "cpu_utilization": 58.1542,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:42:30Z",
+      "cpu_utilization": 56.6191,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:42:45Z",
+      "cpu_utilization": 59.3713,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:43:00Z",
+      "cpu_utilization": 57.1502,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:43:15Z",
+      "cpu_utilization": 55.2236,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:43:30Z",
+      "cpu_utilization": 55.0928,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:43:45Z",
+      "cpu_utilization": 58.7191,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:44:00Z",
+      "cpu_utilization": 62.2667,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:44:15Z",
+      "cpu_utilization": 58.7189,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:44:30Z",
+      "cpu_utilization": 58.0224,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:44:45Z",
+      "cpu_utilization": 59.0335,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:45:00Z",
+      "cpu_utilization": 61.615,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:45:15Z",
+      "cpu_utilization": 58.8984,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:45:30Z",
+      "cpu_utilization": 57.3226,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:45:45Z",
+      "cpu_utilization": 61.1157,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:46:00Z",
+      "cpu_utilization": 59.4526,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:46:15Z",
+      "cpu_utilization": 62.2201,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:46:30Z",
+      "cpu_utilization": 58.8388,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:46:45Z",
+      "cpu_utilization": 55.3195,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:47:00Z",
+      "cpu_utilization": 54.9908,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:47:15Z",
+      "cpu_utilization": 62.5385,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:47:30Z",
+      "cpu_utilization": 62.7203,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:47:45Z",
+      "cpu_utilization": 57.9624,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:48:00Z",
+      "cpu_utilization": 57.4834,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:48:15Z",
+      "cpu_utilization": 62.095,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:48:30Z",
+      "cpu_utilization": 55.6738,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:48:45Z",
+      "cpu_utilization": 56.2045,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:49:00Z",
+      "cpu_utilization": 60.0796,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:49:15Z",
+      "cpu_utilization": 57.4848,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:49:30Z",
+      "cpu_utilization": 58.4585,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:49:45Z",
+      "cpu_utilization": 58.0627,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:50:00Z",
+      "cpu_utilization": 59.3449,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:50:15Z",
+      "cpu_utilization": 62.0196,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:50:30Z",
+      "cpu_utilization": 58.7274,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:50:45Z",
+      "cpu_utilization": 60.1108,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:51:00Z",
+      "cpu_utilization": 53.4049,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:51:15Z",
+      "cpu_utilization": 58.4085,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:51:30Z",
+      "cpu_utilization": 56.4222,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:51:45Z",
+      "cpu_utilization": 55.4833,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:52:00Z",
+      "cpu_utilization": 56.364,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:52:15Z",
+      "cpu_utilization": 57.7241,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:52:30Z",
+      "cpu_utilization": 60.8491,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:52:45Z",
+      "cpu_utilization": 55.2434,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:53:00Z",
+      "cpu_utilization": 58.6648,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:53:15Z",
+      "cpu_utilization": 57.3778,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:53:30Z",
+      "cpu_utilization": 57.769,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:53:45Z",
+      "cpu_utilization": 61.0951,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:54:00Z",
+      "cpu_utilization": 59.962,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:54:15Z",
+      "cpu_utilization": 61.9602,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:54:30Z",
+      "cpu_utilization": 58.2305,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:54:45Z",
+      "cpu_utilization": 56.8769,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:55:00Z",
+      "cpu_utilization": 58.0853,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:55:15Z",
+      "cpu_utilization": 59.2512,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:55:30Z",
+      "cpu_utilization": 59.0864,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:55:45Z",
+      "cpu_utilization": 55.934,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:56:00Z",
+      "cpu_utilization": 58.8992,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:56:15Z",
+      "cpu_utilization": 59.2435,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:56:30Z",
+      "cpu_utilization": 64.9666,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:56:45Z",
+      "cpu_utilization": 63.3651,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:57:00Z",
+      "cpu_utilization": 56.5676,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:57:15Z",
+      "cpu_utilization": 57.9822,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:57:30Z",
+      "cpu_utilization": 55.0421,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:57:45Z",
+      "cpu_utilization": 57.2239,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:58:00Z",
+      "cpu_utilization": 59.5171,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:58:15Z",
+      "cpu_utilization": 61.7427,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:58:30Z",
+      "cpu_utilization": 56.9054,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:58:45Z",
+      "cpu_utilization": 57.0927,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:59:00Z",
+      "cpu_utilization": 53.387,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:59:15Z",
+      "cpu_utilization": 58.3486,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:59:30Z",
+      "cpu_utilization": 56.0992,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T12:59:45Z",
+      "cpu_utilization": 57.4316,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:00:00Z",
+      "cpu_utilization": 56.5899,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:00:15Z",
+      "cpu_utilization": 58.5464,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:00:30Z",
+      "cpu_utilization": 54.3878,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:00:45Z",
+      "cpu_utilization": 55.1145,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:01:00Z",
+      "cpu_utilization": 64.1318,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:01:15Z",
+      "cpu_utilization": 55.5901,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:01:30Z",
+      "cpu_utilization": 56.0667,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:01:45Z",
+      "cpu_utilization": 63.4009,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:02:00Z",
+      "cpu_utilization": 66.0976,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:02:15Z",
+      "cpu_utilization": 55.906,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:02:30Z",
+      "cpu_utilization": 57.9143,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:02:45Z",
+      "cpu_utilization": 59.6888,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:03:00Z",
+      "cpu_utilization": 63.1827,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:03:15Z",
+      "cpu_utilization": 56.3938,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:03:30Z",
+      "cpu_utilization": 58.2478,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:03:45Z",
+      "cpu_utilization": 60.8043,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:04:00Z",
+      "cpu_utilization": 59.9736,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:04:15Z",
+      "cpu_utilization": 57.9463,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:04:30Z",
+      "cpu_utilization": 58.5521,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:04:45Z",
+      "cpu_utilization": 55.4494,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:05:00Z",
+      "cpu_utilization": 58.3167,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:05:15Z",
+      "cpu_utilization": 58.2462,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:05:30Z",
+      "cpu_utilization": 59.4926,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:05:45Z",
+      "cpu_utilization": 57.5238,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:06:00Z",
+      "cpu_utilization": 60.1161,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:06:15Z",
+      "cpu_utilization": 61.4691,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:06:30Z",
+      "cpu_utilization": 59.3259,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:06:45Z",
+      "cpu_utilization": 59.8167,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:07:00Z",
+      "cpu_utilization": 59.0951,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:07:15Z",
+      "cpu_utilization": 58.9624,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:07:30Z",
+      "cpu_utilization": 57.1583,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:07:45Z",
+      "cpu_utilization": 59.7534,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:08:00Z",
+      "cpu_utilization": 58.7435,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:08:15Z",
+      "cpu_utilization": 64.2197,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:08:30Z",
+      "cpu_utilization": 62.9201,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:08:45Z",
+      "cpu_utilization": 59.9514,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:09:00Z",
+      "cpu_utilization": 57.1034,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:09:15Z",
+      "cpu_utilization": 56.23,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:09:30Z",
+      "cpu_utilization": 61.9889,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:09:45Z",
+      "cpu_utilization": 59.6679,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:10:00Z",
+      "cpu_utilization": 60.2354,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:10:15Z",
+      "cpu_utilization": 54.6736,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:10:30Z",
+      "cpu_utilization": 61.3537,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:10:45Z",
+      "cpu_utilization": 60.1711,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:11:00Z",
+      "cpu_utilization": 56.2827,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:11:15Z",
+      "cpu_utilization": 57.88,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:11:30Z",
+      "cpu_utilization": 59.7181,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:11:45Z",
+      "cpu_utilization": 59.19,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:12:00Z",
+      "cpu_utilization": 58.3518,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:12:15Z",
+      "cpu_utilization": 58.8235,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:12:30Z",
+      "cpu_utilization": 58.4523,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:12:45Z",
+      "cpu_utilization": 59.4637,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:13:00Z",
+      "cpu_utilization": 62.7842,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:13:15Z",
+      "cpu_utilization": 52.6888,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:13:30Z",
+      "cpu_utilization": 58.5133,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:13:45Z",
+      "cpu_utilization": 59.5467,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:14:00Z",
+      "cpu_utilization": 59.8683,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:14:15Z",
+      "cpu_utilization": 58.1985,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:14:30Z",
+      "cpu_utilization": 54.7365,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:14:45Z",
+      "cpu_utilization": 59.9483,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:15:00Z",
+      "cpu_utilization": 63.4693,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:15:15Z",
+      "cpu_utilization": 55.3162,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:15:30Z",
+      "cpu_utilization": 61.3105,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:15:45Z",
+      "cpu_utilization": 58.3296,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:16:00Z",
+      "cpu_utilization": 59.0199,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:16:15Z",
+      "cpu_utilization": 56.5409,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:16:30Z",
+      "cpu_utilization": 58.337,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:16:45Z",
+      "cpu_utilization": 62.4233,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:17:00Z",
+      "cpu_utilization": 60.6518,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:17:15Z",
+      "cpu_utilization": 63.526,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:17:30Z",
+      "cpu_utilization": 62.1387,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:17:45Z",
+      "cpu_utilization": 60.2929,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:18:00Z",
+      "cpu_utilization": 63.5767,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:18:15Z",
+      "cpu_utilization": 60.3144,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:18:30Z",
+      "cpu_utilization": 61.2869,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:18:45Z",
+      "cpu_utilization": 58.4755,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:19:00Z",
+      "cpu_utilization": 59.4047,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:19:15Z",
+      "cpu_utilization": 57.4948,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:19:30Z",
+      "cpu_utilization": 61.7123,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:19:45Z",
+      "cpu_utilization": 56.2926,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:20:00Z",
+      "cpu_utilization": 61.2153,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:20:15Z",
+      "cpu_utilization": 58.7828,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:20:30Z",
+      "cpu_utilization": 62.1876,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:20:45Z",
+      "cpu_utilization": 61.1366,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:21:00Z",
+      "cpu_utilization": 63.8319,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:21:15Z",
+      "cpu_utilization": 61.1073,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:21:30Z",
+      "cpu_utilization": 55.3502,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:21:45Z",
+      "cpu_utilization": 59.1129,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:22:00Z",
+      "cpu_utilization": 56.3709,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:22:15Z",
+      "cpu_utilization": 58.0052,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:22:30Z",
+      "cpu_utilization": 63.0789,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:22:45Z",
+      "cpu_utilization": 60.8947,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:23:00Z",
+      "cpu_utilization": 57.5738,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:23:15Z",
+      "cpu_utilization": 56.7868,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:23:30Z",
+      "cpu_utilization": 59.4031,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:23:45Z",
+      "cpu_utilization": 56.2797,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:24:00Z",
+      "cpu_utilization": 57.6633,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:24:15Z",
+      "cpu_utilization": 60.1211,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:24:30Z",
+      "cpu_utilization": 62.2294,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:24:45Z",
+      "cpu_utilization": 60.863,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:25:00Z",
+      "cpu_utilization": 53.6326,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:25:15Z",
+      "cpu_utilization": 60.1217,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:25:30Z",
+      "cpu_utilization": 59.5409,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:25:45Z",
+      "cpu_utilization": 60.3955,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:26:00Z",
+      "cpu_utilization": 63.4207,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:26:15Z",
+      "cpu_utilization": 54.2221,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:26:30Z",
+      "cpu_utilization": 57.9024,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:26:45Z",
+      "cpu_utilization": 60.8575,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:27:00Z",
+      "cpu_utilization": 55.4453,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:27:15Z",
+      "cpu_utilization": 63.0892,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:27:30Z",
+      "cpu_utilization": 60.3202,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:27:45Z",
+      "cpu_utilization": 61.5157,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:28:00Z",
+      "cpu_utilization": 57.9907,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:28:15Z",
+      "cpu_utilization": 61.4525,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:28:30Z",
+      "cpu_utilization": 62.0893,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:28:45Z",
+      "cpu_utilization": 60.0003,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:29:00Z",
+      "cpu_utilization": 60.0226,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:29:15Z",
+      "cpu_utilization": 60.1125,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:29:30Z",
+      "cpu_utilization": 57.2782,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:29:45Z",
+      "cpu_utilization": 59.0678,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:30:00Z",
+      "cpu_utilization": 59.0735,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:30:15Z",
+      "cpu_utilization": 60.4133,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:30:30Z",
+      "cpu_utilization": 61.9544,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:30:45Z",
+      "cpu_utilization": 56.8085,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:31:00Z",
+      "cpu_utilization": 59.1602,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:31:15Z",
+      "cpu_utilization": 63.1764,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:31:30Z",
+      "cpu_utilization": 57.6138,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:31:45Z",
+      "cpu_utilization": 57.4171,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:32:00Z",
+      "cpu_utilization": 59.9961,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:32:15Z",
+      "cpu_utilization": 61.6013,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:32:30Z",
+      "cpu_utilization": 59.5189,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:32:45Z",
+      "cpu_utilization": 62.8128,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:33:00Z",
+      "cpu_utilization": 61.6497,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:33:15Z",
+      "cpu_utilization": 61.6122,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:33:30Z",
+      "cpu_utilization": 60.893,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:33:45Z",
+      "cpu_utilization": 65.3268,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:34:00Z",
+      "cpu_utilization": 59.0118,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:34:15Z",
+      "cpu_utilization": 54.5159,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:34:30Z",
+      "cpu_utilization": 63.5354,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:34:45Z",
+      "cpu_utilization": 58.3805,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:35:00Z",
+      "cpu_utilization": 59.8112,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:35:15Z",
+      "cpu_utilization": 62.8153,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:35:30Z",
+      "cpu_utilization": 55.5358,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:35:45Z",
+      "cpu_utilization": 56.4124,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:36:00Z",
+      "cpu_utilization": 55.5547,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:36:15Z",
+      "cpu_utilization": 57.5726,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:36:30Z",
+      "cpu_utilization": 60.657,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:36:45Z",
+      "cpu_utilization": 60.8684,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:37:00Z",
+      "cpu_utilization": 60.2648,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:37:15Z",
+      "cpu_utilization": 56.0422,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:37:30Z",
+      "cpu_utilization": 53.7988,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:37:45Z",
+      "cpu_utilization": 59.71,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:38:00Z",
+      "cpu_utilization": 58.4105,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:38:15Z",
+      "cpu_utilization": 60.7384,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:38:30Z",
+      "cpu_utilization": 61.3448,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:38:45Z",
+      "cpu_utilization": 59.9355,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:39:00Z",
+      "cpu_utilization": 61.5058,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:39:15Z",
+      "cpu_utilization": 60.1785,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:39:30Z",
+      "cpu_utilization": 60.9306,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:39:45Z",
+      "cpu_utilization": 57.8438,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:40:00Z",
+      "cpu_utilization": 59.1717,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:40:15Z",
+      "cpu_utilization": 60.1127,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:40:30Z",
+      "cpu_utilization": 61.6721,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:40:45Z",
+      "cpu_utilization": 58.6364,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:41:00Z",
+      "cpu_utilization": 60.9386,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:41:15Z",
+      "cpu_utilization": 58.9711,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:41:30Z",
+      "cpu_utilization": 59.3418,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:41:45Z",
+      "cpu_utilization": 61.7095,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:42:00Z",
+      "cpu_utilization": 54.6677,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:42:15Z",
+      "cpu_utilization": 56.4092,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:42:30Z",
+      "cpu_utilization": 55.9449,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:42:45Z",
+      "cpu_utilization": 53.8163,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:43:00Z",
+      "cpu_utilization": 57.9691,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:43:15Z",
+      "cpu_utilization": 61.5383,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:43:30Z",
+      "cpu_utilization": 58.9525,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:43:45Z",
+      "cpu_utilization": 60.1592,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:44:00Z",
+      "cpu_utilization": 62.4018,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:44:15Z",
+      "cpu_utilization": 62.998,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:44:30Z",
+      "cpu_utilization": 59.506,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:44:45Z",
+      "cpu_utilization": 63.0628,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:45:00Z",
+      "cpu_utilization": 59.9229,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:45:15Z",
+      "cpu_utilization": 57.5991,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:45:30Z",
+      "cpu_utilization": 58.2066,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:45:45Z",
+      "cpu_utilization": 55.9912,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:46:00Z",
+      "cpu_utilization": 57.4857,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:46:15Z",
+      "cpu_utilization": 58.811,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:46:30Z",
+      "cpu_utilization": 61.715,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:46:45Z",
+      "cpu_utilization": 64.008,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:47:00Z",
+      "cpu_utilization": 56.2638,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:47:15Z",
+      "cpu_utilization": 60.7013,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:47:30Z",
+      "cpu_utilization": 57.1178,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:47:45Z",
+      "cpu_utilization": 60.9059,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:48:00Z",
+      "cpu_utilization": 59.4044,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:48:15Z",
+      "cpu_utilization": 55.1548,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:48:30Z",
+      "cpu_utilization": 62.0528,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:48:45Z",
+      "cpu_utilization": 58.2196,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:49:00Z",
+      "cpu_utilization": 58.4099,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:49:15Z",
+      "cpu_utilization": 57.0703,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:49:30Z",
+      "cpu_utilization": 58.1089,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:49:45Z",
+      "cpu_utilization": 60.8144,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:50:00Z",
+      "cpu_utilization": 59.2838,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:50:15Z",
+      "cpu_utilization": 60.5786,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:50:30Z",
+      "cpu_utilization": 60.6617,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:50:45Z",
+      "cpu_utilization": 63.0586,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:51:00Z",
+      "cpu_utilization": 58.9119,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:51:15Z",
+      "cpu_utilization": 56.0768,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:51:30Z",
+      "cpu_utilization": 62.437,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:51:45Z",
+      "cpu_utilization": 58.9402,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:52:00Z",
+      "cpu_utilization": 62.5671,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:52:15Z",
+      "cpu_utilization": 60.739,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:52:30Z",
+      "cpu_utilization": 59.4527,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:52:45Z",
+      "cpu_utilization": 60.6525,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:53:00Z",
+      "cpu_utilization": 64.6695,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:53:15Z",
+      "cpu_utilization": 64.9844,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:53:30Z",
+      "cpu_utilization": 59.9654,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:53:45Z",
+      "cpu_utilization": 60.1924,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:54:00Z",
+      "cpu_utilization": 62.4936,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:54:15Z",
+      "cpu_utilization": 57.6889,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:54:30Z",
+      "cpu_utilization": 60.6357,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:54:45Z",
+      "cpu_utilization": 59.7384,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:55:00Z",
+      "cpu_utilization": 60.5986,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:55:15Z",
+      "cpu_utilization": 57.7304,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:55:30Z",
+      "cpu_utilization": 55.8399,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:55:45Z",
+      "cpu_utilization": 54.6313,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:56:00Z",
+      "cpu_utilization": 57.0308,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:56:15Z",
+      "cpu_utilization": 58.6776,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:56:30Z",
+      "cpu_utilization": 59.0913,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:56:45Z",
+      "cpu_utilization": 64.6673,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:57:00Z",
+      "cpu_utilization": 62.5994,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:57:15Z",
+      "cpu_utilization": 57.4292,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:57:30Z",
+      "cpu_utilization": 60.7037,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:57:45Z",
+      "cpu_utilization": 58.8167,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:58:00Z",
+      "cpu_utilization": 59.1334,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:58:15Z",
+      "cpu_utilization": 60.3076,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:58:30Z",
+      "cpu_utilization": 61.3922,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:58:45Z",
+      "cpu_utilization": 58.9961,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:59:00Z",
+      "cpu_utilization": 62.5135,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:59:15Z",
+      "cpu_utilization": 56.999,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:59:30Z",
+      "cpu_utilization": 59.8697,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T13:59:45Z",
+      "cpu_utilization": 66.348,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:00:00Z",
+      "cpu_utilization": 60.4208,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:00:15Z",
+      "cpu_utilization": 63.4462,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:00:30Z",
+      "cpu_utilization": 60.0919,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:00:45Z",
+      "cpu_utilization": 61.3151,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:01:00Z",
+      "cpu_utilization": 59.7301,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:01:15Z",
+      "cpu_utilization": 59.4461,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:01:30Z",
+      "cpu_utilization": 57.9234,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:01:45Z",
+      "cpu_utilization": 60.9478,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:02:00Z",
+      "cpu_utilization": 57.7519,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:02:15Z",
+      "cpu_utilization": 61.5447,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:02:30Z",
+      "cpu_utilization": 62.594,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:02:45Z",
+      "cpu_utilization": 60.7971,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:03:00Z",
+      "cpu_utilization": 59.1735,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:03:15Z",
+      "cpu_utilization": 61.024,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:03:30Z",
+      "cpu_utilization": 59.1174,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:03:45Z",
+      "cpu_utilization": 62.228,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:04:00Z",
+      "cpu_utilization": 55.3186,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:04:15Z",
+      "cpu_utilization": 59.0581,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:04:30Z",
+      "cpu_utilization": 54.9201,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:04:45Z",
+      "cpu_utilization": 56.1595,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:05:00Z",
+      "cpu_utilization": 63.3146,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:05:15Z",
+      "cpu_utilization": 62.1429,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:05:30Z",
+      "cpu_utilization": 58.1062,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:05:45Z",
+      "cpu_utilization": 56.1486,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:06:00Z",
+      "cpu_utilization": 52.501,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:06:15Z",
+      "cpu_utilization": 58.5536,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:06:30Z",
+      "cpu_utilization": 65.9634,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:06:45Z",
+      "cpu_utilization": 60.9996,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:07:00Z",
+      "cpu_utilization": 58.5206,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:07:15Z",
+      "cpu_utilization": 61.0822,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:07:30Z",
+      "cpu_utilization": 56.0171,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:07:45Z",
+      "cpu_utilization": 59.1762,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:08:00Z",
+      "cpu_utilization": 60.175,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:08:15Z",
+      "cpu_utilization": 59.7111,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:08:30Z",
+      "cpu_utilization": 61.9034,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:08:45Z",
+      "cpu_utilization": 60.788,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:09:00Z",
+      "cpu_utilization": 61.6037,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:09:15Z",
+      "cpu_utilization": 58.2119,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:09:30Z",
+      "cpu_utilization": 62.1774,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:09:45Z",
+      "cpu_utilization": 64.0052,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:10:00Z",
+      "cpu_utilization": 57.5137,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:10:15Z",
+      "cpu_utilization": 57.7199,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:10:30Z",
+      "cpu_utilization": 63.2786,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:10:45Z",
+      "cpu_utilization": 59.4608,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:11:00Z",
+      "cpu_utilization": 63.4546,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:11:15Z",
+      "cpu_utilization": 58.8387,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:11:30Z",
+      "cpu_utilization": 63.5827,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:11:45Z",
+      "cpu_utilization": 60.2738,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:12:00Z",
+      "cpu_utilization": 60.5962,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:12:15Z",
+      "cpu_utilization": 63.8625,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:12:30Z",
+      "cpu_utilization": 59.0463,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:12:45Z",
+      "cpu_utilization": 57.5979,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:13:00Z",
+      "cpu_utilization": 58.8346,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:13:15Z",
+      "cpu_utilization": 61.0868,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:13:30Z",
+      "cpu_utilization": 56.0416,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:13:45Z",
+      "cpu_utilization": 61.5497,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:14:00Z",
+      "cpu_utilization": 58.6141,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:14:15Z",
+      "cpu_utilization": 62.8306,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:14:30Z",
+      "cpu_utilization": 53.9754,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:14:45Z",
+      "cpu_utilization": 57.9946,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:15:00Z",
+      "cpu_utilization": 55.7496,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:15:15Z",
+      "cpu_utilization": 57.9002,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:15:30Z",
+      "cpu_utilization": 60.5849,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:15:45Z",
+      "cpu_utilization": 59.5177,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:16:00Z",
+      "cpu_utilization": 59.3367,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:16:15Z",
+      "cpu_utilization": 59.5722,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:16:30Z",
+      "cpu_utilization": 60.4786,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:16:45Z",
+      "cpu_utilization": 57.4488,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:17:00Z",
+      "cpu_utilization": 61.7414,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:17:15Z",
+      "cpu_utilization": 61.6309,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:17:30Z",
+      "cpu_utilization": 60.9369,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:17:45Z",
+      "cpu_utilization": 61.3656,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:18:00Z",
+      "cpu_utilization": 60.7191,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:18:15Z",
+      "cpu_utilization": 65.0658,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:18:30Z",
+      "cpu_utilization": 59.7603,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:18:45Z",
+      "cpu_utilization": 59.2104,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:19:00Z",
+      "cpu_utilization": 58.0978,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:19:15Z",
+      "cpu_utilization": 57.4009,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:19:30Z",
+      "cpu_utilization": 56.8704,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:19:45Z",
+      "cpu_utilization": 57.7596,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:20:00Z",
+      "cpu_utilization": 59.8081,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:20:15Z",
+      "cpu_utilization": 60.8205,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:20:30Z",
+      "cpu_utilization": 60.1126,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:20:45Z",
+      "cpu_utilization": 58.0709,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:21:00Z",
+      "cpu_utilization": 62.2381,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:21:15Z",
+      "cpu_utilization": 61.8362,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:21:30Z",
+      "cpu_utilization": 59.5885,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:21:45Z",
+      "cpu_utilization": 58.3554,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:22:00Z",
+      "cpu_utilization": 61.3613,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:22:15Z",
+      "cpu_utilization": 60.4602,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:22:30Z",
+      "cpu_utilization": 56.3699,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:22:45Z",
+      "cpu_utilization": 59.8203,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:23:00Z",
+      "cpu_utilization": 60.6476,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:23:15Z",
+      "cpu_utilization": 57.7433,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:23:30Z",
+      "cpu_utilization": 60.4671,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:23:45Z",
+      "cpu_utilization": 56.3555,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:24:00Z",
+      "cpu_utilization": 63.335,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:24:15Z",
+      "cpu_utilization": 63.1144,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:24:30Z",
+      "cpu_utilization": 59.3632,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:24:45Z",
+      "cpu_utilization": 60.9032,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:25:00Z",
+      "cpu_utilization": 53.9714,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:25:15Z",
+      "cpu_utilization": 57.1053,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:25:30Z",
+      "cpu_utilization": 59.2617,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:25:45Z",
+      "cpu_utilization": 57.3159,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:26:00Z",
+      "cpu_utilization": 61.7836,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:26:15Z",
+      "cpu_utilization": 64.9908,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:26:30Z",
+      "cpu_utilization": 57.056,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:26:45Z",
+      "cpu_utilization": 57.9039,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:27:00Z",
+      "cpu_utilization": 60.5873,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:27:15Z",
+      "cpu_utilization": 64.0264,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:27:30Z",
+      "cpu_utilization": 56.9427,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:27:45Z",
+      "cpu_utilization": 60.6212,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:28:00Z",
+      "cpu_utilization": 64.5526,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:28:15Z",
+      "cpu_utilization": 55.87,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:28:30Z",
+      "cpu_utilization": 56.7967,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:28:45Z",
+      "cpu_utilization": 58.9404,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:29:00Z",
+      "cpu_utilization": 58.6984,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:29:15Z",
+      "cpu_utilization": 62.0314,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:29:30Z",
+      "cpu_utilization": 60.604,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:29:45Z",
+      "cpu_utilization": 55.5624,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:30:00Z",
+      "cpu_utilization": 61.2885,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:30:15Z",
+      "cpu_utilization": 58.5562,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:30:30Z",
+      "cpu_utilization": 63.1861,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:30:45Z",
+      "cpu_utilization": 58.431,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:31:00Z",
+      "cpu_utilization": 58.4083,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:31:15Z",
+      "cpu_utilization": 61.3527,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:31:30Z",
+      "cpu_utilization": 61.9072,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:31:45Z",
+      "cpu_utilization": 61.1201,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:32:00Z",
+      "cpu_utilization": 55.7854,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:32:15Z",
+      "cpu_utilization": 61.3445,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:32:30Z",
+      "cpu_utilization": 57.4136,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:32:45Z",
+      "cpu_utilization": 60.5876,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:33:00Z",
+      "cpu_utilization": 56.4393,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:33:15Z",
+      "cpu_utilization": 61.1144,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:33:30Z",
+      "cpu_utilization": 57.9821,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:33:45Z",
+      "cpu_utilization": 56.792,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:34:00Z",
+      "cpu_utilization": 61.7821,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:34:15Z",
+      "cpu_utilization": 60.6017,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:34:30Z",
+      "cpu_utilization": 58.4626,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:34:45Z",
+      "cpu_utilization": 63.6255,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:35:00Z",
+      "cpu_utilization": 58.8946,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:35:15Z",
+      "cpu_utilization": 60.0765,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:35:30Z",
+      "cpu_utilization": 60.6685,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:35:45Z",
+      "cpu_utilization": 58.447,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:36:00Z",
+      "cpu_utilization": 61.1724,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:36:15Z",
+      "cpu_utilization": 58.6609,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:36:30Z",
+      "cpu_utilization": 58.9654,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:36:45Z",
+      "cpu_utilization": 63.4011,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:37:00Z",
+      "cpu_utilization": 57.3911,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:37:15Z",
+      "cpu_utilization": 53.9606,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:37:30Z",
+      "cpu_utilization": 64.0199,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:37:45Z",
+      "cpu_utilization": 66.3659,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:38:00Z",
+      "cpu_utilization": 58.9771,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:38:15Z",
+      "cpu_utilization": 55.1482,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:38:30Z",
+      "cpu_utilization": 59.214,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:38:45Z",
+      "cpu_utilization": 59.2747,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:39:00Z",
+      "cpu_utilization": 59.5129,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:39:15Z",
+      "cpu_utilization": 57.2042,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:39:30Z",
+      "cpu_utilization": 61.4366,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:39:45Z",
+      "cpu_utilization": 61.2989,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:40:00Z",
+      "cpu_utilization": 56.2488,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:40:15Z",
+      "cpu_utilization": 61.7328,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:40:30Z",
+      "cpu_utilization": 65.1165,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:40:45Z",
+      "cpu_utilization": 60.4147,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:41:00Z",
+      "cpu_utilization": 59.1383,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:41:15Z",
+      "cpu_utilization": 59.6266,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:41:30Z",
+      "cpu_utilization": 61.5197,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:41:45Z",
+      "cpu_utilization": 55.6549,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:42:00Z",
+      "cpu_utilization": 60.389,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:42:15Z",
+      "cpu_utilization": 59.0019,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:42:30Z",
+      "cpu_utilization": 64.5976,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:42:45Z",
+      "cpu_utilization": 59.5426,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:43:00Z",
+      "cpu_utilization": 64.144,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:43:15Z",
+      "cpu_utilization": 57.2149,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:43:30Z",
+      "cpu_utilization": 61.4424,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:43:45Z",
+      "cpu_utilization": 60.7728,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:44:00Z",
+      "cpu_utilization": 57.7975,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:44:15Z",
+      "cpu_utilization": 60.4136,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:44:30Z",
+      "cpu_utilization": 63.0015,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:44:45Z",
+      "cpu_utilization": 59.1607,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:45:00Z",
+      "cpu_utilization": 55.7358,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:45:15Z",
+      "cpu_utilization": 59.9218,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:45:30Z",
+      "cpu_utilization": 57.7097,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:45:45Z",
+      "cpu_utilization": 59.1099,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:46:00Z",
+      "cpu_utilization": 59.7571,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:46:15Z",
+      "cpu_utilization": 55.6969,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:46:30Z",
+      "cpu_utilization": 55.9219,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:46:45Z",
+      "cpu_utilization": 61.1662,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:47:00Z",
+      "cpu_utilization": 58.6492,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:47:15Z",
+      "cpu_utilization": 53.5441,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:47:30Z",
+      "cpu_utilization": 61.9181,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:47:45Z",
+      "cpu_utilization": 60.6369,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:48:00Z",
+      "cpu_utilization": 58.166,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:48:15Z",
+      "cpu_utilization": 56.6586,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:48:30Z",
+      "cpu_utilization": 62.0402,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:48:45Z",
+      "cpu_utilization": 60.8241,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:49:00Z",
+      "cpu_utilization": 65.9016,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:49:15Z",
+      "cpu_utilization": 60.9955,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:49:30Z",
+      "cpu_utilization": 60.9143,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:49:45Z",
+      "cpu_utilization": 59.5277,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:50:00Z",
+      "cpu_utilization": 61.9811,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:50:15Z",
+      "cpu_utilization": 61.5018,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:50:30Z",
+      "cpu_utilization": 63.0684,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:50:45Z",
+      "cpu_utilization": 58.6358,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:51:00Z",
+      "cpu_utilization": 58.8444,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:51:15Z",
+      "cpu_utilization": 58.7351,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:51:30Z",
+      "cpu_utilization": 61.9099,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:51:45Z",
+      "cpu_utilization": 63.6788,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:52:00Z",
+      "cpu_utilization": 58.7792,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:52:15Z",
+      "cpu_utilization": 58.8644,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:52:30Z",
+      "cpu_utilization": 60.7115,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:52:45Z",
+      "cpu_utilization": 59.3119,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:53:00Z",
+      "cpu_utilization": 62.2996,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:53:15Z",
+      "cpu_utilization": 54.2901,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:53:30Z",
+      "cpu_utilization": 57.8527,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:53:45Z",
+      "cpu_utilization": 57.9635,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:54:00Z",
+      "cpu_utilization": 54.1115,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:54:15Z",
+      "cpu_utilization": 57.5033,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:54:30Z",
+      "cpu_utilization": 57.6245,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:54:45Z",
+      "cpu_utilization": 59.4096,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:55:00Z",
+      "cpu_utilization": 62.6873,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:55:15Z",
+      "cpu_utilization": 59.2922,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:55:30Z",
+      "cpu_utilization": 57.3279,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:55:45Z",
+      "cpu_utilization": 59.7625,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:56:00Z",
+      "cpu_utilization": 62.5201,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:56:15Z",
+      "cpu_utilization": 57.4573,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:56:30Z",
+      "cpu_utilization": 57.6207,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:56:45Z",
+      "cpu_utilization": 61.2935,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:57:00Z",
+      "cpu_utilization": 59.3353,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:57:15Z",
+      "cpu_utilization": 61.5078,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:57:30Z",
+      "cpu_utilization": 59.855,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:57:45Z",
+      "cpu_utilization": 61.6433,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:58:00Z",
+      "cpu_utilization": 57.293,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:58:15Z",
+      "cpu_utilization": 59.8505,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:58:30Z",
+      "cpu_utilization": 59.354,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:58:45Z",
+      "cpu_utilization": 56.841,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:59:00Z",
+      "cpu_utilization": 55.9634,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:59:15Z",
+      "cpu_utilization": 61.5865,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:59:30Z",
+      "cpu_utilization": 58.9947,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T14:59:45Z",
+      "cpu_utilization": 57.3164,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:00:00Z",
+      "cpu_utilization": 59.6227,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:00:15Z",
+      "cpu_utilization": 62.6832,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:00:30Z",
+      "cpu_utilization": 54.1613,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:00:45Z",
+      "cpu_utilization": 56.1215,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:01:00Z",
+      "cpu_utilization": 57.5466,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:01:15Z",
+      "cpu_utilization": 63.5068,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:01:30Z",
+      "cpu_utilization": 60.5603,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:01:45Z",
+      "cpu_utilization": 61.7721,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:02:00Z",
+      "cpu_utilization": 56.9939,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:02:15Z",
+      "cpu_utilization": 57.0454,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:02:30Z",
+      "cpu_utilization": 60.9638,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:02:45Z",
+      "cpu_utilization": 59.99,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:03:00Z",
+      "cpu_utilization": 61.2063,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:03:15Z",
+      "cpu_utilization": 59.3652,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:03:30Z",
+      "cpu_utilization": 60.5298,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:03:45Z",
+      "cpu_utilization": 60.2297,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:04:00Z",
+      "cpu_utilization": 61.7687,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:04:15Z",
+      "cpu_utilization": 61.8418,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:04:30Z",
+      "cpu_utilization": 55.7746,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:04:45Z",
+      "cpu_utilization": 54.2061,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:05:00Z",
+      "cpu_utilization": 62.3181,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:05:15Z",
+      "cpu_utilization": 62.7831,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:05:30Z",
+      "cpu_utilization": 57.2622,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:05:45Z",
+      "cpu_utilization": 55.1642,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:06:00Z",
+      "cpu_utilization": 60.0506,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:06:15Z",
+      "cpu_utilization": 62.1301,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:06:30Z",
+      "cpu_utilization": 64.297,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:06:45Z",
+      "cpu_utilization": 61.0938,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:07:00Z",
+      "cpu_utilization": 58.8627,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:07:15Z",
+      "cpu_utilization": 57.5591,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:07:30Z",
+      "cpu_utilization": 59.8206,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:07:45Z",
+      "cpu_utilization": 59.0438,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:08:00Z",
+      "cpu_utilization": 57.2429,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:08:15Z",
+      "cpu_utilization": 64.9025,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:08:30Z",
+      "cpu_utilization": 64.2435,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:08:45Z",
+      "cpu_utilization": 62.6207,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:09:00Z",
+      "cpu_utilization": 57.4668,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:09:15Z",
+      "cpu_utilization": 61.9064,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:09:30Z",
+      "cpu_utilization": 61.368,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:09:45Z",
+      "cpu_utilization": 60.8753,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:10:00Z",
+      "cpu_utilization": 62.8811,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:10:15Z",
+      "cpu_utilization": 61.3454,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:10:30Z",
+      "cpu_utilization": 61.607,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:10:45Z",
+      "cpu_utilization": 61.3492,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:11:00Z",
+      "cpu_utilization": 60.5966,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:11:15Z",
+      "cpu_utilization": 55.2856,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:11:30Z",
+      "cpu_utilization": 59.9537,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:11:45Z",
+      "cpu_utilization": 58.3542,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:12:00Z",
+      "cpu_utilization": 56.5325,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:12:15Z",
+      "cpu_utilization": 63.9366,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:12:30Z",
+      "cpu_utilization": 64.0546,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:12:45Z",
+      "cpu_utilization": 63.1301,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:13:00Z",
+      "cpu_utilization": 60.3572,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:13:15Z",
+      "cpu_utilization": 63.0958,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:13:30Z",
+      "cpu_utilization": 59.7493,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:13:45Z",
+      "cpu_utilization": 60.2262,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:14:00Z",
+      "cpu_utilization": 56.9724,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:14:15Z",
+      "cpu_utilization": 60.6985,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:14:30Z",
+      "cpu_utilization": 59.857,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:14:45Z",
+      "cpu_utilization": 56.4494,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:15:00Z",
+      "cpu_utilization": 59.5646,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:15:15Z",
+      "cpu_utilization": 59.4932,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:15:30Z",
+      "cpu_utilization": 64.1865,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:15:45Z",
+      "cpu_utilization": 61.9281,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:16:00Z",
+      "cpu_utilization": 59.7074,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:16:15Z",
+      "cpu_utilization": 60.3008,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:16:30Z",
+      "cpu_utilization": 59.7893,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:16:45Z",
+      "cpu_utilization": 59.1715,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:17:00Z",
+      "cpu_utilization": 56.9587,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:17:15Z",
+      "cpu_utilization": 59.2871,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:17:30Z",
+      "cpu_utilization": 57.7995,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:17:45Z",
+      "cpu_utilization": 56.5389,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:18:00Z",
+      "cpu_utilization": 60.9284,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:18:15Z",
+      "cpu_utilization": 60.6285,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:18:30Z",
+      "cpu_utilization": 55.1836,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:18:45Z",
+      "cpu_utilization": 59.3437,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:19:00Z",
+      "cpu_utilization": 62.125,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:19:15Z",
+      "cpu_utilization": 62.2838,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:19:30Z",
+      "cpu_utilization": 62.2003,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:19:45Z",
+      "cpu_utilization": 59.733,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:20:00Z",
+      "cpu_utilization": 57.5081,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:20:15Z",
+      "cpu_utilization": 56.9115,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:20:30Z",
+      "cpu_utilization": 60.4822,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:20:45Z",
+      "cpu_utilization": 60.5689,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:21:00Z",
+      "cpu_utilization": 62.8238,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:21:15Z",
+      "cpu_utilization": 62.3554,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:21:30Z",
+      "cpu_utilization": 59.2749,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:21:45Z",
+      "cpu_utilization": 56.495,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:22:00Z",
+      "cpu_utilization": 58.7922,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:22:15Z",
+      "cpu_utilization": 60.133,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:22:30Z",
+      "cpu_utilization": 59.0847,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:22:45Z",
+      "cpu_utilization": 58.1452,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:23:00Z",
+      "cpu_utilization": 60.2063,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:23:15Z",
+      "cpu_utilization": 58.3142,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:23:30Z",
+      "cpu_utilization": 58.0039,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:23:45Z",
+      "cpu_utilization": 60.3527,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:24:00Z",
+      "cpu_utilization": 58.5529,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:24:15Z",
+      "cpu_utilization": 60.1682,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:24:30Z",
+      "cpu_utilization": 60.2409,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:24:45Z",
+      "cpu_utilization": 56.7093,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:25:00Z",
+      "cpu_utilization": 58.3384,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:25:15Z",
+      "cpu_utilization": 63.1359,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:25:30Z",
+      "cpu_utilization": 56.6363,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:25:45Z",
+      "cpu_utilization": 54.2498,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:26:00Z",
+      "cpu_utilization": 54.8701,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:26:15Z",
+      "cpu_utilization": 59.5975,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:26:30Z",
+      "cpu_utilization": 59.602,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:26:45Z",
+      "cpu_utilization": 59.2307,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:27:00Z",
+      "cpu_utilization": 62.5432,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:27:15Z",
+      "cpu_utilization": 52.8256,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:27:30Z",
+      "cpu_utilization": 60.4975,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:27:45Z",
+      "cpu_utilization": 63.4113,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:28:00Z",
+      "cpu_utilization": 56.6709,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:28:15Z",
+      "cpu_utilization": 58.5408,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:28:30Z",
+      "cpu_utilization": 57.6081,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:28:45Z",
+      "cpu_utilization": 57.2545,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:29:00Z",
+      "cpu_utilization": 58.6571,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:29:15Z",
+      "cpu_utilization": 63.0414,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:29:30Z",
+      "cpu_utilization": 64.0662,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:29:45Z",
+      "cpu_utilization": 58.6329,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:30:00Z",
+      "cpu_utilization": 64.2175,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:30:15Z",
+      "cpu_utilization": 59.5438,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:30:30Z",
+      "cpu_utilization": 63.839,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:30:45Z",
+      "cpu_utilization": 59.2216,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:31:00Z",
+      "cpu_utilization": 59.7642,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:31:15Z",
+      "cpu_utilization": 60.3503,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:31:30Z",
+      "cpu_utilization": 67.3837,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:31:45Z",
+      "cpu_utilization": 61.5648,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:32:00Z",
+      "cpu_utilization": 57.6499,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:32:15Z",
+      "cpu_utilization": 61.8406,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:32:30Z",
+      "cpu_utilization": 58.5135,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:32:45Z",
+      "cpu_utilization": 58.1937,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:33:00Z",
+      "cpu_utilization": 61.6708,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:33:15Z",
+      "cpu_utilization": 59.477,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:33:30Z",
+      "cpu_utilization": 60.0957,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:33:45Z",
+      "cpu_utilization": 59.4342,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:34:00Z",
+      "cpu_utilization": 60.2216,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:34:15Z",
+      "cpu_utilization": 60.4426,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:34:30Z",
+      "cpu_utilization": 54.5378,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:34:45Z",
+      "cpu_utilization": 61.0466,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:35:00Z",
+      "cpu_utilization": 56.9057,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:35:15Z",
+      "cpu_utilization": 55.755,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:35:30Z",
+      "cpu_utilization": 59.2148,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:35:45Z",
+      "cpu_utilization": 59.5708,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:36:00Z",
+      "cpu_utilization": 57.6074,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:36:15Z",
+      "cpu_utilization": 61.4187,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:36:30Z",
+      "cpu_utilization": 55.9857,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:36:45Z",
+      "cpu_utilization": 58.3238,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:37:00Z",
+      "cpu_utilization": 57.859,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:37:15Z",
+      "cpu_utilization": 59.2047,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:37:30Z",
+      "cpu_utilization": 60.0183,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:37:45Z",
+      "cpu_utilization": 56.8014,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:38:00Z",
+      "cpu_utilization": 61.1116,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:38:15Z",
+      "cpu_utilization": 59.4584,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:38:30Z",
+      "cpu_utilization": 54.571,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:38:45Z",
+      "cpu_utilization": 54.4044,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:39:00Z",
+      "cpu_utilization": 59.2495,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:39:15Z",
+      "cpu_utilization": 58.7279,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:39:30Z",
+      "cpu_utilization": 59.0218,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:39:45Z",
+      "cpu_utilization": 59.2104,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:40:00Z",
+      "cpu_utilization": 59.8234,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:40:15Z",
+      "cpu_utilization": 61.6286,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:40:30Z",
+      "cpu_utilization": 56.4817,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:40:45Z",
+      "cpu_utilization": 56.3295,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:41:00Z",
+      "cpu_utilization": 56.505,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:41:15Z",
+      "cpu_utilization": 59.9606,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:41:30Z",
+      "cpu_utilization": 62.3507,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:41:45Z",
+      "cpu_utilization": 58.16,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:42:00Z",
+      "cpu_utilization": 52.9627,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:42:15Z",
+      "cpu_utilization": 54.9569,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:42:30Z",
+      "cpu_utilization": 57.1343,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:42:45Z",
+      "cpu_utilization": 57.8226,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:43:00Z",
+      "cpu_utilization": 58.1742,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:43:15Z",
+      "cpu_utilization": 59.2916,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:43:30Z",
+      "cpu_utilization": 58.4158,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:43:45Z",
+      "cpu_utilization": 61.8185,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:44:00Z",
+      "cpu_utilization": 57.4831,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:44:15Z",
+      "cpu_utilization": 57.0174,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:44:30Z",
+      "cpu_utilization": 60.3704,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:44:45Z",
+      "cpu_utilization": 55.3341,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:45:00Z",
+      "cpu_utilization": 60.1251,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:45:15Z",
+      "cpu_utilization": 59.4073,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:45:30Z",
+      "cpu_utilization": 58.7823,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:45:45Z",
+      "cpu_utilization": 63.1216,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:46:00Z",
+      "cpu_utilization": 57.5728,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:46:15Z",
+      "cpu_utilization": 64.279,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:46:30Z",
+      "cpu_utilization": 58.5647,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:46:45Z",
+      "cpu_utilization": 55.9358,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:47:00Z",
+      "cpu_utilization": 59.2802,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:47:15Z",
+      "cpu_utilization": 56.4148,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:47:30Z",
+      "cpu_utilization": 57.226,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:47:45Z",
+      "cpu_utilization": 60.098,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:48:00Z",
+      "cpu_utilization": 60.4712,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:48:15Z",
+      "cpu_utilization": 57.5268,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:48:30Z",
+      "cpu_utilization": 61.5508,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:48:45Z",
+      "cpu_utilization": 61.976,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:49:00Z",
+      "cpu_utilization": 62.6496,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:49:15Z",
+      "cpu_utilization": 60.3823,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:49:30Z",
+      "cpu_utilization": 62.4674,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:49:45Z",
+      "cpu_utilization": 54.3568,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:50:00Z",
+      "cpu_utilization": 58.2403,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:50:15Z",
+      "cpu_utilization": 56.8676,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:50:30Z",
+      "cpu_utilization": 59.3331,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:50:45Z",
+      "cpu_utilization": 57.6065,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:51:00Z",
+      "cpu_utilization": 58.5957,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:51:15Z",
+      "cpu_utilization": 63.7165,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:51:30Z",
+      "cpu_utilization": 58.5868,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:51:45Z",
+      "cpu_utilization": 60.0455,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:52:00Z",
+      "cpu_utilization": 58.4061,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:52:15Z",
+      "cpu_utilization": 59.176,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:52:30Z",
+      "cpu_utilization": 59.0018,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:52:45Z",
+      "cpu_utilization": 60.1076,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:53:00Z",
+      "cpu_utilization": 61.8754,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:53:15Z",
+      "cpu_utilization": 63.0806,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:53:30Z",
+      "cpu_utilization": 59.7362,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:53:45Z",
+      "cpu_utilization": 60.436,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:54:00Z",
+      "cpu_utilization": 56.0601,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:54:15Z",
+      "cpu_utilization": 58.7176,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:54:30Z",
+      "cpu_utilization": 61.288,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:54:45Z",
+      "cpu_utilization": 61.1022,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:55:00Z",
+      "cpu_utilization": 59.4412,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:55:15Z",
+      "cpu_utilization": 61.1281,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:55:30Z",
+      "cpu_utilization": 60.139,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:55:45Z",
+      "cpu_utilization": 61.9129,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:56:00Z",
+      "cpu_utilization": 59.6101,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:56:15Z",
+      "cpu_utilization": 57.9974,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:56:30Z",
+      "cpu_utilization": 59.7263,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:56:45Z",
+      "cpu_utilization": 51.5602,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:57:00Z",
+      "cpu_utilization": 59.8182,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:57:15Z",
+      "cpu_utilization": 49.7399,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:57:30Z",
+      "cpu_utilization": 54.5523,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:57:45Z",
+      "cpu_utilization": 59.9904,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:58:00Z",
+      "cpu_utilization": 60.0288,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:58:15Z",
+      "cpu_utilization": 55.9289,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:58:30Z",
+      "cpu_utilization": 57.0547,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:58:45Z",
+      "cpu_utilization": 62.2613,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:59:00Z",
+      "cpu_utilization": 57.5986,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:59:15Z",
+      "cpu_utilization": 64.4159,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:59:30Z",
+      "cpu_utilization": 58.8038,
+      "origin": "simulated",
+      "quality": "ok"
+    },
+    {
+      "timestamp": "2026-09-21T15:59:45Z",
+      "cpu_utilization": 59.8287,
+      "origin": "simulated",
+      "quality": "ok"
+    }
+  ],
+  "units": {
+    "cpu_utilization": "%"
+  },
+  "origins": [
+    "simulated"
+  ],
+  "dataStatus": "partial",
+  "excludedSampleCount": 0,
+  "warnings": [
+    "Fixture that mirrors Data Processing GET /api/v1/prediction/dataset.",
+    "origin=simulated. Not real observations. Cadence is 15s like Monitoring."
+  ]
+}

@@ -20,11 +20,18 @@ min_eval_samples: 5
 
 features:
   include_current_target: true
+  # Data Processing currently emits CPU-only windows. Extra columns are used
+  # only when use_additional is true AND they are present in the dataset.
+  use_additional: false
   temporal:
     - hour
     - minute
     - day_of_week
     - day_of_month
+    - hour_sin
+    - hour_cos
+    - dow_sin
+    - dow_cos
   lags: [1, 2, 3]
   rolling:
     windows: [3, 6]
