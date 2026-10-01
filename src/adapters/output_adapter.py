@@ -38,4 +38,5 @@ def adapt_output(
         "origin": "estimated",
         "generatedAt": generated_at,
         "horizon": result.get("horizon"),
+        "warnings": list(result.get("warnings", [])),
     }

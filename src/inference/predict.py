@@ -69,8 +69,8 @@ def predict(
     started = time.perf_counter()
     values = np.asarray(model.predict(ordered), dtype=float)
     latency_ms = (time.perf_counter() - started) * 1000.0
-    if values.size == 0 or np.isnan(values).any():
-        raise ValidationError("Inference produced empty or NaN predictions")
+    if values.size == 0 or not np.isfinite(values).all():
+        raise ValidationError("Inference produced empty or non-finite predictions")
 
     generated_at = datetime.now(timezone.utc).isoformat()
     first = float(values[0])
@@ -125,6 +125,7 @@ def predict_from_window(
     result["predictedFor"] = predicted_for
     result["horizon"] = horizon
     result["requestId"] = request_id
+    result["warnings"] = list(adapted_meta.get("warnings", []))
     if adapted_meta.get("datasetId"):
         result["inputDatasetId"] = adapted_meta.get("datasetId")
     result["inputWindow"] = {

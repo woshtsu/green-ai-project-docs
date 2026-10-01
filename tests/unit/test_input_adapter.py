@@ -7,6 +7,15 @@ from src.adapters.input_adapter import adapt_input
 from src.exceptions import DatasetError, ValidationError
 
 
+def test_temporal_ratio_is_scaled_once(dataprocessing_payload):
+    payload = dict(dataprocessing_payload)
+    payload["units"] = {"cpu_utilization": "ratio"}
+    payload["features"] = [{**row, "cpu_utilization": 0.42} for row in payload["features"]]
+    adapted = adapt_input(payload, expected_frequency=None)
+    assert adapted.frame["cpu_utilization"].eq(42.0).all()
+    assert adapted.payload["units"]["cpu_utilization"] == "%"
+
+
 def test_temporal_dataprocessing_payload_is_adapted(dataprocessing_payload):
     adapted = adapt_input(dataprocessing_payload, expected_frequency="5m")
     assert adapted.source_format == "temporal_records"

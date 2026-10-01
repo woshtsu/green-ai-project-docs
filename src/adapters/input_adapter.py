@@ -132,7 +132,7 @@ def adapt_input(
         "warnings": warnings,
     }
     if "units" in payload:
-        normalized["units"] = payload.get("units")
+        normalized["units"] = {**(payload.get("units") or {}), TARGET_COLUMN: "%"}
     if "contractStatus" in payload:
         normalized["contractStatus"] = payload.get("contractStatus")
     if "requestedPeriod" in payload:
@@ -257,12 +257,7 @@ def _normalize_frame(frame: pd.DataFrame, payload: dict[str, Any]) -> pd.DataFra
     result["quality"] = result["quality"].map(lambda value: QUALITY_ALIASES.get(str(value), value))
     result["quality"] = result["quality"].fillna("ok")
 
-    units = payload.get("units") if isinstance(payload.get("units"), dict) else {}
-    if TARGET_COLUMN in result.columns:
-        result[TARGET_COLUMN] = [
-            _maybe_scale_percent(TARGET_COLUMN, value, units.get(TARGET_COLUMN))
-            for value in result[TARGET_COLUMN]
-        ]
+    # Both input formats already convert ratio values to percent before this step.
     result = result.sort_values(TIMESTAMP_COLUMN).reset_index(drop=True)
     return result
 
