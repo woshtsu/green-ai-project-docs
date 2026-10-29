@@ -11,6 +11,9 @@ from typing import Any
 
 from fastapi import FastAPI, Header, Request
 from fastapi.responses import JSONResponse
+from fastapi.exceptions import RequestValidationError
+from fastapi.exception_handlers import request_validation_exception_handler
+from src.service.recommendations import router as recommendations_router
 
 from src.exceptions import (
     ArtifactIntegrityError,
@@ -30,6 +33,17 @@ app = FastAPI(
     version="1.0.0",
     description="Internal API for short-term computational demand estimates.",
 )
+
+
+app.include_router(recommendations_router)
+
+
+@app.exception_handler(RequestValidationError)
+async def recommendation_validation_error(request, exc):
+    if request.url.path in ('/v1/recommendations', '/v1/energy'):
+        return JSONResponse(status_code=422, content={
+            'detail': 'Revisa los tipos, rangos, fechas con zona horaria y campos requeridos.'})
+    return await request_validation_exception_handler(request, exc)
 
 
 @app.middleware("http")

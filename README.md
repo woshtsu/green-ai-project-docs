@@ -13,6 +13,11 @@ never modified from this component.
 - Trains Persistence, Moving Average, Random Forest and XGBoost
 - Selects a model on VALIDATION
 - Serves a future CPU estimate through `POST /predict`
+- Evaluates demonstration recommendations through `POST /v1/recommendations`,
+  using the same local inference function (no second service or HTTP self-call)
+- Integrates supplied power samples through `POST /v1/energy`; this is not proof of savings
+
+Recommendation contracts, policy limits and deployment: [docs/recommendations.md](docs/recommendations.md).
 
 ## What it does not do
 
