@@ -1,0 +1,166 @@
+@startuml diagrama-hibrido
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName SansSerif
+skinparam defaultFontSize 14
+skinparam shadowing false
+skinparam roundCorner 12
+skinparam packageStyle rectangle
+skinparam ArrowColor #475569
+skinparam ArrowFontSize 12
+skinparam nodesep 35
+skinparam ranksep 50
+skinparam componentStyle rectangle
+skinparam packageBorderColor #94A3B8
+skinparam packageFontStyle bold
+skinparam rectangleBorderColor #64748B
+skinparam hexagonBorderColor #15803D
+skinparam interfaceBorderColor #7C3AED
+skinparam titleFontSize 25
+skinparam titleFontColor #0F172A
+skinparam noteBackgroundColor #FFF7ED
+skinparam noteBorderColor #FDBA74
+hide stereotype
+
+title GREEN AI | Microservicios + arquitectura hexagonal\nVista general actual y separación objetivo · 01 octubre 2026
+rectangle "FRONTEND [C]\nUI + adaptador HTTP\n1. GET dataset → 2. POST predicción" as fe #DBEAFE
+package "API GATEWAY [C] | Spring Cloud Gateway / WebFlux" as edge #EFF6FF {
+ rectangle "ENTRADA HTTP\nJWT · roles · CORS · Request ID" as gw_in #DBEAFE
+ rectangle "POLÍTICA DE ENRUTAMIENTO\nallowlist · prefijos · timeouts\nSin dominio analítico ni SQL" as gw_policy #DCFCE7
+ rectangle "SALIDA HTTP\nProxy a rutas aprobadas" as gw_out #DBEAFE
+ gw_in -right-> gw_policy
+ gw_policy -right-> gw_out
+}
+cloud "SUPABASE AUTH [C]\nSesión / JWT / JWKS\nDistinto de acceso a tablas" as auth #F1F5F9
+fe -[#2563EB]-> gw_in : HTTPS + Bearer JWT
+fe -[#2563EB]-> auth : login / refresh
+gw_in -[#2563EB]-> auth : obtener claves JWKS
+
+together {
+package "01  MONITORING | Java / Spring MVC" as mon_box #F8FAFC {
+  rectangle "ADAPTADOR DE ENTRADA [C]\nMetricsController + validación HTTP\n/api/v1/metrics/{catalog,current,history}" as mon_in #DBEAFE
+  package "NÚCLEO Y CONTRATOS" as mon_core #F0FDF4 {
+    rectangle "PUERTO DE ENTRADA [C]\nQueryMetrics" as mon_pi #EDE9FE
+    rectangle "APLICACIÓN [C]\nMonitoringService\nconsultar · normalizar · acotar" as mon_app #DCFCE7
+    hexagon "DOMINIO [C]\nMetricCatalog / MetricQuery / MetricData\nunidades · identidad · origen · calidad" as mon_dom #BBF7D0
+    rectangle "PUERTOS DE SALIDA [C]\nMetricsSource + Clock (JDK)" as mon_po #EDE9FE
+    mon_app .up.|> mon_pi : realiza contrato*
+    mon_app -down-> mon_dom : usa
+    mon_app -right-> mon_po : requiere*
+  }
+  rectangle "ADAPTADORES DE SALIDA [C]\nPrometheusMetricsSource / HttpClient\nFixture / Unavailable / BoundedMetricsSource" as mon_out #DBEAFE
+  mon_in -down-> mon_pi : invoca*
+  mon_out .up.|> mon_po : implementa*
+  mon_dom -[hidden]down-> mon_out
+  note bottom of mon_out
+    ENSAMBLAJE: MonitoringConfiguration [C]
+    Núcleo independiente de Spring y Prometheus.
+  end note
+}
+
+package "02  DATA PROCESSING | Python / FastAPI" as dp_box #F8FAFC {
+  rectangle "ADAPTADORES DE ENTRADA [C]\nroutes.py + CLI ETL\n/api/v1/metrics/history · historical-logs\n/api/v1/prediction/dataset" as dp_in #DBEAFE
+  package "NÚCLEO Y CONTRATOS" as dp_core #F0FDF4 {
+    rectangle "PUERTOS DE ENTRADA [H]\nProcesar histórico / preparar dataset\nHoy: métodos execute de casos de uso" as dp_pi #EDE9FE
+    rectangle "APLICACIÓN [C]\nProcessMetrics / ReadHistoricalLogs\nPreparePredictionDataset / ProcessGreenAIDataset" as dp_app #DCFCE7
+    hexagon "DOMINIO [C]\nmonitoring_contract / validation / errors\nidentidad · unidades · reglas de datos" as dp_dom #BBF7D0
+    rectangle "PUERTOS DE SALIDA [C]\nMetricsSource / HistoricalLogsSource\nDatasetSource / DatasetRepository" as dp_po #EDE9FE
+    dp_app .up.|> dp_pi : realiza contrato*
+    dp_app -down-> dp_dom : usa
+    dp_app -right-> dp_po : requiere*
+  }
+  rectangle "ADAPTADORES EXTERNOS [C]\nMonitoringHttpAdapter / SupabaseHistoricalLogsAdapter\nGreenAIExcelAdapter / CsvDatasetRepository" as dp_out #DBEAFE
+  dp_in -down-> dp_pi : invoca*
+  dp_out .up.|> dp_po : implementa*
+  dp_dom -[hidden]down-> dp_out
+  note bottom of dp_out
+    ENSAMBLAJE: main.py + routes.py [C]
+    La ruta Monitoring instancia su adaptador directamente.
+    input/ del repositorio incluye lectores externos.
+  end note
+}
+
+package "03  PREDICTION | Python / FastAPI" as pred_box #F8FAFC {
+  rectangle "ADAPTADORES DE ENTRADA [C]\nservice/app.py + adapt_input + CLI\nPOST /v1/predictions" as pred_in #DBEAFE
+  package "NÚCLEO Y CONTRATOS" as pred_core #F0FDF4 {
+    rectangle "PUERTO DE ENTRADA [H]\nPredecir demanda computacional\nHoy: predict_from_payload" as pred_pi #EDE9FE
+    rectangle "APLICACIÓN [C]\ninference/predict.py\nvalidar ventana · preparar features · inferir" as pred_app #DCFCE7
+    hexagon "NÚCLEO ML [C] / AISLAMIENTO [H]\nesquema · reglas temporales · horizonte\nimplementación usa pandas / numpy / modelos" as pred_dom #BBF7D0
+    rectangle "PUERTOS DE SALIDA [H]\nRepositorio de modelos / motor de inferencia\nAbstracciones por extraer" as pred_po #EDE9FE
+    pred_app .up.|> pred_pi : realiza contrato*
+    pred_app -down-> pred_dom : usa
+    pred_app -right-> pred_po : requiere*
+  }
+  rectangle "INTEGRACIONES ACTUALES [C]\nload_selected_model / joblib / metadata JSON\nmodel.predict / adapt_output" as pred_out #DBEAFE
+  pred_in -down-> pred_pi : invoca*
+  pred_out .up.|> pred_po : implementa*
+  pred_dom -[hidden]down-> pred_out
+  note bottom of pred_out
+    Hoy la inferencia carga archivos directamente.
+    Hexágono = separación objetivo, no pureza ya lograda.
+    Sin acceso a Prometheus ni Supabase.
+  end note
+}
+
+package "04  SIMULATOR | Python / CLI" as sim_box #F8FAFC {
+  rectangle "ADAPTADOR DE ENTRADA [C]\nCLI argparse: validate / run\nSin API REST de control de runs" as sim_in #DBEAFE
+  package "NÚCLEO Y CONTRATOS" as sim_core #F0FDF4 {
+    rectangle "PUERTO DE ENTRADA [H]\nEjecutar simulación\nHoy: función run_simulation" as sim_pi #EDE9FE
+    rectangle "APLICACIÓN [C]\nrunner.py\nsemilla · tick · duración · offline/realtime" as sim_app #DCFCE7
+    hexagon "DOMINIO [C]\nInventory / Scenario / EngineState\ncompute_next_state / derive_noise" as sim_dom #BBF7D0
+    rectangle "PUERTOS DE SALIDA [H]\nInventario / registro / publicar snapshot\nAbstracciones por extraer" as sim_po #EDE9FE
+    sim_app .up.|> sim_pi : realiza contrato*
+    sim_app -down-> sim_dom : usa
+    sim_app -right-> sim_po : requiere*
+  }
+  rectangle "ADAPTADORES [C]\nJSON parsers / RunLogger / SimulatorCollector\nHTTP /metrics: lectura del snapshot" as sim_out #DBEAFE
+  sim_in -down-> sim_pi : invoca*
+  sim_out .up.|> sim_po : implementa*
+  sim_dom -[hidden]down-> sim_out
+  note bottom of sim_out
+    runner.py construye adaptadores concretos.
+    Dominio usa biblioteca estándar de Python.
+    Resultados siempre origin=simulated.
+  end note
+}
+
+}
+sim_in -[hidden]right-> mon_in
+mon_in -[hidden]right-> dp_in
+dp_in -[hidden]right-> pred_in
+database "PROMETHEUS [C]\nSeries temporales / PromQL" as prom #FEF3C7
+database "SUPABASE DATA / PostgreSQL\nlogs: lectura por Data Processing [C]\nhardware: inventario futuro [P]\nusuario: fuera de métricas" as db #FEF3C7
+folder "ARCHIVOS LOCALES [C]\nSimulator: inventario + escenarios + JSONL\nData Processing: Excel / CSV\nPrediction: modelos + metadatos" as files #FEF3C7
+node "WORKLOADS KUBERNETES [P]\nExporters / métricas de aplicación\nGrupo B e integración pendientes" as wk #FFF7ED
+sim_out -[hidden]down-> prom
+mon_out -[hidden]down-> db
+pred_out -[hidden]down-> files
+prom -[hidden]right-> db
+db -[hidden]right-> files
+gw_out -[#2563EB]-> mon_in : /api/monitoring/v1/*
+gw_out -[#2563EB]-> dp_in : /api/processing/v1/*
+gw_out -[#2563EB]-> pred_in : /api/prediction/v1/predictions
+dp_out -[#2563EB,norank]-> mon_in : REST interno / history
+dp_out -[#2563EB]-> db : PostgREST / logs\nrequiere configuración y permisos
+mon_out -[#2563EB]-> prom : query / query_range
+prom -[#2563EB,norank]-> sim_out : scrape /metrics
+prom -[#D97706,dashed]-> wk : scrape previsto
+sim_out -[#D97706,dashed]-> db : lectura hardware futura
+sim_out -[#2563EB]-> files : JSON / JSONL
+dp_out -[#2563EB]-> files : ETL Excel / CSV
+pred_out -[#2563EB]-> files : modelo / metadata
+legend bottom
+  |= Lectura del diagrama |= Significado |
+  | [C] | Existe código o configuración local; no afirma validación en ejecución |
+  | [H] | Separación hexagonal propuesta; no implica una interfaz ya implementada |
+  | [P] | Integración pendiente |
+  | Azul continuo | Solicitud HTTP o E/S: la flecha indica quién la inicia |
+  | Gris continuo | Uso o dependencia interna; apunta al contrato o dominio |
+  | Triángulo discontinuo | Realización del contrato; * conceptual donde figura [H] |
+  | Naranja discontinuo | Comunicación futura |
+  | Verde / violeta / azul claro | Núcleo / puertos / adaptadores |
+  No hay llamada directa Data Processing → Prediction: el frontend coordina dos solicitudes vía Gateway.
+  El dominio no debe depender de HTTP/BD; el aislamiento aún es parcial en Prediction y el ensamblaje de Simulator.
+  Configuración, health, OpenAPI y observabilidad son infraestructura transversal; no reglas del dominio.
+endlegend
+@enduml

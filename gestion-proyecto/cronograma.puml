@@ -1,0 +1,35 @@
+@startgantt
+title Green AI | Cronograma planificado - 8 sprints / 3 PMV
+Project starts 2026-08-25
+printscale weekly
+language es
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+-- PMV1 | Viabilidad tecnica y pipeline de datos --
+[S1 - Charter, arquitectura y Kubernetes] starts 2026-08-25 and ends 2026-09-05
+[S2 - Monitoreo y workloads sinteticos] starts 2026-09-08 and ends 2026-09-19
+[S3 - ETL, dataset y modelo baseline] starts 2026-09-22 and ends 2026-10-03
+[S1 - Charter, arquitectura y Kubernetes] is colored in #DBEAFE/#2563EB
+[S2 - Monitoreo y workloads sinteticos] is colored in #DBEAFE/#2563EB
+[S3 - ETL, dataset y modelo baseline] is colored in #DBEAFE/#2563EB
+[Revision prevista PMV1] happens 2026-10-03
+-- PMV2 | Prediccion y recomendaciones --
+[S4 - EDA y comparacion de modelos] starts 2026-10-06 and ends 2026-10-17
+[S5 - Predictor, API y Policy Engine] starts 2026-10-20 and ends 2026-10-31
+[S6 - Dashboard, alertas y energia] starts 2026-11-03 and ends 2026-11-14
+[S4 - EDA y comparacion de modelos] is colored in #D1FAE5/#059669
+[S5 - Predictor, API y Policy Engine] is colored in #D1FAE5/#059669
+[S6 - Dashboard, alertas y energia] is colored in #D1FAE5/#059669
+[Revision prevista PMV2] happens 2026-11-14
+-- PMV3 | Validacion experimental y consolidacion --
+[S7 - RBAC, reportes y experimento baseline] starts 2026-11-17 and ends 2026-11-28
+[S8 - Experimento Green AI e informe final] starts 2026-12-01 and ends 2026-12-12
+[S7 - RBAC, reportes y experimento baseline] is colored in #FFEDD5/#EA580C
+[S8 - Experimento Green AI e informe final] is colored in #FFEDD5/#EA580C
+[Revision prevista PMV3 y cierre] happens 2026-12-12
+legend bottom
+  Fuente: seccion 4.8 del documento de gestion.
+  Fechas estimadas; las barras no representan avance real ni esfuerzo en dias laborables.
+  Los hitos representan las revisiones previstas al final de cada PMV.
+endlegend
+@endgantt

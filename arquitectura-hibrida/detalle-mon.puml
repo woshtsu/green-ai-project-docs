@@ -1,0 +1,54 @@
+@startuml detalle-mon
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName SansSerif
+skinparam defaultFontSize 14
+skinparam shadowing false
+skinparam roundCorner 12
+skinparam packageStyle rectangle
+skinparam ArrowColor #475569
+skinparam ArrowFontSize 12
+skinparam nodesep 35
+skinparam ranksep 50
+skinparam componentStyle rectangle
+skinparam packageBorderColor #94A3B8
+skinparam packageFontStyle bold
+skinparam rectangleBorderColor #64748B
+skinparam hexagonBorderColor #15803D
+skinparam interfaceBorderColor #7C3AED
+skinparam titleFontSize 25
+skinparam titleFontColor #0F172A
+skinparam noteBackgroundColor #FFF7ED
+skinparam noteBorderColor #FDBA74
+hide stereotype
+
+title 01  MONITORING | Java / Spring MVC\nSeparación de responsabilidades y dependencias
+package "01  MONITORING | Java / Spring MVC" as mon_box #F8FAFC {
+  rectangle "ADAPTADOR DE ENTRADA [C]\nMetricsController + validación HTTP\n/api/v1/metrics/{catalog,current,history}" as mon_in #DBEAFE
+  package "NÚCLEO Y CONTRATOS" as mon_core #F0FDF4 {
+    rectangle "PUERTO DE ENTRADA [C]\nQueryMetrics" as mon_pi #EDE9FE
+    rectangle "APLICACIÓN [C]\nMonitoringService\nconsultar · normalizar · acotar" as mon_app #DCFCE7
+    hexagon "DOMINIO [C]\nMetricCatalog / MetricQuery / MetricData\nunidades · identidad · origen · calidad" as mon_dom #BBF7D0
+    rectangle "PUERTOS DE SALIDA [C]\nMetricsSource + Clock (JDK)" as mon_po #EDE9FE
+    mon_app .up.|> mon_pi : realiza contrato*
+    mon_app -down-> mon_dom : usa
+    mon_app -right-> mon_po : requiere*
+  }
+  rectangle "ADAPTADORES DE SALIDA [C]\nPrometheusMetricsSource / HttpClient\nFixture / Unavailable / BoundedMetricsSource" as mon_out #DBEAFE
+  mon_in -down-> mon_pi : invoca*
+  mon_out .up.|> mon_po : implementa*
+  mon_dom -[hidden]down-> mon_out
+  note bottom of mon_out
+    ENSAMBLAJE: MonitoringConfiguration [C]
+    Núcleo independiente de Spring y Prometheus.
+  end note
+}
+
+legend bottom
+ [C] código existente · [H] contrato/separación objetivo
+ Flechas: dependencia hacia el núcleo. Triángulo: realización de contrato.
+ * En puertos [H], la relación es propuesta; hoy existen llamadas concretas.
+ El flujo de ejecución de salida va del caso de uso al adaptador mediante el puerto.
+ No confundir flujo de llamadas con dirección de dependencia del código.
+endlegend
+@enduml

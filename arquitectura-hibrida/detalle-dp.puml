@@ -1,0 +1,55 @@
+@startuml detalle-dp
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName SansSerif
+skinparam defaultFontSize 14
+skinparam shadowing false
+skinparam roundCorner 12
+skinparam packageStyle rectangle
+skinparam ArrowColor #475569
+skinparam ArrowFontSize 12
+skinparam nodesep 35
+skinparam ranksep 50
+skinparam componentStyle rectangle
+skinparam packageBorderColor #94A3B8
+skinparam packageFontStyle bold
+skinparam rectangleBorderColor #64748B
+skinparam hexagonBorderColor #15803D
+skinparam interfaceBorderColor #7C3AED
+skinparam titleFontSize 25
+skinparam titleFontColor #0F172A
+skinparam noteBackgroundColor #FFF7ED
+skinparam noteBorderColor #FDBA74
+hide stereotype
+
+title 02  DATA PROCESSING | Python / FastAPI\nSeparación de responsabilidades y dependencias
+package "02  DATA PROCESSING | Python / FastAPI" as dp_box #F8FAFC {
+  rectangle "ADAPTADORES DE ENTRADA [C]\nroutes.py + CLI ETL\n/api/v1/metrics/history · historical-logs\n/api/v1/prediction/dataset" as dp_in #DBEAFE
+  package "NÚCLEO Y CONTRATOS" as dp_core #F0FDF4 {
+    rectangle "PUERTOS DE ENTRADA [H]\nProcesar histórico / preparar dataset\nHoy: métodos execute de casos de uso" as dp_pi #EDE9FE
+    rectangle "APLICACIÓN [C]\nProcessMetrics / ReadHistoricalLogs\nPreparePredictionDataset / ProcessGreenAIDataset" as dp_app #DCFCE7
+    hexagon "DOMINIO [C]\nmonitoring_contract / validation / errors\nidentidad · unidades · reglas de datos" as dp_dom #BBF7D0
+    rectangle "PUERTOS DE SALIDA [C]\nMetricsSource / HistoricalLogsSource\nDatasetSource / DatasetRepository" as dp_po #EDE9FE
+    dp_app .up.|> dp_pi : realiza contrato*
+    dp_app -down-> dp_dom : usa
+    dp_app -right-> dp_po : requiere*
+  }
+  rectangle "ADAPTADORES EXTERNOS [C]\nMonitoringHttpAdapter / SupabaseHistoricalLogsAdapter\nGreenAIExcelAdapter / CsvDatasetRepository" as dp_out #DBEAFE
+  dp_in -down-> dp_pi : invoca*
+  dp_out .up.|> dp_po : implementa*
+  dp_dom -[hidden]down-> dp_out
+  note bottom of dp_out
+    ENSAMBLAJE: main.py + routes.py [C]
+    La ruta Monitoring instancia su adaptador directamente.
+    input/ del repositorio incluye lectores externos.
+  end note
+}
+
+legend bottom
+ [C] código existente · [H] contrato/separación objetivo
+ Flechas: dependencia hacia el núcleo. Triángulo: realización de contrato.
+ * En puertos [H], la relación es propuesta; hoy existen llamadas concretas.
+ El flujo de ejecución de salida va del caso de uso al adaptador mediante el puerto.
+ No confundir flujo de llamadas con dirección de dependencia del código.
+endlegend
+@enduml

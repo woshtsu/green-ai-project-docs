@@ -1,0 +1,15 @@
+{
+  "plantuml_jar": "plantuml-1.2025.10.jar",
+  "jar_sha256": "4a01ea09b317180fb8e7eef712dfdca725409d2ee1919e4b5adfe9d8362b6fe5",
+  "sources": {
+    "diagrama-hibrido.puml": "d048c60abc24f5308bea506ab8555d6dcfe977d749e8acbcbea057099372373c",
+    "detalle-mon.puml": "6fb519ecb29daa51d338e5212b9433d5e05c69c8bb4a84222151bf577bd0ef1c",
+    "detalle-dp.puml": "590799369693541842988fbaa398932f8f41bba665cc0fbd96453c226553bf58",
+    "detalle-pred.puml": "ca7dbc5e21c6b7b2a7fb08b28c764ff5b2f99e8c8729c65f4a0552b33efe156a",
+    "detalle-sim.puml": "bd4a9ee0124cefe7cc78fe88fdbbf75f55a2e10590215e27251e5b27092c236f"
+  },
+  "size": [
+    4556,
+    1710
+  ]
+}

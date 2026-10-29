@@ -1,0 +1,55 @@
+@startuml detalle-pred
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName SansSerif
+skinparam defaultFontSize 14
+skinparam shadowing false
+skinparam roundCorner 12
+skinparam packageStyle rectangle
+skinparam ArrowColor #475569
+skinparam ArrowFontSize 12
+skinparam nodesep 35
+skinparam ranksep 50
+skinparam componentStyle rectangle
+skinparam packageBorderColor #94A3B8
+skinparam packageFontStyle bold
+skinparam rectangleBorderColor #64748B
+skinparam hexagonBorderColor #15803D
+skinparam interfaceBorderColor #7C3AED
+skinparam titleFontSize 25
+skinparam titleFontColor #0F172A
+skinparam noteBackgroundColor #FFF7ED
+skinparam noteBorderColor #FDBA74
+hide stereotype
+
+title 03  PREDICTION | Python / FastAPI\nSeparación de responsabilidades y dependencias
+package "03  PREDICTION | Python / FastAPI" as pred_box #F8FAFC {
+  rectangle "ADAPTADORES DE ENTRADA [C]\nservice/app.py + adapt_input + CLI\nPOST /v1/predictions" as pred_in #DBEAFE
+  package "NÚCLEO Y CONTRATOS" as pred_core #F0FDF4 {
+    rectangle "PUERTO DE ENTRADA [H]\nPredecir demanda computacional\nHoy: predict_from_payload" as pred_pi #EDE9FE
+    rectangle "APLICACIÓN [C]\ninference/predict.py\nvalidar ventana · preparar features · inferir" as pred_app #DCFCE7
+    hexagon "NÚCLEO ML [C] / AISLAMIENTO [H]\nesquema · reglas temporales · horizonte\nimplementación usa pandas / numpy / modelos" as pred_dom #BBF7D0
+    rectangle "PUERTOS DE SALIDA [H]\nRepositorio de modelos / motor de inferencia\nAbstracciones por extraer" as pred_po #EDE9FE
+    pred_app .up.|> pred_pi : realiza contrato*
+    pred_app -down-> pred_dom : usa
+    pred_app -right-> pred_po : requiere*
+  }
+  rectangle "INTEGRACIONES ACTUALES [C]\nload_selected_model / joblib / metadata JSON\nmodel.predict / adapt_output" as pred_out #DBEAFE
+  pred_in -down-> pred_pi : invoca*
+  pred_out .up.|> pred_po : implementa*
+  pred_dom -[hidden]down-> pred_out
+  note bottom of pred_out
+    Hoy la inferencia carga archivos directamente.
+    Hexágono = separación objetivo, no pureza ya lograda.
+    Sin acceso a Prometheus ni Supabase.
+  end note
+}
+
+legend bottom
+ [C] código existente · [H] contrato/separación objetivo
+ Flechas: dependencia hacia el núcleo. Triángulo: realización de contrato.
+ * En puertos [H], la relación es propuesta; hoy existen llamadas concretas.
+ El flujo de ejecución de salida va del caso de uso al adaptador mediante el puerto.
+ No confundir flujo de llamadas con dirección de dependencia del código.
+endlegend
+@enduml
